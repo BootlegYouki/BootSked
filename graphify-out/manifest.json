@@ -1,7 +1,7 @@
 {
   "E:\\Github\\ClassScheduler\\app.json": {
-    "mtime": 1780478290.2220297,
-    "ast_hash": "3d2ddd1073311d3ccd04c91d3e03296c",
+    "mtime": 1780478460.5923955,
+    "ast_hash": "c360bd33e9ec432f282add92400d1e7b",
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\App.tsx": {
@@ -170,8 +170,8 @@
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\.github\\workflows\\release.yml": {
-    "mtime": 1780477425.6258113,
-    "ast_hash": "c9a8f5400a4541d259662c25a7166f90",
+    "mtime": 1780478629.0217462,
+    "ast_hash": "eb0f68ea799f866ae5da4ac093e2570a",
     "semantic_hash": ""
   }
 }

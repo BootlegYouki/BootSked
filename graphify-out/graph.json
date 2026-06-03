@@ -259,7 +259,7 @@
       "label": "MainApp()",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L364",
+      "source_location": "L366",
       "id": "classscheduler_app_mainapp",
       "community": 1,
       "norm_label": "mainapp()"
@@ -268,7 +268,7 @@
       "label": "App()",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L1005",
+      "source_location": "L1004",
       "id": "classscheduler_app_app",
       "community": 1,
       "norm_label": "app()"
@@ -277,7 +277,7 @@
       "label": "styles",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L1024",
+      "source_location": "L1023",
       "id": "classscheduler_app_styles",
       "community": 1,
       "norm_label": "styles"
@@ -871,7 +871,7 @@
       "label": "SplashIcon()",
       "file_type": "code",
       "source_file": "src/components/splash-icon.tsx",
-      "source_location": "L9",
+      "source_location": "L10",
       "id": "components_splash_icon_splashicon",
       "community": 1,
       "norm_label": "splashicon()"
@@ -1429,7 +1429,7 @@
       "label": "ACCENT_COLORS",
       "file_type": "code",
       "source_file": "src/theme/theme-provider.tsx",
-      "source_location": "L35",
+      "source_location": "L36",
       "id": "theme_theme_provider_accent_colors",
       "community": 0,
       "norm_label": "accent_colors"
@@ -1438,7 +1438,7 @@
       "label": "ThemeContext",
       "file_type": "code",
       "source_file": "src/theme/theme-provider.tsx",
-      "source_location": "L44",
+      "source_location": "L45",
       "id": "theme_theme_provider_themecontext",
       "community": 0,
       "norm_label": "themecontext"
@@ -1447,7 +1447,7 @@
       "label": "ThemeProvider()",
       "file_type": "code",
       "source_file": "src/theme/theme-provider.tsx",
-      "source_location": "L46",
+      "source_location": "L47",
       "id": "theme_theme_provider_themeprovider",
       "community": 0,
       "norm_label": "themeprovider()"
@@ -1456,7 +1456,7 @@
       "label": "useTheme()",
       "file_type": "code",
       "source_file": "src/theme/theme-provider.tsx",
-      "source_location": "L142",
+      "source_location": "L148",
       "id": "theme_theme_provider_usetheme",
       "community": 0,
       "norm_label": "usetheme()"
@@ -2420,9 +2420,9 @@
       "source_file": "App.tsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_tsx",
-      "target": "src_utils_notifications_service_ts",
-      "confidence_score": 1.0
+      "target": "src_utils_notifications_service_ts"
     },
     {
       "relation": "imports",
@@ -2464,9 +2464,9 @@
       "source_file": "App.tsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_tsx",
-      "target": "utils_notifications_service_requestpermissions",
-      "confidence_score": 1.0
+      "target": "utils_notifications_service_requestpermissions"
     },
     {
       "relation": "imports",
@@ -2475,9 +2475,9 @@
       "source_file": "App.tsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_tsx",
-      "target": "utils_notifications_service_syncnotifications",
-      "confidence_score": 1.0
+      "target": "utils_notifications_service_syncnotifications"
     },
     {
       "relation": "imports_from",
@@ -2772,9 +2772,9 @@
       "source_file": "package.json",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_expo_notifications",
-      "confidence_score": 1.0
+      "target": "classscheduler_package_dependencies_expo_notifications"
     },
     {
       "relation": "contains",
@@ -4354,9 +4354,9 @@
       "source_file": "src/utils/notifications-service.ts",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_notifications_service_ts",
-      "target": "utils_notifications_service_calculatenotificationtrigger",
-      "confidence_score": 1.0
+      "target": "utils_notifications_service_calculatenotificationtrigger"
     },
     {
       "relation": "contains",
@@ -4364,9 +4364,9 @@
       "source_file": "src/utils/notifications-service.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_notifications_service_ts",
-      "target": "utils_notifications_service_classitem",
-      "confidence_score": 1.0
+      "target": "utils_notifications_service_classitem"
     },
     {
       "relation": "contains",
@@ -4374,9 +4374,9 @@
       "source_file": "src/utils/notifications-service.ts",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_notifications_service_ts",
-      "target": "utils_notifications_service_parsetime",
-      "confidence_score": 1.0
+      "target": "utils_notifications_service_parsetime"
     },
     {
       "relation": "contains",
@@ -4384,9 +4384,9 @@
       "source_file": "src/utils/notifications-service.ts",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_notifications_service_ts",
-      "target": "utils_notifications_service_requestpermissions",
-      "confidence_score": 1.0
+      "target": "utils_notifications_service_requestpermissions"
     },
     {
       "relation": "contains",
@@ -4394,9 +4394,9 @@
       "source_file": "src/utils/notifications-service.ts",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_notifications_service_ts",
-      "target": "utils_notifications_service_syncnotifications",
-      "confidence_score": 1.0
+      "target": "utils_notifications_service_syncnotifications"
     },
     {
       "relation": "calls",
@@ -4405,9 +4405,9 @@
       "source_file": "src/utils/notifications-service.ts",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_notifications_service_syncnotifications",
-      "target": "utils_notifications_service_parsetime",
-      "confidence_score": 1.0
+      "target": "utils_notifications_service_parsetime"
     },
     {
       "relation": "calls",
@@ -4416,9 +4416,9 @@
       "source_file": "src/utils/notifications-service.ts",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_notifications_service_syncnotifications",
-      "target": "utils_notifications_service_calculatenotificationtrigger",
-      "confidence_score": 1.0
+      "target": "utils_notifications_service_calculatenotificationtrigger"
     },
     {
       "relation": "contains",
@@ -4551,5 +4551,6 @@
       "target": "workflows_graphify_workflow_graphify"
     }
   ],
-  "hyperedges": []
+  "hyperedges": [],
+  "built_at_commit": "96cbc68495c434c4c17c82c416da36efb1a94003"
 }

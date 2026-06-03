@@ -305,6 +305,8 @@ interface DayButtonProps {
 const DayButton: React.FC<DayButtonProps> = ({ shortLabel, dateNumber, isActive, onPress }) => {
   const { colors, isDark } = useTheme();
   const borderAccent = colors.primary;
+  const borderInactive = isDark ? colors.border : '#D4D4D8';
+  const currentBorder = isActive ? borderAccent : borderInactive;
   const [legendWidth, setLegendWidth] = useState(0);
 
   const topSegmentWidth = Math.max(0, (52 - legendWidth) / 2);
@@ -324,11 +326,11 @@ const DayButton: React.FC<DayButtonProps> = ({ shortLabel, dateNumber, isActive,
       ]}
     >
       {/* Borders */}
-      <View style={[styles.borderLeft, { backgroundColor: isActive ? borderAccent : colors.border }]} />
-      <View style={[styles.borderRight, { backgroundColor: isActive ? borderAccent : colors.border }]} />
-      <View style={[styles.borderBottom, { backgroundColor: isActive ? borderAccent : colors.border }]} />
-      <View style={[styles.borderTopLeft, { backgroundColor: isActive ? borderAccent : colors.border, width: topSegmentWidth }]} />
-      <View style={[styles.borderTopRight, { backgroundColor: isActive ? borderAccent : colors.border, width: topSegmentWidth }]} />
+      <View style={[styles.borderLeft, { backgroundColor: currentBorder }]} />
+      <View style={[styles.borderRight, { backgroundColor: currentBorder }]} />
+      <View style={[styles.borderBottom, { backgroundColor: currentBorder }]} />
+      <View style={[styles.borderTopLeft, { backgroundColor: currentBorder, width: topSegmentWidth }]} />
+      <View style={[styles.borderTopRight, { backgroundColor: currentBorder, width: topSegmentWidth }]} />
 
       {/* Legend */}
       <View
@@ -362,7 +364,7 @@ const DayButton: React.FC<DayButtonProps> = ({ shortLabel, dateNumber, isActive,
 };
 
 function MainApp() {
-  const { colors, isDark, accentTheme, setAccentTheme, setThemeMode } = useTheme();
+  const { colors, isDark, accentTheme, setAccentTheme, setThemeMode, loading } = useTheme();
   const insets = useSafeAreaInsets();
 
   // Splash screen states
@@ -434,11 +436,11 @@ function MainApp() {
 
   // Hide native splash screen once resources are loaded
   useEffect(() => {
-    if (dataLoaded) {
+    if (dataLoaded && !loading) {
       SplashScreen.hideAsync().catch(() => { });
       setIsAppReady(true);
     }
-  }, [dataLoaded]);
+  }, [dataLoaded, loading]);
 
   // Fade out internal TUI splash screen
   useEffect(() => {
@@ -618,6 +620,10 @@ function MainApp() {
 
 
 
+  if (loading) {
+    return null;
+  }
+
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <StatusBar style={isDark ? 'light' : 'dark'} />
@@ -747,15 +753,8 @@ function MainApp() {
         ) : (
           <View style={[styles.emptyContainer, { borderColor: colors.primary + '30' }]}>
             <TuiText weight="bold" variant="muted" style={styles.emptyText}>
-              [ NO CLASSES SCHEDULED FOR THIS DAY ]
+              [ NO CLASSES SCHEDULED ]
             </TuiText>
-            <TuiButton
-              variant="outline"
-              onPress={() => setDrawerVisible(true)}
-              style={{ marginTop: 12 }}
-            >
-              + Add Class
-            </TuiButton>
           </View>
         )}
       </ScrollView>
@@ -995,7 +994,7 @@ function MainApp() {
           ]}
           pointerEvents="none"
         >
-          <SplashIcon color={colors.primary} size={140} />
+          <SplashIcon color={colors.primary} size={140} isDark={isDark} />
         </Animated.View>
       )}
     </View>
@@ -1130,7 +1129,7 @@ const styles = StyleSheet.create({
   },
   dayLegendWrapper: {
     position: 'absolute',
-    top: -8,
+    top: -9,
     alignSelf: 'center',
     paddingHorizontal: 2,
     zIndex: 10,

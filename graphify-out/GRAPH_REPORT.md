@@ -1,13 +1,18 @@
 # Graph Report - ClassScheduler  (2026-06-03)
 
 ## Corpus Check
-- 28 files · ~38,816 words
+- 28 files · ~203,882 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
 - 192 nodes · 271 edges · 18 communities (15 shown, 3 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `96cbc684`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - [[_COMMUNITY_Community 0|Community 0]]

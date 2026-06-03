@@ -181,13 +181,13 @@ const styles = StyleSheet.create({
   },
   legendWrapper: {
     position: 'absolute',
-    top: -8,
+    top: -12,
     alignSelf: 'center',
     paddingHorizontal: 2,
     zIndex: 10,
   },
   legendText: {
-    fontSize: 14,
+    fontSize: 18,
     letterSpacing: 0.2,
   },
   tabContent: {

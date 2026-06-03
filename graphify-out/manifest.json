@@ -5,8 +5,8 @@
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\App.tsx": {
-    "mtime": 1780453529.3518968,
-    "ast_hash": "c75e350a3ee7be5bc89b5486aeaeb064",
+    "mtime": 1780455325.0430162,
+    "ast_hash": "420cd7349f8766f3573a61fdfb2c9771",
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\eslint.config.js": {
@@ -35,8 +35,8 @@
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\src\\components\\splash-icon.tsx": {
-    "mtime": 1780449967.315622,
-    "ast_hash": "7ab9e9087cd224fc29b5927844f84e99",
+    "mtime": 1780455217.687464,
+    "ast_hash": "876322e61f887209ab3b85f35bc97434",
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\src\\components\\tui-button.tsx": {
@@ -60,8 +60,8 @@
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\src\\components\\tui-container.tsx": {
-    "mtime": 1780452774.500618,
-    "ast_hash": "c576d1918b61acf908fb4e2fd7b7c6b4",
+    "mtime": 1780454095.2368405,
+    "ast_hash": "cafc8ec0f04f216c37cf796ab3e6edb2",
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\src\\components\\tui-drawer.tsx": {
@@ -80,8 +80,8 @@
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\src\\components\\tui-nav.tsx": {
-    "mtime": 1780452247.6021402,
-    "ast_hash": "97b0f67f039c3778f147e8b4c4ec9aba",
+    "mtime": 1780454137.5658062,
+    "ast_hash": "b1307e052ac7bbff7d1a2b6c02d5f906",
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\src\\components\\tui-skeleton.tsx": {
@@ -100,8 +100,8 @@
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\src\\theme\\theme-provider.tsx": {
-    "mtime": 1780451556.808826,
-    "ast_hash": "d6558279038cb6791e14cbb977ccd11a",
+    "mtime": 1780455303.8334987,
+    "ast_hash": "476d5e7023066d95c7e80a76976aaccb",
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\src\\types\\index.ts": {
@@ -129,19 +129,9 @@
     "ast_hash": "b307a75cadfad64c9bf4753ae180b80b",
     "semantic_hash": ""
   },
-  "E:\\Github\\ClassScheduler\\assets\\darkmode.svg": {
-    "mtime": 1780377015.5445201,
-    "ast_hash": "d69e440f2fdf0c5c77302ad97836266c",
-    "semantic_hash": ""
-  },
   "E:\\Github\\ClassScheduler\\assets\\icon.png": {
-    "mtime": 1780448726.4712076,
-    "ast_hash": "fb994e4003011fffaccb9de53425828c",
-    "semantic_hash": ""
-  },
-  "E:\\Github\\ClassScheduler\\assets\\lightmode.svg": {
-    "mtime": 1780377015.54089,
-    "ast_hash": "d69e440f2fdf0c5c77302ad97836266c",
+    "mtime": 1780454710.8063042,
+    "ast_hash": "3e293b4a7aa87f1e42116a93c1a9b0f1",
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\.expo\\devices.json": {
@@ -162,6 +152,21 @@
   "E:\\Github\\ClassScheduler\\src\\utils\\notifications-service.ts": {
     "mtime": 1780453674.768005,
     "ast_hash": "aadff71deb31163a79fd1828d291f224",
+    "semantic_hash": ""
+  },
+  "E:\\Github\\ClassScheduler\\.expo\\web\\cache\\production\\images\\favicon\\favicon-5a8d6b8e0bee74984608e1c4bc27c9c3743d5f75992e2c1d3982328c15e32d7f-contain-transparent\\favicon-48.png": {
+    "mtime": 1780454751.8108969,
+    "ast_hash": "a6eec115374c71d65070a4f966c7b0be",
+    "semantic_hash": ""
+  },
+  "E:\\Github\\ClassScheduler\\assets\\icon.svg": {
+    "mtime": 1780455178.2068088,
+    "ast_hash": "199352ef2b1003d2318895dbaaac20d5",
+    "semantic_hash": ""
+  },
+  "E:\\Github\\ClassScheduler\\.github\\workflows\\build-android-apk.yml": {
+    "mtime": 1780455378.5574698,
+    "ast_hash": "1f6a2d3db1c1e81eea1927338c31622b",
     "semantic_hash": ""
   }
 }

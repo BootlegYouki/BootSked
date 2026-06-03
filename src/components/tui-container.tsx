@@ -32,7 +32,7 @@ export const TuiContainer: React.FC<TuiContainerProps> = ({
     ? colors.primary
     : isDark
     ? colors.primary + '40'
-    : '#000000';
+    : '#D4D4D8';
 
   const backgroundColor = isDark ? '#1C1C1E' : '#FFFFFF';
   const labelColor = accentBorder ? colors.primary : colors.mutedForeground;

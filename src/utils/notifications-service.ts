@@ -124,6 +124,7 @@ export const syncNotifications = async (classesList: ClassItem[]) => {
             minute: trigger.minute,
             repeats: true,
           } : {
+            type: Notifications.SchedulableTriggerInputTypes.WEEKLY,
             weekday: trigger.weekday,
             hour: trigger.hour,
             minute: trigger.minute,

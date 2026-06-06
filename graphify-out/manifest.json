@@ -1,12 +1,12 @@
 {
   "E:\\Github\\ClassScheduler\\app.json": {
-    "mtime": 1780478974.0520613,
-    "ast_hash": "84b14f4ac0c9f538a5fe1546bb0f9955",
+    "mtime": 1780717889.417266,
+    "ast_hash": "d9994967c5c4e6d2fbaf20a4fdf91e20",
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\App.tsx": {
-    "mtime": 1780477141.3024933,
-    "ast_hash": "65a516dfd08691527d392213d67380b2",
+    "mtime": 1780718277.5164511,
+    "ast_hash": "997643dd91bf185467f254fecf72a294",
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\eslint.config.js": {
@@ -32,11 +32,6 @@
   "E:\\Github\\ClassScheduler\\scripts\\rename-project.js": {
     "mtime": 1780448925.272751,
     "ast_hash": "0b400f42b896f8f17aa8fc1daebd61ba",
-    "semantic_hash": ""
-  },
-  "E:\\Github\\ClassScheduler\\src\\components\\splash-icon.tsx": {
-    "mtime": 1780455217.687464,
-    "ast_hash": "876322e61f887209ab3b85f35bc97434",
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\src\\components\\tui-button.tsx": {
@@ -125,8 +120,8 @@
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\assets\\icon.png": {
-    "mtime": 1780456482.572227,
-    "ast_hash": "2cc38a1ef5e1d1a681ec4bd64f6a05e3",
+    "mtime": 1780717039.4054184,
+    "ast_hash": "04c9d1f1c495ee83657b0b0433de8edf",
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\.expo\\devices.json": {
@@ -154,11 +149,6 @@
     "ast_hash": "a6eec115374c71d65070a4f966c7b0be",
     "semantic_hash": ""
   },
-  "E:\\Github\\ClassScheduler\\assets\\icon.svg": {
-    "mtime": 1780455178.2068088,
-    "ast_hash": "199352ef2b1003d2318895dbaaac20d5",
-    "semantic_hash": ""
-  },
   "E:\\Github\\ClassScheduler\\sidestore.json": {
     "mtime": 1780475547.6800263,
     "ast_hash": "99ebd2035a86e60733c06bd978ccf50f",
@@ -172,6 +162,26 @@
   "E:\\Github\\ClassScheduler\\.github\\workflows\\release.yml": {
     "mtime": 1780478629.0217462,
     "ast_hash": "eb0f68ea799f866ae5da4ac093e2570a",
+    "semantic_hash": ""
+  },
+  "E:\\Github\\ClassScheduler\\assets\\adaptive-icon-background.png": {
+    "mtime": 1780717039.1227727,
+    "ast_hash": "edea1fd575d38d51a88830e1d16cb437",
+    "semantic_hash": ""
+  },
+  "E:\\Github\\ClassScheduler\\assets\\adaptive-icon-monochrome.png": {
+    "mtime": 1780717039.1357684,
+    "ast_hash": "1fe57aad3a0ee3bca21a0fc4abd95f1d",
+    "semantic_hash": ""
+  },
+  "E:\\Github\\ClassScheduler\\assets\\adaptive-icon.png": {
+    "mtime": 1780717039.1288192,
+    "ast_hash": "1962c1d09bbdc02af4f18c073e215383",
+    "semantic_hash": ""
+  },
+  "E:\\Github\\ClassScheduler\\assets\\favicon.png": {
+    "mtime": 1780717039.4277608,
+    "ast_hash": "28f1e562b3f6b2bad48d846bb52f87d9",
     "semantic_hash": ""
   }
 }

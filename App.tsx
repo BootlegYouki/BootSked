@@ -9,7 +9,6 @@ import {
 } from '@expo-google-fonts/jetbrains-mono';
 
 import { ThemeProvider, useTheme, AccentTheme } from './src/theme/theme-provider';
-import { SplashIcon } from './src/components/splash-icon';
 import { TuiText } from './src/components/tui-text';
 import { TuiTabBar, ScreenType } from './src/components/tui-nav';
 import { TuiContainer } from './src/components/tui-container';
@@ -164,11 +163,7 @@ function MainApp() {
   const { colors, isDark, accentTheme, setAccentTheme, setThemeMode, loading } = useTheme();
   const insets = useSafeAreaInsets();
 
-  // Splash screen states
-  const [dataLoaded, setDataLoaded] = useState(false);
-  const [isAppReady, setIsAppReady] = useState(false);
-  const [splashVisible, setSplashVisible] = useState(true);
-  const splashOpacity = useRef(new Animated.Value(1)).current;
+
 
   // App States
   const [classes, setClasses] = useState<ClassItem[]>([]);
@@ -221,13 +216,7 @@ function MainApp() {
     return `${hoursStr}:${minutesStr} ${ampm}`;
   };
 
-  // Simulate initial data loading delay for a premium boot feel
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDataLoaded(true);
-    }, 800);
-    return () => clearTimeout(timer);
-  }, []);
+
 
   // Request notification permissions on mount
   useEffect(() => {
@@ -266,25 +255,7 @@ function MainApp() {
     }
   }, [classes, classesLoaded]);
 
-  // Hide native splash screen once resources are loaded
-  useEffect(() => {
-    if (dataLoaded && !loading) {
-      setIsAppReady(true);
-    }
-  }, [dataLoaded, loading]);
 
-  // Fade out internal TUI splash screen
-  useEffect(() => {
-    if (isAppReady) {
-      Animated.timing(splashOpacity, {
-        toValue: 0,
-        duration: 200,
-        useNativeDriver: true,
-      }).start(() => {
-        setSplashVisible(false);
-      });
-    }
-  }, [isAppReady]);
 
   // Handle Tab Navigation (Only action trigger now)
   const handleNavigate = (screen: ScreenType) => {
@@ -995,24 +966,7 @@ function MainApp() {
 
 
 
-      {/* Internal animated TUI splash screen overlay */}
-      {splashVisible && (
-        <Animated.View
-          style={[
-            StyleSheet.absoluteFill,
-            {
-              backgroundColor: isDark ? '#121212' : '#F4F4F5',
-              justifyContent: 'center',
-              alignItems: 'center',
-              opacity: splashOpacity,
-              zIndex: 99999,
-            },
-          ]}
-          pointerEvents="none"
-        >
-          <SplashIcon color={colors.primary} size={140} isDark={isDark} />
-        </Animated.View>
-      )}
+
     </View>
   );
 }

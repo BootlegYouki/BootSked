@@ -139,10 +139,28 @@
       "norm_label": "foregroundimage"
     },
     {
-      "label": "predictiveBackGestureEnabled",
+      "label": "backgroundImage",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L17",
+      "id": "classscheduler_app_adaptiveicon_backgroundimage",
+      "community": 2,
+      "norm_label": "backgroundimage"
+    },
+    {
+      "label": "monochromeImage",
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L18",
+      "id": "classscheduler_app_adaptiveicon_monochromeimage",
+      "community": 2,
+      "norm_label": "monochromeimage"
+    },
+    {
+      "label": "predictiveBackGestureEnabled",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L20",
       "id": "classscheduler_app_android_predictivebackgestureenabled",
       "community": 2,
       "norm_label": "predictivebackgestureenabled"
@@ -151,7 +169,7 @@
       "label": "versionCode",
       "file_type": "code",
       "source_file": "app.json",
-      "source_location": "L19",
+      "source_location": "L21",
       "id": "classscheduler_app_android_versioncode",
       "community": 2,
       "norm_label": "versioncode"
@@ -160,7 +178,7 @@
       "label": "package",
       "file_type": "code",
       "source_file": "app.json",
-      "source_location": "L20",
+      "source_location": "L22",
       "id": "classscheduler_app_android_package",
       "community": 2,
       "norm_label": "package"
@@ -169,7 +187,7 @@
       "label": "permissions",
       "file_type": "code",
       "source_file": "app.json",
-      "source_location": "L21",
+      "source_location": "L23",
       "id": "classscheduler_app_android_permissions",
       "community": 2,
       "norm_label": "permissions"
@@ -178,7 +196,7 @@
       "label": "web",
       "file_type": "code",
       "source_file": "app.json",
-      "source_location": "L29",
+      "source_location": "L31",
       "id": "classscheduler_app_expo_web",
       "community": 2,
       "norm_label": "web"
@@ -187,7 +205,7 @@
       "label": "favicon",
       "file_type": "code",
       "source_file": "app.json",
-      "source_location": "L30",
+      "source_location": "L32",
       "id": "classscheduler_app_web_favicon",
       "community": 2,
       "norm_label": "favicon"
@@ -196,7 +214,7 @@
       "label": "plugins",
       "file_type": "code",
       "source_file": "app.json",
-      "source_location": "L32",
+      "source_location": "L34",
       "id": "classscheduler_app_expo_plugins",
       "community": 2,
       "norm_label": "plugins"
@@ -214,7 +232,7 @@
       "label": "ClassItem",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L36",
+      "source_location": "L35",
       "id": "classscheduler_app_classitem",
       "community": 1,
       "norm_label": "classitem"
@@ -223,7 +241,7 @@
       "label": "DAYS_OF_WEEK",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L49",
+      "source_location": "L48",
       "id": "classscheduler_app_days_of_week",
       "community": 1,
       "norm_label": "days_of_week"
@@ -232,7 +250,7 @@
       "label": "getHeaderBgColor()",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L59",
+      "source_location": "L58",
       "id": "classscheduler_app_getheaderbgcolor",
       "community": 1,
       "norm_label": "getheaderbgcolor()"
@@ -241,7 +259,7 @@
       "label": "getHeaderBgColorLight()",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L71",
+      "source_location": "L70",
       "id": "classscheduler_app_getheaderbgcolorlight",
       "community": 1,
       "norm_label": "getheaderbgcolorlight()"
@@ -250,7 +268,7 @@
       "label": "getHeaderLabelColor()",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L83",
+      "source_location": "L82",
       "id": "classscheduler_app_getheaderlabelcolor",
       "community": 1,
       "norm_label": "getheaderlabelcolor()"
@@ -259,7 +277,7 @@
       "label": "DayButtonProps",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L95",
+      "source_location": "L94",
       "id": "classscheduler_app_daybuttonprops",
       "community": 1,
       "norm_label": "daybuttonprops"
@@ -268,7 +286,7 @@
       "label": "DayButton()",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L102",
+      "source_location": "L101",
       "id": "classscheduler_app_daybutton",
       "community": 1,
       "norm_label": "daybutton()"
@@ -277,7 +295,7 @@
       "label": "MainApp()",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L163",
+      "source_location": "L162",
       "id": "classscheduler_app_mainapp",
       "community": 1,
       "norm_label": "mainapp()"
@@ -286,7 +304,7 @@
       "label": "App()",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L1020",
+      "source_location": "L974",
       "id": "classscheduler_app_app",
       "community": 1,
       "norm_label": "app()"
@@ -295,7 +313,7 @@
       "label": "styles",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L1039",
+      "source_location": "L993",
       "id": "classscheduler_app_styles",
       "community": 1,
       "norm_label": "styles"
@@ -893,33 +911,6 @@
       "id": "scripts_rename_project_workflowpath",
       "community": 8,
       "norm_label": "workflowpath"
-    },
-    {
-      "label": "splash-icon.tsx",
-      "file_type": "code",
-      "source_file": "src/components/splash-icon.tsx",
-      "source_location": "L1",
-      "id": "src_components_splash_icon_tsx",
-      "community": 1,
-      "norm_label": "splash-icon.tsx"
-    },
-    {
-      "label": "SplashIconProps",
-      "file_type": "code",
-      "source_file": "src/components/splash-icon.tsx",
-      "source_location": "L4",
-      "id": "components_splash_icon_splashiconprops",
-      "community": 1,
-      "norm_label": "splashiconprops"
-    },
-    {
-      "label": "SplashIcon()",
-      "file_type": "code",
-      "source_file": "src/components/splash-icon.tsx",
-      "source_location": "L10",
-      "id": "components_splash_icon_splashicon",
-      "community": 1,
-      "norm_label": "splashicon()"
     },
     {
       "label": "tui-button.tsx",
@@ -1990,11 +1981,31 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_android_adaptiveicon",
+      "target": "classscheduler_app_adaptiveicon_backgroundimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
       "source_location": "L16",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "classscheduler_app_android_adaptiveicon",
       "target": "classscheduler_app_adaptiveicon_foregroundimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_android_adaptiveicon",
+      "target": "classscheduler_app_adaptiveicon_monochromeimage"
     },
     {
       "relation": "contains",
@@ -2181,17 +2192,6 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "App.tsx",
-      "source_location": "L23",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "app_tsx",
-      "target": "components_splash_icon_splashicon"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "App.tsx",
       "source_location": "L16",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -2351,17 +2351,6 @@
       "confidence_score": 1.0,
       "source": "app_tsx",
       "target": "components_tui_text_tuitext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "App.tsx",
-      "source_location": "L23",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "app_tsx",
-      "target": "src_components_splash_icon_tsx"
     },
     {
       "relation": "imports_from",
@@ -3248,26 +3237,6 @@
       "confidence_score": 1.0,
       "source": "scripts_rename_project_js",
       "target": "scripts_rename_project_workflowpath"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/splash-icon.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_splash_icon_tsx",
-      "target": "components_splash_icon_splashicon"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/splash-icon.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_splash_icon_tsx",
-      "target": "components_splash_icon_splashiconprops"
     },
     {
       "relation": "contains",
@@ -4675,5 +4644,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "2ad8d82f693db2c4acf10d60178c97a927c24271"
+  "built_at_commit": "e07dc38bda1d2953ff57d882939b54ca4473abff"
 }

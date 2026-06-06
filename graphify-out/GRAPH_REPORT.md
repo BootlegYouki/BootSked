@@ -1,16 +1,16 @@
-# Graph Report - ClassScheduler  (2026-06-03)
+# Graph Report - ClassScheduler  (2026-06-06)
 
 ## Corpus Check
-- 29 files · ~14,767 words
+- 28 files · ~15,781 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 199 nodes · 277 edges · 18 communities (15 shown, 3 thin omitted)
+- 198 nodes · 275 edges · 18 communities (15 shown, 3 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2ad8d82f`
+- Built from commit: `e07dc38b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -38,10 +38,10 @@
 4. `scripts` - 9 edges
 5. `android` - 6 edges
 6. `MainApp()` - 6 edges
-7. `TUI Template Native (Expo / React Native)` - 5 edges
-8. `TuiContainer()` - 4 edges
-9. `syncNotifications()` - 4 edges
-10. `🚀 Getting Started` - 4 edges
+7. `adaptiveIcon` - 5 edges
+8. `TUI Template Native (Expo / React Native)` - 5 edges
+9. `TuiContainer()` - 4 edges
+10. `syncNotifications()` - 4 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `DayButton()` --calls--> `useTheme()`  [EXTRACTED]
@@ -62,12 +62,12 @@ Cohesion: 0.08
 Nodes (34): styles, TuiButton(), TuiButtonProps, styles, TuiCheckbox(), TuiCheckboxProps, styles, TuiContainer() (+26 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.08
-Nodes (27): ClassItem, DAY_NAMES_SHORT, DAY_NAMES_SUNDAY_START, DayButton(), DayButtonProps, DAYS_OF_WEEK, DEFAULT_CLASSES, getHeaderBgColor() (+19 more)
+Cohesion: 0.09
+Nodes (25): ClassItem, DAY_NAMES_SHORT, DAY_NAMES_SUNDAY_START, DayButton(), DayButtonProps, DAYS_OF_WEEK, DEFAULT_CLASSES, getHeaderBgColor() (+17 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.09
-Nodes (21): backgroundColor, foregroundImage, adaptiveIcon, package, permissions, predictiveBackGestureEnabled, versionCode, expo (+13 more)
+Cohesion: 0.08
+Nodes (23): backgroundColor, backgroundImage, foregroundImage, monochromeImage, adaptiveIcon, package, permissions, predictiveBackGestureEnabled (+15 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.11
@@ -106,7 +106,7 @@ Cohesion: 0.50
 Nodes (3): apps, identifier, name
 
 ## Knowledge Gaps
-- **125 isolated node(s):** `name`, `slug`, `version`, `orientation`, `icon` (+120 more)
+- **126 isolated node(s):** `name`, `slug`, `version`, `orientation`, `icon` (+121 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -120,10 +120,10 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `devDependencies` connect `Community 7` to `Community 4`?**
   _High betweenness centrality (0.018) - this node is a cross-community bridge._
 - **What connects `name`, `slug`, `version` to the rest of the system?**
-  _125 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _126 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.08350951374207188 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.08143939393939394 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0896551724137931 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.09090909090909091 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._

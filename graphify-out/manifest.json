@@ -1,12 +1,12 @@
 {
   "E:\\Github\\ClassScheduler\\app.json": {
-    "mtime": 1780717889.417266,
-    "ast_hash": "d9994967c5c4e6d2fbaf20a4fdf91e20",
+    "mtime": 1780720154.2343934,
+    "ast_hash": "3f8908bde13035494a59b2416804dd13",
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\App.tsx": {
-    "mtime": 1780718277.5164511,
-    "ast_hash": "997643dd91bf185467f254fecf72a294",
+    "mtime": 1780719475.0479417,
+    "ast_hash": "64837887b32934546a6cd0c89e6f0ba2",
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\eslint.config.js": {
@@ -20,8 +20,8 @@
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\package.json": {
-    "mtime": 1780478314.8474846,
-    "ast_hash": "c9747e1b9aeb0e12cf022b8173b1c15e",
+    "mtime": 1780719425.6283352,
+    "ast_hash": "f3dda43286a01085ff7ef80a7e08b162",
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\tsconfig.json": {
@@ -162,11 +162,6 @@
   "E:\\Github\\ClassScheduler\\.github\\workflows\\release.yml": {
     "mtime": 1780478629.0217462,
     "ast_hash": "eb0f68ea799f866ae5da4ac093e2570a",
-    "semantic_hash": ""
-  },
-  "E:\\Github\\ClassScheduler\\assets\\adaptive-icon-background.png": {
-    "mtime": 1780717039.1227727,
-    "ast_hash": "edea1fd575d38d51a88830e1d16cb437",
     "semantic_hash": ""
   },
   "E:\\Github\\ClassScheduler\\assets\\adaptive-icon-monochrome.png": {

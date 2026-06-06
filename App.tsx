@@ -20,6 +20,9 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import * as Notifications from 'expo-notifications';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { requestPermissions, syncNotifications } from './src/utils/notifications-service';
+import * as SplashScreen from 'expo-splash-screen';
+
+SplashScreen.preventAutoHideAsync().catch(() => {});
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -165,6 +168,10 @@ function MainApp() {
 
 
 
+  // Splash screen states
+  const [dataLoaded, setDataLoaded] = useState(false);
+  const [isAppReady, setIsAppReady] = useState(false);
+
   // App States
   const [classes, setClasses] = useState<ClassItem[]>([]);
   const [classesLoaded, setClassesLoaded] = useState(false);
@@ -218,6 +225,14 @@ function MainApp() {
 
 
 
+  // Simulate initial data loading delay for a premium boot feel
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDataLoaded(true);
+    }, 800);
+    return () => clearTimeout(timer);
+  }, []);
+
   // Request notification permissions on mount
   useEffect(() => {
     requestPermissions();
@@ -256,6 +271,20 @@ function MainApp() {
   }, [classes, classesLoaded]);
 
 
+
+  // Hide native splash screen once resources are loaded
+  useEffect(() => {
+    if (dataLoaded && classesLoaded && !loading) {
+      setIsAppReady(true);
+    }
+  }, [dataLoaded, classesLoaded, loading]);
+
+  // Hide splash screen when app is ready
+  useEffect(() => {
+    if (isAppReady) {
+      SplashScreen.hideAsync().catch(() => {});
+    }
+  }, [isAppReady]);
 
   // Handle Tab Navigation (Only action trigger now)
   const handleNavigate = (screen: ScreenType) => {

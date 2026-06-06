@@ -6,15 +6,24 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/adaptive-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#18181B"
+    },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.bootlegyouki.bootsked"
+      "bundleIdentifier": "com.bootlegyouki.bootsked",
+      "icon": {
+        "light": "./assets/icon.png",
+        "dark": "./assets/icon.png",
+        "tinted": "./assets/adaptive-icon-monochrome.png"
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#121212",
+        "backgroundColor": "#18181B",
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundImage": "./assets/adaptive-icon-background.png",
         "monochromeImage": "./assets/adaptive-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,

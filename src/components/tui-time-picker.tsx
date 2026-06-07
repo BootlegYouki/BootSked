@@ -152,10 +152,9 @@ export const TuiTimePicker: React.FC<TuiTimePickerProps> = ({ value, onChange })
     }
   };
 
-  const settleScroll = (type: TimeColumn, event: NativeSyntheticEvent<NativeScrollEvent>) => {
+  const settleScroll = (type: TimeColumn, y: number) => {
     clearSettleTimer(type);
 
-    const y = event.nativeEvent.contentOffset.y;
     const index = Math.round(y / ITEM_HEIGHT) + 2;
 
     let h = activeHour;
@@ -186,15 +185,15 @@ export const TuiTimePicker: React.FC<TuiTimePickerProps> = ({ value, onChange })
   };
 
   const onScrollEnd = (type: TimeColumn) => (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    settleScroll(type, event);
+    settleScroll(type, event.nativeEvent.contentOffset.y);
   };
 
   const onScrollEndDrag = (type: TimeColumn) => (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     clearSettleTimer(type);
-    const capturedEvent = event;
+    const y = event.nativeEvent.contentOffset.y;
 
     settleTimers.current[type] = setTimeout(() => {
-      settleScroll(type, capturedEvent);
+      settleScroll(type, y);
     }, 250);
   };
 

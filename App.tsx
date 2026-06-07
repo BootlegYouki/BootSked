@@ -632,6 +632,7 @@ interface ContextMenuOverlayProps {
     bounds: { x: number; y: number; width: number; height: number };
   };
   onClose: () => void;
+  onTestNotification: () => void;
   onReschedule: () => void;
   onDelete: () => void;
 }
@@ -639,6 +640,7 @@ interface ContextMenuOverlayProps {
 const ContextMenuOverlay: React.FC<ContextMenuOverlayProps> = ({
   target,
   onClose,
+  onTestNotification,
   onReschedule,
   onDelete,
 }) => {
@@ -684,7 +686,7 @@ const ContextMenuOverlay: React.FC<ContextMenuOverlayProps> = ({
   };
 
   // Calculate layout sizes
-  const menuHeight = 88; // 2 rows * 44px
+  const menuHeight = 132; // 3 rows * 44px
   const previewHeight = bounds.height;
   const previewWidth = bounds.width;
   const previewLeft = bounds.x;
@@ -814,6 +816,28 @@ const ContextMenuOverlay: React.FC<ContextMenuOverlayProps> = ({
           }
         ]}
       >
+        {/* Test Notification Row */}
+        <Pressable
+          onPress={() => handleAction(onTestNotification)}
+          style={({ pressed }) => [
+            {
+              height: 44,
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              paddingHorizontal: 16,
+              borderBottomWidth: 1,
+              borderBottomColor: colors.primary + '20',
+              backgroundColor: pressed ? colors.primary + '15' : 'transparent',
+            }
+          ]}
+        >
+          <TuiText size="sm" weight="bold" style={{ color: colors.foreground }}>
+            Test Notification
+          </TuiText>
+          <Bell size={16} color={colors.foreground} />
+        </Pressable>
+
         {/* Reschedule Row */}
         <Pressable
           onPress={() => handleAction(onReschedule)}
@@ -886,13 +910,22 @@ function MainApp() {
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     return weekdays[new Date().getDay()];
   });
+  const schedulePagerRef = useRef<ScrollView>(null);
+  const hasPositionedSchedulePagerRef = useRef(false);
+  const shouldAnimateNextSchedulePagerScrollRef = useRef(false);
+  const schedulePageWidth = Dimensions.get('window').width;
 
   // Context Menu Target State
   const [contextMenuTarget, setContextMenuTarget] = useState<{
     item: ScheduleItem;
     bounds: { x: number; y: number; width: number; height: number };
   } | null>(null);
+  const [ongoingSessionItem, setOngoingSessionItem] = useState<ScheduleItem | null>(null);
+  const [ongoingSessionDrawerVisible, setOngoingSessionDrawerVisible] = useState(false);
+  const [currentTime, setCurrentTime] = useState(() => new Date());
   const [rescheduleTargetItem, setRescheduleTargetItem] = useState<ScheduleItem | null>(null);
+  const autoOpenedOngoingSessionIdRef = useRef<string | null>(null);
+  const pendingOngoingRescheduleItemRef = useRef<ScheduleItem | null>(null);
   const [exitingItemId, setExitingItemId] = useState<string | null>(null);
   const pendingRescheduleRef = useRef<{
     itemId: string;
@@ -1083,14 +1116,41 @@ function MainApp() {
     }
   }, [isAppReady]);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    if (!isAppReady || !scheduleLoaded || drawerVisible || rescheduleDrawerVisible || ongoingSessionDrawerVisible) {
+      return;
+    }
+
+    const activeItem = getCurrentOngoingScheduleItem(new Date());
+    if (!activeItem || autoOpenedOngoingSessionIdRef.current === activeItem.id) {
+      return;
+    }
+
+    autoOpenedOngoingSessionIdRef.current = activeItem.id;
+    setOngoingSessionItem(activeItem);
+    setOngoingSessionDrawerVisible(true);
+  }, [isAppReady, scheduleLoaded, schedule, drawerVisible, rescheduleDrawerVisible, ongoingSessionDrawerVisible]);
+
   // Handle Tab Navigation
   const handleNavigate = (screen: ScreenType) => {
     if (screen === 'action') {
+      const defaultTimes = getNextScheduleDefaultTimes();
+      setEditingItemId(null);
       setNewCategory('studying');
       setNewTitle('');
       setNewWorkoutCategory(null);
       setNewIntensity('moderate');
       setFormError('');
+      setFromTime(defaultTimes.from);
+      setToTime(defaultTimes.to);
       setDrawerVisible(true);
     }
   };
@@ -1098,6 +1158,11 @@ function MainApp() {
   // Close Drawer
   const handleCloseDrawer = () => {
     setDrawerVisible(false);
+    setShowFromPicker(false);
+    setShowToPicker(false);
+  };
+
+  const handleDrawerDismiss = () => {
     setEditingItemId(null);
     setNewCategory('studying');
     setNewTitle('');
@@ -1114,9 +1179,48 @@ function MainApp() {
       d.setHours(10, 30, 0, 0);
       return d;
     });
-    setShowFromPicker(false);
-    setShowToPicker(false);
   };
+
+  const getSelectedDayIndex = () => {
+    const index = DAYS_OF_WEEK.findIndex(day => day.name === selectedDay);
+    return index >= 0 ? index : 0;
+  };
+
+  const selectDay = (dayName: string) => {
+    const nextIndex = DAYS_OF_WEEK.findIndex(day => day.name === dayName);
+    if (nextIndex >= 0) {
+      schedulePagerRef.current?.scrollTo({
+        x: nextIndex * schedulePageWidth,
+        animated: false,
+      });
+    }
+    shouldAnimateNextSchedulePagerScrollRef.current = false;
+    setSelectedDay(dayName);
+  };
+
+  const handleSchedulePageSettled = (event: { nativeEvent: { contentOffset: { x: number } } }) => {
+    const nextIndex = Math.round(event.nativeEvent.contentOffset.x / schedulePageWidth);
+    const nextDay = DAYS_OF_WEEK[Math.max(0, Math.min(nextIndex, DAYS_OF_WEEK.length - 1))]?.name;
+    if (nextDay && nextDay !== selectedDay) {
+      shouldAnimateNextSchedulePagerScrollRef.current = false;
+      setSelectedDay(nextDay);
+    }
+  };
+
+  useEffect(() => {
+    const shouldAnimate = hasPositionedSchedulePagerRef.current && shouldAnimateNextSchedulePagerScrollRef.current;
+    const schedulePager = schedulePagerRef.current;
+
+    if ((!hasPositionedSchedulePagerRef.current || shouldAnimate) && schedulePager) {
+      schedulePager.scrollTo({
+        x: getSelectedDayIndex() * schedulePageWidth,
+        animated: shouldAnimate,
+      });
+      hasPositionedSchedulePagerRef.current = true;
+    }
+
+    shouldAnimateNextSchedulePagerScrollRef.current = true;
+  }, [selectedDay, schedulePageWidth]);
 
   // Helper to parse time string into a Date object
   const parseTimeStrToDate = (timeStr: string) => {
@@ -1140,6 +1244,112 @@ function MainApp() {
     return d;
   };
 
+  const getNextScheduleDefaultTimes = () => {
+    const fallbackFrom = new Date();
+    fallbackFrom.setHours(9, 0, 0, 0);
+
+    let latestEndTime: Date | null = null;
+
+    schedule
+      .filter(item => item.day === selectedDay)
+      .forEach(item => {
+        const timeParts = item.time.split(' - ');
+        if (timeParts.length !== 2) return;
+
+        const endTime = parseTimeStrToDate(timeParts[1]);
+        if (!latestEndTime || endTime.getTime() > latestEndTime.getTime()) {
+          latestEndTime = endTime;
+        }
+      });
+
+    const from = latestEndTime ? new Date(latestEndTime) : fallbackFrom;
+    const to = new Date(from);
+    to.setHours(to.getHours() + 1);
+
+    return { from, to };
+  };
+
+  const getScheduleTimeRangeMinutes = (item: ScheduleItem) => {
+    const [startStr, endStr] = item.time.split(' - ');
+    if (!startStr || !endStr) return null;
+
+    return {
+      start: getMinutesFromMidnight(startStr),
+      end: getMinutesFromMidnight(endStr),
+    };
+  };
+
+  const isScheduleItemOngoingAt = (item: ScheduleItem, date: Date) => {
+    const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const todayName = weekdays[date.getDay()];
+    if (item.day !== todayName) return false;
+
+    const range = getScheduleTimeRangeMinutes(item);
+    if (!range) return false;
+
+    const currentMinutes = date.getHours() * 60 + date.getMinutes() + date.getSeconds() / 60;
+    return currentMinutes >= range.start && currentMinutes <= range.end;
+  };
+
+  const isScheduleItemOngoing = (item: ScheduleItem) => isScheduleItemOngoingAt(item, currentTime);
+
+  const getCurrentOngoingScheduleItem = (date: Date) => {
+    return schedule.find(item => isScheduleItemOngoingAt(item, date)) || null;
+  };
+
+  const getOngoingSessionTimerText = (item: ScheduleItem | null) => {
+    if (!item) return '00:00:00';
+
+    const range = getScheduleTimeRangeMinutes(item);
+    if (!range) return '00:00:00';
+
+    const end = new Date(currentTime);
+    end.setHours(Math.floor(range.end / 60), range.end % 60, 0, 0);
+
+    const remainingMs = Math.max(0, end.getTime() - currentTime.getTime());
+    const totalSeconds = Math.floor(remainingMs / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    return [hours, minutes, seconds]
+      .map(value => String(value).padStart(2, '0'))
+      .join(':');
+  };
+
+  const getOngoingSessionProgress = (item: ScheduleItem | null) => {
+    if (!item) return 0;
+
+    const range = getScheduleTimeRangeMinutes(item);
+    if (!range || range.end <= range.start) return 0;
+
+    const currentMinutes = currentTime.getHours() * 60 + currentTime.getMinutes() + currentTime.getSeconds() / 60;
+    return Math.max(0, Math.min(1, (currentMinutes - range.start) / (range.end - range.start)));
+  };
+
+  const prepareRescheduleDrawerForItem = (item: ScheduleItem) => {
+    setRescheduleTargetItem(item);
+    setRescheduleDay(item.day);
+
+    const timeParts = item.time.split(' - ');
+    if (timeParts.length === 2) {
+      setRescheduleFromTime(parseTimeStrToDate(timeParts[0]));
+      setRescheduleToTime(parseTimeStrToDate(timeParts[1]));
+    }
+  };
+
+  const openRescheduleDrawerForItem = (item: ScheduleItem) => {
+    prepareRescheduleDrawerForItem(item);
+    setContextMenuTarget(null);
+    setRescheduleDrawerVisible(true);
+  };
+
+  const handleOngoingSessionReschedule = (item: ScheduleItem) => {
+    pendingOngoingRescheduleItemRef.current = item;
+    prepareRescheduleDrawerForItem(item);
+    setOngoingSessionDrawerVisible(false);
+  };
+
   // Edit Click Handler
   const handleEditItem = (item: ScheduleItem) => {
     setEditingItemId(item.id);
@@ -1154,6 +1364,16 @@ function MainApp() {
       setToTime(parseTimeStrToDate(timeParts[1]));
     }
     setDrawerVisible(true);
+  };
+
+  const handleScheduleItemPress = (item: ScheduleItem) => {
+    if (isScheduleItemOngoing(item)) {
+      setOngoingSessionItem(item);
+      setOngoingSessionDrawerVisible(true);
+      return;
+    }
+
+    handleEditItem(item);
   };
 
   // Context Menu & Single-Item Reschedule Helper Functions
@@ -1265,10 +1485,26 @@ function MainApp() {
   const handleExitComplete = () => {
     if (pendingDeleteItemIdRef.current) {
       const deleteId = pendingDeleteItemIdRef.current;
+      LayoutAnimation.configureNext({
+        duration: 240,
+        update: {
+          type: LayoutAnimation.Types.easeInEaseOut,
+        },
+        delete: {
+          type: LayoutAnimation.Types.easeInEaseOut,
+          property: LayoutAnimation.Properties.opacity,
+        },
+      });
       setSchedule(prev => prev.filter(x => x.id !== deleteId));
       pendingDeleteItemIdRef.current = null;
       setExitingItemId(null);
     } else if (pendingRescheduleRef.current) {
+      LayoutAnimation.configureNext({
+        duration: 240,
+        update: {
+          type: LayoutAnimation.Types.easeInEaseOut,
+        },
+      });
       commitPendingReschedule();
     }
   };
@@ -1305,8 +1541,7 @@ function MainApp() {
     let finalTitle = newTitle.trim();
     if (newCategory === 'studying') {
       if (!finalTitle) {
-        setFormError('Subject / Topic is required');
-        return;
+        finalTitle = 'Study Session';
       }
     } else if (newCategory === 'playing') {
       if (!finalTitle) {
@@ -1320,8 +1555,7 @@ function MainApp() {
       finalTitle = `${newWorkoutCategory.charAt(0).toUpperCase() + newWorkoutCategory.slice(1)} Body`;
     } else if (newCategory === 'other') {
       if (!finalTitle) {
-        setFormError('Activity title is required');
-        return;
+        finalTitle = 'Activity';
       }
     }
 
@@ -1466,23 +1700,32 @@ function MainApp() {
     return null;
   };
 
-  const filteredSchedule = schedule.filter(item => item.day === selectedDay);
-  const highlightedItemId = getActiveHighlightId(filteredSchedule, selectedDay);
-
-  // Trigger immediate test notification
-  const handleTestNotification = async () => {
+  const handleTestScheduleNotification = async (item: ScheduleItem) => {
     try {
+      await requestPermissions();
+
+      const title = item.category === 'workout'
+        ? `${item.title || 'Workout'} starting now`
+        : `${item.title || 'Scheduled activity'} starting now`;
+
       await Notifications.scheduleNotificationAsync({
         content: {
-          title: "Notification Test",
-          body: "Class Scheduler notifications are working perfectly!",
+          title,
+          body: `${item.day} - ${item.time}`,
           sound: true,
+          data: {
+            itemId: item.id,
+            category: item.category,
+            day: item.day,
+            warningMinutes: 0,
+            test: true,
+          },
           ...(Platform.OS === 'android' ? { channelId: 'default' } : {}),
         },
-        trigger: null, // null triggers immediately
+        trigger: null,
       });
     } catch (e) {
-      console.error('Failed to trigger test notification', e);
+      console.error('Failed to trigger schedule test notification', e);
     }
   };
 
@@ -1559,19 +1802,6 @@ function MainApp() {
 
           <View style={{ flexDirection: 'row', gap: 8, alignItems: 'center' }}>
             <Pressable
-              onPress={handleTestNotification}
-              style={({ pressed }) => [
-                styles.settingsBtn,
-                {
-                  borderColor: colors.primary,
-                  backgroundColor: pressed ? colors.primary + '20' : colors.card,
-                }
-              ]}
-            >
-              <Bell size={16} color={colors.foreground} />
-            </Pressable>
-
-            <Pressable
               onPress={() => setThemeMode(isDark ? 'light' : 'dark')}
               style={({ pressed }) => [
                 styles.settingsBtn,
@@ -1607,7 +1837,7 @@ function MainApp() {
               shortLabel={day.short}
               dateNumber={getDayNumberOfWeekday(day.name)}
               isActive={selectedDay === day.name}
-              onPress={() => setSelectedDay(day.name)}
+              onPress={() => selectDay(day.name)}
             />
           ))}
         </View>
@@ -1615,34 +1845,60 @@ function MainApp() {
 
       {/* MAIN CONTENT AREA */}
       <ScrollView
-        contentContainerStyle={[
-          styles.contentScroll,
-          {
-            paddingBottom: insets.bottom + 90, // Spacing for the bottom navigation bar
-          },
-        ]}
-        showsVerticalScrollIndicator={false}
+        ref={schedulePagerRef}
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        contentOffset={{ x: getSelectedDayIndex() * schedulePageWidth, y: 0 }}
+        onLayout={() => {
+          if (!hasPositionedSchedulePagerRef.current) {
+            schedulePagerRef.current?.scrollTo({
+              x: getSelectedDayIndex() * schedulePageWidth,
+              animated: false,
+            });
+            hasPositionedSchedulePagerRef.current = true;
+          }
+        }}
+        onMomentumScrollEnd={handleSchedulePageSettled}
+        style={styles.schedulePager}
       >
+        {DAYS_OF_WEEK.map(day => {
+          const daySchedule = schedule.filter(item => item.day === day.name);
+          const dayHighlightedItemId = getActiveHighlightId(daySchedule, day.name);
 
-
-        {filteredSchedule.length > 0 ? (
-          filteredSchedule.map((item, index) => (
-              <ScheduleCard
-                key={item.id}
-                item={item}
-                index={index}
-                highlightedItemId={highlightedItemId}
-                exiting={item.id === exitingItemId}
-                onExitComplete={handleExitComplete}
-                onPress={() => handleEditItem(item)}
-                onLongPress={(bounds) => {
-                  setContextMenuTarget({ item, bounds });
-                }}
-              />
-          ))
-        ) : (
-          <AnimatedEmptyState colors={colors} />
-        )}
+          return (
+            <View key={day.name} style={[styles.schedulePage, { width: schedulePageWidth }]}>
+              <ScrollView
+                contentContainerStyle={[
+                  styles.contentScroll,
+                  {
+                    paddingBottom: insets.bottom + 90, // Spacing for the bottom navigation bar
+                  },
+                ]}
+                showsVerticalScrollIndicator={false}
+              >
+                {daySchedule.length > 0 ? (
+                  daySchedule.map((item, index) => (
+                    <ScheduleCard
+                      key={item.id}
+                      item={item}
+                      index={index}
+                      highlightedItemId={dayHighlightedItemId}
+                      exiting={item.id === exitingItemId}
+                      onExitComplete={handleExitComplete}
+                      onPress={() => handleScheduleItemPress(item)}
+                      onLongPress={(bounds) => {
+                        setContextMenuTarget({ item, bounds });
+                      }}
+                    />
+                  ))
+                ) : (
+                  <AnimatedEmptyState colors={colors} />
+                )}
+              </ScrollView>
+            </View>
+          );
+        })}
       </ScrollView>
 
       {/* BOTTOM ACTION BAR */}
@@ -1657,6 +1913,7 @@ function MainApp() {
       <TuiDrawer
         visible={drawerVisible}
         onClose={handleCloseDrawer}
+        onDismiss={handleDrawerDismiss}
         title={editingItemId ? "Edit Schedule" : "Add to Schedule"}
         progressAnim={drawerProgressAnim}
       >
@@ -1959,6 +2216,72 @@ function MainApp() {
         </TimePickerModal>
       </TuiDrawer>
 
+      {/* ONGOING SESSION DRAWER */}
+      <TuiDrawer
+        visible={ongoingSessionDrawerVisible}
+        onClose={() => setOngoingSessionDrawerVisible(false)}
+        onDismiss={() => {
+          if (pendingOngoingRescheduleItemRef.current) {
+            pendingOngoingRescheduleItemRef.current = null;
+            setOngoingSessionItem(null);
+            setRescheduleDrawerVisible(true);
+            return;
+          }
+
+          if (!ongoingSessionDrawerVisible) {
+            setOngoingSessionItem(null);
+          }
+        }}
+        title="Session Ongoing"
+        progressAnim={drawerProgressAnim}
+        closeOnBackdropPress={false}
+        closeOnSwipeDown={false}
+        closeOnRequestClose={false}
+      >
+        {ongoingSessionItem && (
+          <View style={styles.ongoingSessionContainer}>
+            <TuiText weight="bold" size="sm" style={{ color: colors.mutedForeground, textAlign: 'center' }}>
+              {ongoingSessionItem.day} - {ongoingSessionItem.time}
+            </TuiText>
+
+            <TuiText weight="bold" style={[styles.ongoingSessionTitle, { color: colors.primary }]}>
+              {ongoingSessionItem.category === 'workout'
+                ? `${ongoingSessionItem.workoutCategory ? ongoingSessionItem.workoutCategory.charAt(0).toUpperCase() + ongoingSessionItem.workoutCategory.slice(1) : 'General'} Body Workout`
+                : ongoingSessionItem.title}
+            </TuiText>
+
+            <TuiText weight="bold" style={[styles.ongoingSessionTimer, { color: colors.foreground }]}>
+              {getOngoingSessionTimerText(ongoingSessionItem)}
+            </TuiText>
+
+            <View style={[styles.ongoingProgressTrack, { backgroundColor: colors.primary + '20' }]}>
+              <View
+                style={[
+                  styles.ongoingProgressFill,
+                  {
+                    backgroundColor: colors.primary,
+                    width: `${getOngoingSessionProgress(ongoingSessionItem) * 100}%`,
+                  },
+                ]}
+              />
+            </View>
+
+            <View style={[styles.drawerActions, { flexDirection: 'row', justifyContent: 'space-between', gap: 12, marginTop: 18 }]}>
+              <TuiButton variant="outline" style={{ flex: 1 }} onPress={() => setOngoingSessionDrawerVisible(false)}>
+                Close
+              </TuiButton>
+              <TuiButton
+                variant="accent"
+                style={{ flex: 1 }}
+                onPress={() => handleOngoingSessionReschedule(ongoingSessionItem)}
+              >
+                Reschedule
+              </TuiButton>
+            </View>
+          </View>
+        )}
+      </TuiDrawer>
+
       {/* RESCHEDULE DRAWER */}
       <TuiDrawer
         visible={rescheduleDrawerVisible}
@@ -2196,37 +2519,14 @@ function MainApp() {
         <ContextMenuOverlay
           target={contextMenuTarget}
           onClose={() => setContextMenuTarget(null)}
-          onReschedule={() => {
-            // Populate reschedule day and times with current target values
+          onTestNotification={() => {
             const item = contextMenuTarget.item;
-            setRescheduleTargetItem(item);
-            setRescheduleDay(item.day);
-            try {
-              const [startStr, endStr] = item.time.split(' - ');
-              // parse start time
-              const [startHStr, startMStr] = startStr.trim().split(' ')[0].split(':');
-              const startAmpm = startStr.trim().split(' ')[1];
-              let startHours = Number(startHStr);
-              if (startAmpm === 'PM' && startHours < 12) startHours += 12;
-              if (startAmpm === 'AM' && startHours === 12) startHours = 0;
-              const fromDate = new Date();
-              fromDate.setHours(startHours, Number(startMStr), 0, 0);
-              setRescheduleFromTime(fromDate);
-
-              // parse end time
-              const [endHStr, endMStr] = endStr.trim().split(' ')[0].split(':');
-              const endAmpm = endStr.trim().split(' ')[1];
-              let endHours = Number(endHStr);
-              if (endAmpm === 'PM' && endHours < 12) endHours += 12;
-              if (endAmpm === 'AM' && endHours === 12) endHours = 0;
-              const toDate = new Date();
-              toDate.setHours(endHours, Number(endMStr), 0, 0);
-              setRescheduleToTime(toDate);
-            } catch (err) {
-              // fallback
-            }
             setContextMenuTarget(null);
-            setRescheduleDrawerVisible(true);
+            handleTestScheduleNotification(item);
+          }}
+          onReschedule={() => {
+            const item = contextMenuTarget.item;
+            openRescheduleDrawerForItem(item);
           }}
           onDelete={() => {
             const item = contextMenuTarget.item;
@@ -2287,6 +2587,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingTop: 12,
   },
+  schedulePager: {
+    flex: 1,
+  },
+  schedulePage: {
+    flex: 1,
+  },
   classCard: {
     marginTop: 20,
   },
@@ -2294,6 +2600,29 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 6,
+  },
+  ongoingSessionContainer: {
+    paddingTop: 8,
+    alignItems: 'center',
+  },
+  ongoingSessionTitle: {
+    fontSize: 24,
+    textAlign: 'center',
+    marginTop: 12,
+  },
+  ongoingSessionTimer: {
+    fontSize: 52,
+    textAlign: 'center',
+    marginTop: 18,
+  },
+  ongoingProgressTrack: {
+    width: '100%',
+    height: 12,
+    marginTop: 18,
+    overflow: 'hidden',
+  },
+  ongoingProgressFill: {
+    height: '100%',
   },
   emptyContainer: {
     borderWidth: 1.5,

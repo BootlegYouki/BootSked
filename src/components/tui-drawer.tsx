@@ -15,19 +15,27 @@ const SPRING_CONFIG_OPEN = {
 interface TuiDrawerProps {
   visible: boolean;
   onClose: () => void;
+  onDismiss?: () => void;
   title: string;
   children: React.ReactNode;
   keyboardOffset?: number;
   progressAnim?: Animated.Value;
+  closeOnBackdropPress?: boolean;
+  closeOnSwipeDown?: boolean;
+  closeOnRequestClose?: boolean;
 }
 
 export const TuiDrawer: React.FC<TuiDrawerProps> = ({
   visible,
   onClose,
+  onDismiss,
   title,
   children,
   keyboardOffset = 0,
   progressAnim,
+  closeOnBackdropPress = true,
+  closeOnSwipeDown = true,
+  closeOnRequestClose = true,
 }) => {
   const { colors, isDark } = useTheme();
   const [modalVisible, setModalVisible] = useState(false);
@@ -43,16 +51,24 @@ export const TuiDrawer: React.FC<TuiDrawerProps> = ({
     outputRange: [cardHeight || 300, 0],
   });
 
-  const latest = useRef({ cardHeight, onClose });
-  latest.current = { cardHeight, onClose };
+  const latest = useRef({ cardHeight, onClose, onDismiss, closeOnSwipeDown });
+  latest.current = { cardHeight, onClose, onDismiss, closeOnSwipeDown };
 
   const panResponder = useRef(
     PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
+      onStartShouldSetPanResponder: () => latest.current.closeOnSwipeDown,
       onMoveShouldSetPanResponder: (evt, gestureState) => {
+        if (!latest.current.closeOnSwipeDown) {
+          return false;
+        }
+
         return Math.abs(gestureState.dy) > 2;
       },
       onPanResponderMove: (evt, gestureState) => {
+        if (!latest.current.closeOnSwipeDown) {
+          return;
+        }
+
         if (gestureState.dy > 0) {
           const { cardHeight: currentHeight } = latest.current;
           const dragProgress = 1 - (gestureState.dy / (currentHeight || 300));
@@ -60,6 +76,10 @@ export const TuiDrawer: React.FC<TuiDrawerProps> = ({
         }
       },
       onPanResponderRelease: (evt, gestureState) => {
+        if (!latest.current.closeOnSwipeDown) {
+          return;
+        }
+
         if (Math.abs(gestureState.dy) < 10 && Math.abs(gestureState.dx) < 10) {
           Keyboard.dismiss();
           return;
@@ -129,6 +149,7 @@ export const TuiDrawer: React.FC<TuiDrawerProps> = ({
         useNativeDriver: true,
       }).start(() => {
         setModalVisible(false);
+        latest.current.onDismiss?.();
       });
     }
   }, [visible]);
@@ -140,7 +161,7 @@ export const TuiDrawer: React.FC<TuiDrawerProps> = ({
       visible={modalVisible}
       animationType="none"
       transparent={true}
-      onRequestClose={onClose}
+      onRequestClose={closeOnRequestClose ? onClose : undefined}
     >
       <View style={styles.modalOverlay}>
         {/* Dimmed backdrop view fading in/out during open/close transitions */}
@@ -151,7 +172,9 @@ export const TuiDrawer: React.FC<TuiDrawerProps> = ({
           ]}
         />
         {/* Tap backdrop to close */}
-        <Pressable style={StyleSheet.absoluteFill} onPress={onClose} />
+        {closeOnBackdropPress ? (
+          <Pressable style={StyleSheet.absoluteFill} onPress={onClose} />
+        ) : null}
         
         <View style={styles.drawerKeyboardAvoidingView}>
           <Animated.View

@@ -29,6 +29,62 @@ const parseTime = (timeStr: string) => {
   }
 };
 
+const capitalize = (value: string) => value.charAt(0).toUpperCase() + value.slice(1);
+
+const getScheduleTitle = (item: ScheduleItem) => {
+  if (item.title) return item.title;
+
+  if (item.category === 'studying') return 'Study Session';
+  if (item.category === 'playing') return 'Casual Gaming';
+  if (item.category === 'workout') {
+    const workoutCategory = item.workoutCategory ? capitalize(item.workoutCategory) : 'General';
+    return `${workoutCategory} Body Workout`;
+  }
+
+  return 'Activity';
+};
+
+const getNotificationCopy = (item: ScheduleItem, warningMinutes: number, startStr: string) => {
+  const title = getScheduleTitle(item);
+  const startsWhen = warningMinutes === 0 ? 'starting now' : `in ${warningMinutes}m`;
+
+  if (item.category === 'studying') {
+    return {
+      title: `${title} ${startsWhen}`,
+      body: warningMinutes === 0
+        ? `Time to study.`
+        : `Starts at ${startStr}.`,
+    };
+  }
+
+  if (item.category === 'playing') {
+    return {
+      title: `${title} ${startsWhen}`,
+      body: warningMinutes === 0
+        ? `Time to play.`
+        : `Starts at ${startStr}.`,
+    };
+  }
+
+  if (item.category === 'workout') {
+    const workoutCategory = item.workoutCategory ? capitalize(item.workoutCategory) : 'General';
+    const intensity = item.intensity ? ` (${capitalize(item.intensity)})` : '';
+    return {
+      title: `${workoutCategory} workout ${startsWhen}`,
+      body: warningMinutes === 0
+        ? `Time for your ${workoutCategory.toLowerCase()} workout${intensity}.`
+        : `${workoutCategory} workout${intensity} starts at ${startStr}.`,
+    };
+  }
+
+  return {
+    title: `${title} ${startsWhen}`,
+    body: warningMinutes === 0
+      ? `Time for your scheduled activity.`
+      : `Starts at ${startStr}.`,
+  };
+};
+
 export const calculateNotificationTrigger = (
   classDay: string,
   startHours: number,
@@ -103,40 +159,7 @@ export const syncNotifications = async (scheduleList: ScheduleItem[]) => {
         const trigger = calculateNotificationTrigger(item.day, start.hours, start.minutes, mins);
         if (!trigger) continue;
 
-        let title = '';
-        let body = '';
-
-        if (item.category === 'studying') {
-          title = mins === 0
-            ? `Study session starting now`
-            : `Study session in ${mins}m`;
-          body = mins === 0
-            ? `Time to study: ${item.title}`
-            : `Study ${item.title} starts at ${startStr}.`;
-        } else if (item.category === 'playing') {
-          title = mins === 0
-            ? `Gaming session starting now`
-            : `Gaming session in ${mins}m`;
-          body = mins === 0
-            ? `Time to play ${item.title || 'games'}`
-            : `Gaming session ${item.title ? `(${item.title}) ` : ''}starts at ${startStr}.`;
-        } else if (item.category === 'workout') {
-          const wCat = item.workoutCategory ? item.workoutCategory.charAt(0).toUpperCase() + item.workoutCategory.slice(1) : 'General';
-          const intensityStr = item.intensity ? ` (${item.intensity})` : '';
-          title = mins === 0
-            ? `Workout session starting now`
-            : `Workout session in ${mins}m`;
-          body = mins === 0
-            ? `Time for your ${wCat} workout${intensityStr}`
-            : `${wCat} workout${intensityStr} starts at ${startStr}.`;
-        } else {
-          title = mins === 0
-            ? `${item.title || 'Activity'} starting now`
-            : `${item.title || 'Activity'} in ${mins}m`;
-          body = mins === 0
-            ? `Time for ${item.title || 'your scheduled activity'}`
-            : `${item.title || 'Activity'} starts at ${startStr}.`;
-        }
+        const { title, body } = getNotificationCopy(item, mins, startStr);
 
         await Notifications.scheduleNotificationAsync({
           identifier: `${item.id}_${mins}`,
@@ -144,7 +167,12 @@ export const syncNotifications = async (scheduleList: ScheduleItem[]) => {
             title,
             body,
             sound: true,
-            data: { itemId: item.id },
+            data: {
+              itemId: item.id,
+              category: item.category,
+              day: item.day,
+              warningMinutes: mins,
+            },
             ...(Platform.OS === 'android' ? { channelId: 'default' } : {}),
           },
           trigger: (Platform.OS === 'ios' ? {

@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/refs, @typescript-eslint/no-unused-vars, prefer-const, react-hooks/set-state-in-effect */
 import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, View, Animated, ScrollView, Pressable, Platform, Modal, Alert } from 'react-native';
+import { StyleSheet, View, Animated, ScrollView, Pressable, Platform, Modal, Alert, LayoutAnimation, UIManager, findNodeHandle, Dimensions, Easing } from 'react-native';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import {
@@ -15,12 +16,16 @@ import { TuiContainer } from './src/components/tui-container';
 import { TuiButton } from './src/components/tui-button';
 import { TuiDrawer } from './src/components/tui-drawer';
 import { TuiInput } from './src/components/tui-input';
-import { Sun, Moon, Bell } from 'lucide-react-native';
+import { Sun, Moon, Bell, BookOpen, Gamepad2, Dumbbell, MoreHorizontal, ChevronLeft, Calendar, Trash2 } from 'lucide-react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import * as Notifications from 'expo-notifications';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { requestPermissions, syncNotifications } from './src/utils/notifications-service';
+import { requestPermissions, syncNotifications, ScheduleItem } from './src/utils/notifications-service';
 import * as SplashScreen from 'expo-splash-screen';
+
+if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
 
@@ -35,15 +40,7 @@ Notifications.setNotificationHandler({
 
 
 
-interface ClassItem {
-  id: string;
-  subject: string;
-  name: string;
-  time: string;
-  room: string;
-  teacher: string;
-  day: string; // e.g. "Monday", "Tuesday", etc.
-}
+// Interface ScheduleItem is imported from notifications-service
 
 // Initial empty classes list
 
@@ -162,8 +159,591 @@ const DayButton: React.FC<DayButtonProps> = ({ shortLabel, dateNumber, isActive,
   );
 };
 
+interface CategoryButtonProps {
+  label: string;
+  icon: React.ElementType;
+  isActive: boolean;
+  onPress: () => void;
+}
+
+const CategoryButton: React.FC<CategoryButtonProps> = ({ label, icon: IconComponent, isActive, onPress }) => {
+  const { colors, isDark } = useTheme();
+  const borderAccent = colors.primary;
+  const borderInactive = isDark ? colors.border : '#D4D4D8';
+  const currentBorder = isActive ? borderAccent : borderInactive;
+  const [legendWidth, setLegendWidth] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(0);
+
+  const topSegmentWidth = Math.max(0, (containerWidth - legendWidth) / 2);
+
+  return (
+    <Pressable
+      onPress={onPress}
+      onLayout={(e) => setContainerWidth(e.nativeEvent.layout.width)}
+      style={({ pressed }) => [
+        styles.categorySquareBtn,
+        {
+          backgroundColor: isActive
+            ? (isDark ? colors.primary + '20' : colors.primary + '15')
+            : pressed
+              ? (isDark ? '#27272A' : '#E4E4E7')
+              : colors.card,
+        },
+      ]}
+    >
+      {/* Borders */}
+      <View style={[styles.borderLeft, { backgroundColor: currentBorder }]} />
+      <View style={[styles.borderRight, { backgroundColor: currentBorder }]} />
+      <View style={[styles.borderBottom, { backgroundColor: currentBorder }]} />
+      <View style={[styles.borderTopLeft, { backgroundColor: currentBorder, width: topSegmentWidth }]} />
+      <View style={[styles.borderTopRight, { backgroundColor: currentBorder, width: topSegmentWidth }]} />
+
+      {/* Legend / Label sitting on top */}
+      <View
+        onLayout={(e) => setLegendWidth(e.nativeEvent.layout.width)}
+        style={styles.dayLegendWrapper}
+      >
+        <TuiText
+          weight="bold"
+          style={{
+            fontSize: 14,
+            letterSpacing: 0.2,
+            color: isActive ? colors.primary : colors.mutedForeground,
+          }}
+        >
+          {label.charAt(0).toUpperCase() + label.slice(1).toLowerCase()}
+        </TuiText>
+      </View>
+
+      {/* Content (Just the Icon) */}
+      <IconComponent
+        size={22}
+        color={isActive ? colors.primary : colors.foreground}
+      />
+    </Pressable>
+  );
+};
+
+interface NeobrutalistSliderProps {
+  value: 'light' | 'moderate' | 'heavy';
+  onChange: (value: 'light' | 'moderate' | 'heavy') => void;
+}
+
+const NeobrutalistSlider: React.FC<NeobrutalistSliderProps> = ({ value, onChange }) => {
+  const { colors, isDark } = useTheme();
+  const [trackWidth, setTrackWidth] = useState(0);
+  const thumbSize = 12;
+  const animLeft = useRef(new Animated.Value(0)).current;
+  const isFirstMeasureRef = useRef(true);
+
+  const getIndex = (val: 'light' | 'moderate' | 'heavy') => {
+    if (val === 'light') return 0;
+    if (val === 'heavy') return 2;
+    return 1;
+  };
+
+  useEffect(() => {
+    if (trackWidth > 0) {
+      const index = getIndex(value);
+      const usableWidth = trackWidth - thumbSize;
+      const targetLeft = index === 0 ? 0 : index === 2 ? usableWidth : usableWidth / 2;
+
+      if (isFirstMeasureRef.current) {
+        animLeft.setValue(targetLeft);
+        isFirstMeasureRef.current = false;
+      } else {
+        Animated.spring(animLeft, {
+          toValue: targetLeft,
+          useNativeDriver: false,
+          tension: 50,
+          friction: 8,
+        }).start();
+      }
+    }
+  }, [value, trackWidth]);
+
+  const handleTouch = (locationX: number) => {
+    if (trackWidth === 0) return;
+    const clampedX = Math.max(0, Math.min(locationX, trackWidth));
+    const third = trackWidth / 3;
+    if (clampedX < third) {
+      onChange('light');
+    } else if (clampedX < third * 2) {
+      onChange('moderate');
+    } else {
+      onChange('heavy');
+    }
+  };
+
+  return (
+    <View style={{ marginVertical: 8, width: '100%' }}>
+      {/* Touch Target Container */}
+      <View
+        onLayout={(e) => setTrackWidth(e.nativeEvent.layout.width)}
+        onStartShouldSetResponder={() => true}
+        onResponderGrant={(evt) => handleTouch(evt.nativeEvent.locationX)}
+        onResponderMove={(evt) => handleTouch(evt.nativeEvent.locationX)}
+        style={{
+          height: 40,
+          width: '100%',
+          justifyContent: 'center',
+          position: 'relative',
+        }}
+      >
+        {/* Inactive Track */}
+        <View
+          style={{
+            height: 10,
+            width: '100%',
+            backgroundColor: isDark ? '#27272A' : '#E4E4E7',
+            position: 'relative',
+          }}
+        >
+          {/* Active Progress Fill */}
+          {trackWidth > 0 && (
+            <Animated.View
+              style={{
+                position: 'absolute',
+                left: 0,
+                top: 0,
+                bottom: 0,
+                width: animLeft,
+                backgroundColor: colors.primary,
+              }}
+            />
+          )}
+        </View>
+
+        {/* Thumb */}
+        {trackWidth > 0 && (
+          <Animated.View
+            pointerEvents="none"
+            style={{
+              position: 'absolute',
+              left: animLeft,
+              top: 8, // Centers the 24px high thumb in the 40px container: (40 - 24) / 2 = 8
+              width: thumbSize,
+              height: 24,
+              backgroundColor: isDark ? '#FFFFFF' : '#18181B',
+            }}
+          />
+        )}
+      </View>
+
+      {/* Labels below the track */}
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 8, paddingHorizontal: 4 }}>
+        <Pressable onPress={() => onChange('light')}>
+          <TuiText
+            weight={value === 'light' ? 'bold' : 'regular'}
+            style={{
+              fontSize: 12,
+              color: value === 'light' ? colors.primary : colors.mutedForeground,
+            }}
+          >
+            Light
+          </TuiText>
+        </Pressable>
+        <Pressable onPress={() => onChange('moderate')}>
+          <TuiText
+            weight={value === 'moderate' ? 'bold' : 'regular'}
+            style={{
+              fontSize: 12,
+              color: value === 'moderate' ? colors.primary : colors.mutedForeground,
+            }}
+          >
+            Moderate
+          </TuiText>
+        </Pressable>
+        <Pressable onPress={() => onChange('heavy')}>
+          <TuiText
+            weight={value === 'heavy' ? 'bold' : 'regular'}
+            style={{
+              fontSize: 12,
+              color: value === 'heavy' ? colors.primary : colors.mutedForeground,
+            }}
+          >
+            Heavy
+          </TuiText>
+        </Pressable>
+      </View>
+    </View>
+  );
+};
+
+interface ScheduleCardProps {
+  item: ScheduleItem;
+  highlightedItemId: string | null;
+  exiting: boolean;
+  onExitComplete: () => void;
+  onPress: () => void;
+  onLongPress: (bounds: { x: number; y: number; width: number; height: number }) => void;
+}
+
+const ScheduleCard: React.FC<ScheduleCardProps> = ({
+  item,
+  highlightedItemId,
+  exiting,
+  onExitComplete,
+  onPress,
+  onLongPress,
+}) => {
+  const { colors, isDark } = useTheme();
+  const cardRef = useRef<View>(null);
+  const exitAnim = useRef(new Animated.Value(0)).current;
+
+  const getCategoryDetails = (category: string) => {
+    switch (category) {
+      case 'studying':
+        return { icon: BookOpen, label: 'Studying', color: colors.primary };
+      case 'playing':
+        return { icon: Gamepad2, label: 'Playing', color: colors.primary };
+      case 'workout':
+        return { icon: Dumbbell, label: 'Workout', color: colors.primary };
+      default:
+        return { icon: MoreHorizontal, label: 'Other', color: colors.primary };
+    }
+  };
+
+  const { icon: IconComponent, label: categoryLabel, color: categoryColor } = getCategoryDetails(item.category);
+
+  let displayTitle = item.title;
+  let subtitleText: string;
+  
+  if (item.category === 'workout') {
+    const wFocus = item.workoutCategory ? item.workoutCategory.charAt(0).toUpperCase() + item.workoutCategory.slice(1).toLowerCase() : 'General';
+    const intens = item.intensity ? item.intensity.charAt(0).toUpperCase() + item.intensity.slice(1).toLowerCase() : 'Moderate';
+    displayTitle = `${wFocus} Body Workout`;
+    subtitleText = `Intensity: ${intens}`;
+  } else if (item.category === 'playing') {
+    displayTitle = item.title || 'Casual Gaming';
+    subtitleText = 'Gaming Session';
+  } else if (item.category === 'studying') {
+    subtitleText = 'Topic Focus';
+  } else {
+    subtitleText = 'Other Activity';
+  }
+
+  const handleLongPress = () => {
+    const node = findNodeHandle(cardRef.current);
+    if (node != null) {
+      UIManager.measure(node, (x, y, width, height, pageX, pageY) => {
+        onLongPress({ x: pageX, y: pageY, width, height });
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (!exiting) {
+      exitAnim.setValue(0);
+      return;
+    }
+
+    Animated.sequence([
+      Animated.delay(80),
+      Animated.timing(exitAnim, {
+        toValue: 1,
+        duration: 140,
+        useNativeDriver: true,
+        easing: Easing.in(Easing.cubic),
+      }),
+    ]).start(({ finished }) => {
+      if (finished) onExitComplete();
+    });
+  }, [exiting, exitAnim, onExitComplete]);
+
+  return (
+    <View ref={cardRef} collapsable={false}>
+      <Animated.View
+        style={{
+          transform: [
+            {
+              scale: exitAnim.interpolate({
+                inputRange: [0, 1],
+                outputRange: [1, 0],
+              }),
+            },
+            {
+              translateY: exitAnim.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0, -2],
+              }),
+            },
+          ],
+        }}
+      >
+        <Pressable
+          onPress={onPress}
+          onLongPress={handleLongPress}
+          style={({ pressed }) => [
+            {
+              opacity: pressed ? 0.75 : 1,
+              transform: [{ scale: pressed ? 0.99 : 1 }],
+            }
+          ]}
+        >
+          <TuiContainer
+            label={categoryLabel}
+            badge={item.category === 'workout' ? (item.intensity ? item.intensity.charAt(0).toUpperCase() + item.intensity.slice(1).toLowerCase() : undefined) : undefined}
+            style={styles.classCard}
+            accentBorder={item.id === highlightedItemId}
+          >
+            <View style={styles.cardHeaderRow}>
+              <IconComponent size={18} color={categoryColor} style={{ marginRight: 8 }} />
+              <TuiText weight="bold" size="lg" style={{ color: categoryColor, flex: 1 }}>
+                {displayTitle}
+              </TuiText>
+            </View>
+            <View style={styles.classMetaRow}>
+              <TuiText size="sm" weight="bold">
+                {item.time}
+              </TuiText>
+            </View>
+            <TuiText size="xs" variant="muted" style={{ marginTop: 4 }}>
+              {subtitleText}
+            </TuiText>
+          </TuiContainer>
+        </Pressable>
+      </Animated.View>
+    </View>
+  );
+};
+
+interface ContextMenuOverlayProps {
+  target: {
+    item: ScheduleItem;
+    bounds: { x: number; y: number; width: number; height: number };
+  };
+  onClose: () => void;
+  onReschedule: () => void;
+  onDelete: () => void;
+}
+
+const ContextMenuOverlay: React.FC<ContextMenuOverlayProps> = ({
+  target,
+  onClose,
+  onReschedule,
+  onDelete,
+}) => {
+  const { colors, isDark } = useTheme();
+  const insets = useSafeAreaInsets();
+  const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
+  
+  const { item, bounds } = target;
+
+  const animOpacity = useRef(new Animated.Value(0)).current;
+  const animScale = useRef(new Animated.Value(0.95)).current;
+
+  useEffect(() => {
+    Animated.parallel([
+      Animated.timing(animOpacity, {
+        toValue: 1,
+        duration: 150,
+        useNativeDriver: true,
+      }),
+      Animated.timing(animScale, {
+        toValue: 1,
+        duration: 150,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  }, []);
+
+  const handleAction = (callback: () => void) => {
+    Animated.parallel([
+      Animated.timing(animOpacity, {
+        toValue: 0,
+        duration: 120,
+        useNativeDriver: true,
+      }),
+      Animated.timing(animScale, {
+        toValue: 0.95,
+        duration: 120,
+        useNativeDriver: true,
+      }),
+    ]).start(() => {
+      callback();
+    });
+  };
+
+  // Calculate layout sizes
+  const menuHeight = 88; // 2 rows * 44px
+  const previewHeight = bounds.height;
+  const previewWidth = bounds.width;
+  const previewLeft = bounds.x;
+  const previewTop = bounds.y;
+
+  const spaceAbove = previewTop - insets.top;
+  const spaceBelow = screenHeight - insets.bottom - (previewTop + previewHeight);
+  const showBelow = spaceBelow > spaceAbove;
+
+  const menuLeft = previewLeft + (previewWidth - 200) / 2;
+  let menuTop = showBelow 
+    ? previewTop + previewHeight + 12 
+    : previewTop - menuHeight - 12;
+
+  if (menuTop < insets.top + 16) {
+    menuTop = insets.top + 16;
+  } else if (menuTop + menuHeight > screenHeight - insets.bottom - 16) {
+    menuTop = screenHeight - insets.bottom - 16 - menuHeight;
+  }
+
+  const getCategoryDetails = (category: string) => {
+    switch (category) {
+      case 'studying':
+        return { icon: BookOpen, label: 'Studying', color: colors.primary };
+      case 'playing':
+        return { icon: Gamepad2, label: 'Playing', color: colors.primary };
+      case 'workout':
+        return { icon: Dumbbell, label: 'Workout', color: colors.primary };
+      default:
+        return { icon: MoreHorizontal, label: 'Other', color: colors.primary };
+    }
+  };
+
+  const { icon: IconComponent, label: categoryLabel, color: categoryColor } = getCategoryDetails(item.category);
+
+  let displayTitle = item.title;
+  let subtitleText: string;
+  
+  if (item.category === 'workout') {
+    const wFocus = item.workoutCategory ? item.workoutCategory.charAt(0).toUpperCase() + item.workoutCategory.slice(1).toLowerCase() : 'General';
+    const intens = item.intensity ? item.intensity.charAt(0).toUpperCase() + item.intensity.slice(1).toLowerCase() : 'Moderate';
+    displayTitle = `${wFocus} Body Workout`;
+    subtitleText = `Intensity: ${intens}`;
+  } else if (item.category === 'playing') {
+    displayTitle = item.title || 'Casual Gaming';
+    subtitleText = 'Gaming Session';
+  } else if (item.category === 'studying') {
+    subtitleText = 'Topic Focus';
+  } else {
+    subtitleText = 'Other Activity';
+  }
+
+  return (
+    <View style={[StyleSheet.absoluteFillObject, { zIndex: 9990 }]}>
+      {/* Backdrop */}
+      <Pressable onPress={() => handleAction(onClose)} style={StyleSheet.absoluteFillObject}>
+        <Animated.View
+          style={[
+            StyleSheet.absoluteFillObject,
+            {
+              backgroundColor: 'rgba(0,0,0,0.6)',
+              opacity: animOpacity,
+            },
+          ]}
+        />
+      </Pressable>
+
+      {/* Cloned Card Preview */}
+      <Animated.View
+        style={[
+          {
+            position: 'absolute',
+            left: previewLeft,
+            top: previewTop,
+            width: previewWidth,
+            height: previewHeight,
+            zIndex: 9996,
+            opacity: animOpacity,
+            transform: [{ scale: animScale }],
+          }
+        ]}
+      >
+        <TuiContainer
+          label={categoryLabel}
+          badge={item.category === 'workout' ? (item.intensity ? item.intensity.charAt(0).toUpperCase() + item.intensity.slice(1).toLowerCase() : undefined) : undefined}
+          style={styles.classCard}
+          accentBorder={true}
+        >
+          <View style={styles.cardHeaderRow}>
+            <IconComponent size={18} color={categoryColor} style={{ marginRight: 8 }} />
+            <TuiText weight="bold" size="lg" style={{ color: categoryColor, flex: 1 }}>
+              {displayTitle}
+            </TuiText>
+          </View>
+          <View style={styles.classMetaRow}>
+            <TuiText size="sm" weight="bold">
+              {item.time}
+            </TuiText>
+          </View>
+          <TuiText size="xs" variant="muted" style={{ marginTop: 4 }}>
+            {subtitleText}
+          </TuiText>
+        </TuiContainer>
+      </Animated.View>
+
+      {/* Context Menu floating next to card */}
+      <Animated.View
+        style={[
+          {
+            position: 'absolute',
+            left: menuLeft,
+            top: menuTop,
+            width: 200,
+            height: menuHeight,
+            zIndex: 9997,
+            borderWidth: 1.5,
+            borderColor: colors.primary,
+            backgroundColor: isDark ? '#1C1C1E' : '#FFFFFF',
+            opacity: animOpacity,
+            transform: [{ scale: animScale }],
+            overflow: 'hidden',
+            shadowColor: '#000000',
+            shadowOffset: { width: 0, height: 4 },
+            shadowOpacity: 0.2,
+            shadowRadius: 6,
+            elevation: 10,
+          }
+        ]}
+      >
+        {/* Reschedule Row */}
+        <Pressable
+          onPress={() => handleAction(onReschedule)}
+          style={({ pressed }) => [
+            {
+              height: 44,
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              paddingHorizontal: 16,
+              borderBottomWidth: 1,
+              borderBottomColor: colors.primary + '20',
+              backgroundColor: pressed ? colors.primary + '15' : 'transparent',
+            }
+          ]}
+        >
+          <TuiText size="sm" weight="bold" style={{ color: colors.foreground }}>
+            Reschedule
+          </TuiText>
+          <Calendar size={16} color={colors.foreground} />
+        </Pressable>
+
+        {/* Delete Row */}
+        <Pressable
+          onPress={() => handleAction(onDelete)}
+          style={({ pressed }) => [
+            {
+              height: 44,
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              paddingHorizontal: 16,
+              backgroundColor: pressed ? colors.destructive + '15' : 'transparent',
+            }
+          ]}
+        >
+          <TuiText size="sm" weight="bold" style={{ color: colors.destructive }}>
+            Delete
+          </TuiText>
+          <Trash2 size={16} color={colors.destructive} />
+        </Pressable>
+      </Animated.View>
+    </View>
+  );
+};
+
 function MainApp() {
-  const { colors, isDark, accentTheme, setAccentTheme, setThemeMode, loading } = useTheme();
+  const { colors, isDark, accentTheme, setThemeMode, loading } = useTheme();
   const insets = useSafeAreaInsets();
 
 
@@ -173,9 +753,9 @@ function MainApp() {
   const [isAppReady, setIsAppReady] = useState(false);
 
   // App States
-  const [classes, setClasses] = useState<ClassItem[]>([]);
-  const [classesLoaded, setClassesLoaded] = useState(false);
-  const [editingClassId, setEditingClassId] = useState<string | null>(null);
+  const [schedule, setSchedule] = useState<ScheduleItem[]>([]);
+  const [scheduleLoaded, setScheduleLoaded] = useState(false);
+  const [editingItemId, setEditingItemId] = useState<string | null>(null);
 
   // iOS Picker Layout Measurements (for segmented borders with transparent text bg)
   const [fromCardWidth, setFromCardWidth] = useState(0);
@@ -188,6 +768,41 @@ function MainApp() {
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     return weekdays[new Date().getDay()];
   });
+
+  // Context Menu Target State
+  const [contextMenuTarget, setContextMenuTarget] = useState<{
+    item: ScheduleItem;
+    bounds: { x: number; y: number; width: number; height: number };
+  } | null>(null);
+  const [rescheduleTargetItem, setRescheduleTargetItem] = useState<ScheduleItem | null>(null);
+  const [rescheduleAnimatingItemId, setRescheduleAnimatingItemId] = useState<string | null>(null);
+  const pendingRescheduleRef = useRef<{
+    itemId: string;
+    day: string;
+    time: string;
+  } | null>(null);
+
+  // Reschedule Drawer States
+  const [rescheduleDrawerVisible, setRescheduleDrawerVisible] = useState(false);
+  const [rescheduleDay, setRescheduleDay] = useState<string>('Monday');
+  const [rescheduleFromTime, setRescheduleFromTime] = useState<Date>(() => {
+    const d = new Date();
+    d.setHours(9, 0, 0, 0);
+    return d;
+  });
+  const [rescheduleToTime, setRescheduleToTime] = useState<Date>(() => {
+    const d = new Date();
+    d.setHours(10, 30, 0, 0);
+    return d;
+  });
+  const [showRescheduleFromPicker, setShowRescheduleFromPicker] = useState(false);
+  const [showRescheduleToPicker, setShowRescheduleToPicker] = useState(false);
+
+  // iOS Reschedule Picker Measurements
+  const [rescheduleFromCardWidth, setRescheduleFromCardWidth] = useState(0);
+  const [rescheduleFromLegendWidth, setRescheduleFromLegendWidth] = useState(0);
+  const [rescheduleToCardWidth, setRescheduleToCardWidth] = useState(0);
+  const [rescheduleToLegendWidth, setRescheduleToLegendWidth] = useState(0);
 
   // Animated values for iOS-style deck transition (parallax scaleout)
   const drawerProgressAnim = useRef(new Animated.Value(0)).current;
@@ -205,14 +820,16 @@ function MainApp() {
     outputRange: [0, 16],
   });
 
-  // Add Class Drawer States
+  // Add Item Drawer States
   const [drawerVisible, setDrawerVisible] = useState(false);
 
-  const [newSubject, setNewSubject] = useState('');
-  const [newName, setNewName] = useState('');
-  const [newRoom, setNewRoom] = useState('');
-  const [newTeacher, setNewTeacher] = useState('');
+  // Wizard Flow States (No longer using multi-stage wizard, using single-stage expanded accordion)
+  const [newCategory, setNewCategory] = useState<'studying' | 'playing' | 'workout' | 'other' | null>('studying');
+  const [newTitle, setNewTitle] = useState('');
+  const [newWorkoutCategory, setNewWorkoutCategory] = useState<'upper' | 'core' | 'lower' | 'cardio' | null>(null);
+  const [newIntensity, setNewIntensity] = useState<'light' | 'moderate' | 'heavy'>('moderate');
   const [formError, setFormError] = useState('');
+  const categoryTransitionLock = useRef(false);
 
   // Time Picker States
   const [fromTime, setFromTime] = useState<Date>(() => {
@@ -239,7 +856,38 @@ function MainApp() {
     return `${hoursStr}:${minutesStr} ${ampm}`;
   };
 
+  const categories: { id: 'studying' | 'playing' | 'workout' | 'other'; label: string; icon: React.ElementType; color: string }[] = [
+    { id: 'studying', label: 'Studying', icon: BookOpen, color: colors.primary },
+    { id: 'playing', label: 'Playing', icon: Gamepad2, color: colors.primary },
+    { id: 'workout', label: 'Workout', icon: Dumbbell, color: colors.primary },
+    { id: 'other', label: 'Other', icon: MoreHorizontal, color: colors.primary },
+  ];
 
+  const workoutCategories: { id: 'upper' | 'core' | 'lower' | 'cardio'; label: string }[] = [
+    { id: 'upper', label: 'Upper' },
+    { id: 'core', label: 'Core' },
+    { id: 'lower', label: 'Lower' },
+    { id: 'cardio', label: 'Cardio' },
+  ];
+
+  const intensities: { id: 'light' | 'moderate' | 'heavy'; label: string }[] = [
+    { id: 'light', label: 'Light' },
+    { id: 'moderate', label: 'Moderate' },
+    { id: 'heavy', label: 'Heavy' },
+  ];
+
+  const getCategoryDetails = (category: string) => {
+    switch (category) {
+      case 'studying':
+        return { icon: BookOpen, label: 'Studying', color: colors.primary };
+      case 'playing':
+        return { icon: Gamepad2, label: 'Playing', color: colors.primary };
+      case 'workout':
+        return { icon: Dumbbell, label: 'Workout', color: colors.primary };
+      default:
+        return { icon: MoreHorizontal, label: 'Other', color: colors.primary };
+    }
+  };
 
   // Simulate initial data loading delay for a premium boot feel
   useEffect(() => {
@@ -254,46 +902,60 @@ function MainApp() {
     requestPermissions();
   }, []);
 
-  // Load classes on mount
+  // Load schedule on mount (with migration from old classes key)
   useEffect(() => {
-    const loadClasses = async () => {
+    const loadSchedule = async () => {
       try {
-        const savedClasses = await AsyncStorage.getItem('classes');
-        if (savedClasses) {
-          setClasses(JSON.parse(savedClasses));
+        const savedSchedule = await AsyncStorage.getItem('habits_schedule');
+        if (savedSchedule) {
+          setSchedule(JSON.parse(savedSchedule));
+        } else {
+          // Attempt migration from old classes key
+          const savedClasses = await AsyncStorage.getItem('classes');
+          if (savedClasses) {
+            const parsed = JSON.parse(savedClasses);
+            const migrated: ScheduleItem[] = parsed.map((c: { id: string; name?: string; subject?: string; time: string; day: string }) => ({
+              id: c.id,
+              category: 'studying',
+              title: c.name || c.subject || 'Study Session',
+              time: c.time,
+              day: c.day,
+            }));
+            setSchedule(migrated);
+            await AsyncStorage.setItem('habits_schedule', JSON.stringify(migrated));
+            await AsyncStorage.removeItem('classes');
+          }
         }
       } catch (e) {
-        console.error('Failed to load classes', e);
+        console.error('Failed to load schedule', e);
       } finally {
-        setClassesLoaded(true);
+        setScheduleLoaded(true);
       }
     };
-    loadClasses();
+    loadSchedule();
   }, []);
 
-  // Save classes and sync scheduled notifications whenever classes list changes (after loading)
+  // Save schedule and sync scheduled notifications whenever schedule list changes
   useEffect(() => {
-    if (classesLoaded) {
+    if (scheduleLoaded) {
       const saveAndSync = async () => {
         try {
-          await AsyncStorage.setItem('classes', JSON.stringify(classes));
+          await AsyncStorage.setItem('habits_schedule', JSON.stringify(schedule));
         } catch (e) {
-          console.error('Failed to save classes', e);
+          console.error('Failed to save schedule', e);
         }
-        syncNotifications(classes);
+        syncNotifications(schedule);
       };
       saveAndSync();
     }
-  }, [classes, classesLoaded]);
-
-
+  }, [schedule, scheduleLoaded]);
 
   // Hide native splash screen once resources are loaded
   useEffect(() => {
-    if (dataLoaded && classesLoaded && !loading) {
+    if (dataLoaded && scheduleLoaded && !loading) {
       setIsAppReady(true);
     }
-  }, [dataLoaded, classesLoaded, loading]);
+  }, [dataLoaded, scheduleLoaded, loading]);
 
   // Hide splash screen when app is ready
   useEffect(() => {
@@ -302,9 +964,14 @@ function MainApp() {
     }
   }, [isAppReady]);
 
-  // Handle Tab Navigation (Only action trigger now)
+  // Handle Tab Navigation
   const handleNavigate = (screen: ScreenType) => {
     if (screen === 'action') {
+      setNewCategory('studying');
+      setNewTitle('');
+      setNewWorkoutCategory(null);
+      setNewIntensity('moderate');
+      setFormError('');
       setDrawerVisible(true);
     }
   };
@@ -312,12 +979,11 @@ function MainApp() {
   // Close Drawer
   const handleCloseDrawer = () => {
     setDrawerVisible(false);
-    setEditingClassId(null);
-    // Reset form states
-    setNewSubject('');
-    setNewName('');
-    setNewRoom('');
-    setNewTeacher('');
+    setEditingItemId(null);
+    setNewCategory('studying');
+    setNewTitle('');
+    setNewWorkoutCategory(null);
+    setNewIntensity('moderate');
     setFormError('');
     setFromTime(() => {
       const d = new Date();
@@ -333,7 +999,7 @@ function MainApp() {
     setShowToPicker(false);
   };
 
-  // Helper to parse time string (e.g. "09:00 AM") into a Date object
+  // Helper to parse time string into a Date object
   const parseTimeStrToDate = (timeStr: string) => {
     const d = new Date();
     try {
@@ -355,15 +1021,15 @@ function MainApp() {
     return d;
   };
 
-  // Edit Class Click Handler
-  const handleEditClass = (cls: ClassItem) => {
-    setEditingClassId(cls.id);
-    setNewName(cls.name);
-    setNewSubject(cls.subject);
-    setNewRoom(cls.room);
-    setNewTeacher(cls.teacher === 'TBA' ? '' : cls.teacher);
+  // Edit Click Handler
+  const handleEditItem = (item: ScheduleItem) => {
+    setEditingItemId(item.id);
+    setNewCategory(item.category);
+    setNewTitle(item.title);
+    setNewWorkoutCategory(item.workoutCategory || null);
+    setNewIntensity(item.intensity || 'moderate');
 
-    const timeParts = cls.time.split(' - ');
+    const timeParts = item.time.split(' - ');
     if (timeParts.length === 2) {
       setFromTime(parseTimeStrToDate(timeParts[0]));
       setToTime(parseTimeStrToDate(timeParts[1]));
@@ -371,33 +1037,161 @@ function MainApp() {
     setDrawerVisible(true);
   };
 
-  // Delete Class Handler (Long Press)
-  const handleLongPressDelete = (cls: ClassItem) => {
+  // Context Menu & Single-Item Reschedule Helper Functions
+  const handleDeleteTarget = (item: ScheduleItem) => {
     Alert.alert(
-      'Delete Schedule',
-      `Are you sure you want to delete ${cls.name} (${cls.subject})?`,
+      'Delete Activity',
+      `Are you sure you want to delete this activity?`,
       [
-        {
-          text: 'Cancel',
-          style: 'cancel',
-        },
+        { text: 'Cancel', style: 'cancel' },
         {
           text: 'Delete',
           style: 'destructive',
           onPress: () => {
-            setClasses(prev => prev.filter(item => item.id !== cls.id));
-          },
-        },
+            setSchedule(prev => prev.filter(x => x.id !== item.id));
+          }
+        }
       ],
       { cancelable: true }
     );
   };
 
-  // Add or Update Class Submission
-  const handleAddOrUpdateClass = () => {
-    if (!newSubject || !newName || !newRoom) {
-      setFormError('Subject, Title, and Room are required');
+  const getConflictItem = () => {
+    if (!rescheduleTargetItem) return null;
+    const targetItem = rescheduleTargetItem;
+    
+    const proposedStart = rescheduleFromTime.getHours() * 60 + rescheduleFromTime.getMinutes();
+    const proposedEnd = rescheduleToTime.getHours() * 60 + rescheduleToTime.getMinutes();
+    
+    for (const item of schedule) {
+      if (item.id === targetItem.id) continue;
+      if (item.day !== rescheduleDay) continue;
+      
+      const timeParts = item.time.split(' - ');
+      if (timeParts.length === 2) {
+        const itemStartVal = parseTimeStrToDate(timeParts[0]);
+        const itemEndVal = parseTimeStrToDate(timeParts[1]);
+        
+        const itemStart = itemStartVal.getHours() * 60 + itemStartVal.getMinutes();
+        const itemEnd = itemEndVal.getHours() * 60 + itemEndVal.getMinutes();
+        
+        if (proposedStart < itemEnd && itemStart < proposedEnd) {
+          return item;
+        }
+      }
+    }
+    return null;
+  };
+
+  const handleApplyReschedule = () => {
+    if (!rescheduleTargetItem) return;
+    if (rescheduleFromTime >= rescheduleToTime) return;
+    if (getConflictItem()) return;
+    
+    const targetItem = rescheduleTargetItem;
+    const timeStr = `${formatTimeStr(rescheduleFromTime)} - ${formatTimeStr(rescheduleToTime)}`;
+    const isSameDay = targetItem.day === rescheduleDay;
+    const isSameTime = targetItem.time === timeStr;
+
+    if (isSameDay && isSameTime) {
+      setSchedule(prev => prev.map(item => {
+        if (item.id === targetItem.id) {
+          return {
+            ...item,
+            day: rescheduleDay,
+            time: timeStr,
+          };
+        }
+        return item;
+      }));
+
+      setRescheduleDrawerVisible(false);
+      setContextMenuTarget(null);
+      setRescheduleTargetItem(null);
       return;
+    }
+
+    pendingRescheduleRef.current = {
+      itemId: targetItem.id,
+      day: rescheduleDay,
+      time: timeStr,
+    };
+    setRescheduleAnimatingItemId(targetItem.id);
+
+    setRescheduleDrawerVisible(false);
+    setContextMenuTarget(null);
+    setRescheduleTargetItem(null);
+  };
+
+  const commitPendingReschedule = () => {
+    const pending = pendingRescheduleRef.current;
+    if (!pending) return;
+
+    setSchedule(prev => prev.map(item => {
+      if (item.id === pending.itemId) {
+        return {
+          ...item,
+          day: pending.day,
+          time: pending.time,
+        };
+      }
+      return item;
+    }));
+
+    pendingRescheduleRef.current = null;
+    setRescheduleAnimatingItemId(null);
+  };
+
+  const animateDrawerLayoutChange = () => {
+    LayoutAnimation.configureNext({
+      duration: 250,
+      create: {
+        type: LayoutAnimation.Types.easeInEaseOut,
+        property: LayoutAnimation.Properties.opacity,
+      },
+      update: {
+        type: LayoutAnimation.Types.easeInEaseOut,
+      },
+      delete: {
+        type: LayoutAnimation.Types.easeInEaseOut,
+        property: LayoutAnimation.Properties.opacity,
+      },
+    });
+  };
+
+  // Reset context menu when selected day changes
+  useEffect(() => {
+    setContextMenuTarget(null);
+  }, [selectedDay]);
+
+  // Add or Update Schedule Submission
+  const handleAddOrUpdateItem = () => {
+    if (!newCategory) {
+      setFormError('Category is required');
+      return;
+    }
+
+    let finalTitle = newTitle.trim();
+    if (newCategory === 'studying') {
+      if (!finalTitle) {
+        setFormError('Subject / Topic is required');
+        return;
+      }
+    } else if (newCategory === 'playing') {
+      if (!finalTitle) {
+        finalTitle = 'Casual Gaming';
+      }
+    } else if (newCategory === 'workout') {
+      if (!newWorkoutCategory) {
+        setFormError('Workout focus is required');
+        return;
+      }
+      finalTitle = `${newWorkoutCategory.charAt(0).toUpperCase() + newWorkoutCategory.slice(1)} Body`;
+    } else if (newCategory === 'other') {
+      if (!finalTitle) {
+        setFormError('Activity title is required');
+        return;
+      }
     }
 
     if (toTime.getHours() < fromTime.getHours() || (toTime.getHours() === fromTime.getHours() && toTime.getMinutes() <= fromTime.getMinutes())) {
@@ -405,32 +1199,33 @@ function MainApp() {
       return;
     }
 
-    if (editingClassId) {
-      setClasses(prev => prev.map(cls => {
-        if (cls.id === editingClassId) {
+    const itemData: Omit<ScheduleItem, 'id'> = {
+      category: newCategory,
+      title: finalTitle,
+      time: `${formatTimeStr(fromTime)} - ${formatTimeStr(toTime)}`,
+      day: selectedDay,
+      ...(newCategory === 'workout' ? {
+        workoutCategory: newWorkoutCategory || 'upper',
+        intensity: newIntensity || 'moderate',
+      } : {}),
+    };
+
+    if (editingItemId) {
+      setSchedule(prev => prev.map(item => {
+        if (item.id === editingItemId) {
           return {
-            ...cls,
-            subject: newSubject.trim().toUpperCase(),
-            name: newName.trim(),
-            time: `${formatTimeStr(fromTime)} - ${formatTimeStr(toTime)}`,
-            room: newRoom.trim(),
-            teacher: newTeacher.trim() || 'TBA',
-            day: selectedDay,
+            ...item,
+            ...itemData,
           };
         }
-        return cls;
+        return item;
       }));
     } else {
-      const newClass: ClassItem = {
+      const newItem: ScheduleItem = {
         id: String(Date.now()),
-        subject: newSubject.trim().toUpperCase(),
-        name: newName.trim(),
-        time: `${formatTimeStr(fromTime)} - ${formatTimeStr(toTime)}`,
-        room: newRoom.trim(),
-        teacher: newTeacher.trim() || 'TBA',
-        day: selectedDay,
+        ...itemData,
       };
-      setClasses(prev => [...prev, newClass]);
+      setSchedule(prev => [...prev, newItem]);
     }
 
     handleCloseDrawer();
@@ -488,44 +1283,44 @@ function MainApp() {
     }
   };
 
-  const getActiveHighlightId = (dayClasses: ClassItem[], weekdayName: string) => {
+  const getActiveHighlightId = (dayItems: ScheduleItem[], weekdayName: string) => {
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const todayName = weekdays[new Date().getDay()];
 
-    if (weekdayName !== todayName || dayClasses.length === 0) {
+    if (weekdayName !== todayName || dayItems.length === 0) {
       return null;
     }
 
     const now = new Date();
     const currentMins = now.getHours() * 60 + now.getMinutes();
 
-    // 1. Find if there is a class currently in session
-    for (const cls of dayClasses) {
+    // 1. Find if there is an item currently in session
+    for (const item of dayItems) {
       try {
-        const [startStr, endStr] = cls.time.split(' - ');
+        const [startStr, endStr] = item.time.split(' - ');
         const startMins = getMinutesFromMidnight(startStr);
         const endMins = getMinutesFromMidnight(endStr);
         if (currentMins >= startMins && currentMins <= endMins) {
-          return cls.id;
+          return item.id;
         }
       } catch (e) {
         // ignore
       }
     }
 
-    // 2. If no class is currently in session, find the NEXT upcoming class
-    let upcomingClass: ClassItem | null = null;
+    // 2. If no item is currently in session, find the NEXT upcoming item
+    let upcomingItem: ScheduleItem | null = null;
     let minDiff = Infinity;
 
-    for (const cls of dayClasses) {
+    for (const item of dayItems) {
       try {
-        const [startStr] = cls.time.split(' - ');
+        const [startStr] = item.time.split(' - ');
         const startMins = getMinutesFromMidnight(startStr);
         if (startMins > currentMins) {
           const diff = startMins - currentMins;
           if (diff < minDiff) {
             minDiff = diff;
-            upcomingClass = cls;
+            upcomingItem = item;
           }
         }
       } catch (e) {
@@ -533,15 +1328,15 @@ function MainApp() {
       }
     }
 
-    if (upcomingClass) {
-      return upcomingClass.id;
+    if (upcomingItem) {
+      return upcomingItem.id;
     }
 
     return null;
   };
 
-  const filteredClasses = classes.filter(cls => cls.day === selectedDay);
-  const highlightedClassId = getActiveHighlightId(filteredClasses, selectedDay);
+  const filteredSchedule = schedule.filter(item => item.day === selectedDay);
+  const highlightedItemId = getActiveHighlightId(filteredSchedule, selectedDay);
 
   // Trigger immediate test notification
   const handleTestNotification = async () => {
@@ -559,6 +1354,9 @@ function MainApp() {
       console.error('Failed to trigger test notification', e);
     }
   };
+
+  const conflictItem = getConflictItem();
+  const hasInvalidRescheduleTime = rescheduleFromTime >= rescheduleToTime;
 
   if (!isAppReady) {
     return null;
@@ -614,7 +1412,7 @@ function MainApp() {
               weight="bold"
               size="xs"
             >
-              SCHEDULE
+              Schedule
             </TuiText>
             <TuiText
               style={[
@@ -696,43 +1494,24 @@ function MainApp() {
       >
 
 
-        {filteredClasses.length > 0 ? (
-          filteredClasses.map((cls, idx) => (
-            <Pressable
-              key={cls.id}
-              onPress={() => handleEditClass(cls)}
-              onLongPress={() => handleLongPressDelete(cls)}
-              style={({ pressed }) => [
-                {
-                  opacity: pressed ? 0.75 : 1,
-                  transform: [{ scale: pressed ? 0.99 : 1 }],
-                }
-              ]}
-            >
-              <TuiContainer
-                label={cls.subject}
-                badge={cls.room}
-                style={styles.classCard}
-                accentBorder={cls.id === highlightedClassId}
-              >
-                <TuiText weight="bold" size="lg" style={{ color: colors.primary }}>
-                  {cls.name}
-                </TuiText>
-                <View style={styles.classMetaRow}>
-                  <TuiText size="sm" weight="bold">
-                    {cls.time}
-                  </TuiText>
-                </View>
-                <TuiText size="xs" variant="muted" style={{ marginTop: 4 }}>
-                  Instructor: {cls.teacher}
-                </TuiText>
-              </TuiContainer>
-            </Pressable>
+        {filteredSchedule.length > 0 ? (
+          filteredSchedule.map((item) => (
+              <ScheduleCard
+                key={item.id}
+                item={item}
+                highlightedItemId={highlightedItemId}
+                exiting={item.id === rescheduleAnimatingItemId}
+                onExitComplete={commitPendingReschedule}
+                onPress={() => handleEditItem(item)}
+                onLongPress={(bounds) => {
+                  setContextMenuTarget({ item, bounds });
+                }}
+              />
           ))
         ) : (
           <View style={[styles.emptyContainer, { borderColor: colors.primary + '30' }]}>
             <TuiText weight="bold" variant="muted" style={styles.emptyText}>
-              [ NO CLASSES SCHEDULED ]
+              [ No activities scheduled ]
             </TuiText>
           </View>
         )}
@@ -746,87 +1525,193 @@ function MainApp() {
       />
       </Animated.View>
 
-      {/* ADD/EDIT CLASS MODAL DRAWER */}
+      {/* ADD/EDIT HABIT SCHEDULE DRAWER */}
       <TuiDrawer
         visible={drawerVisible}
         onClose={handleCloseDrawer}
-        title={editingClassId ? "EDIT CLASS SCHEDULE" : "ADD CLASS SCHEDULE"}
+        title={editingItemId ? "Edit Schedule" : "Add to Schedule"}
         progressAnim={drawerProgressAnim}
       >
-        <TuiInput
-          label="Subject Name"
-          value={newName}
-          onChangeText={setNewName}
-          placeholder="e.g. Introduction to Computer Science"
-        />
+        <View style={styles.wizardStepContainer}>
+          <TuiText weight="bold" size="sm" style={{ color: colors.mutedForeground, marginBottom: 8 }}>
+            Select Category
+          </TuiText>
+          
+          <View style={styles.categoryRow}>
+            {categories.map((cat) => (
+              <CategoryButton
+                key={cat.id}
+                label={cat.label}
+                icon={cat.icon}
+                isActive={newCategory === cat.id}
+                onPress={() => {
+                  if (categoryTransitionLock.current) return;
+                  categoryTransitionLock.current = true;
+                  setTimeout(() => {
+                    categoryTransitionLock.current = false;
+                  }, 300);
 
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
-          <View style={{ flex: 1, marginRight: 8 }}>
-            <TuiInput
-              label="Subject Code"
-              value={newSubject}
-              onChangeText={setNewSubject}
-              placeholder="e.g. CS-101"
-            />
+                  LayoutAnimation.configureNext({
+                    duration: 250,
+                    create: {
+                      type: LayoutAnimation.Types.easeInEaseOut,
+                      property: LayoutAnimation.Properties.opacity,
+                    },
+                    update: {
+                      type: LayoutAnimation.Types.easeInEaseOut,
+                    },
+                    delete: {
+                      type: LayoutAnimation.Types.easeInEaseOut,
+                      property: LayoutAnimation.Properties.opacity,
+                    },
+                  });
+                  setNewCategory(cat.id);
+                  setFormError('');
+                }}
+              />
+            ))}
           </View>
-          <View style={{ flex: 1, marginLeft: 8 }}>
-            <TuiInput
-              label="Room Number"
-              value={newRoom}
-              onChangeText={setNewRoom}
-              placeholder="e.g. Room 402"
-            />
+
+          {newCategory !== null && (
+            <View style={{ marginTop: 12 }}>
+              {/* Time range pickers (From / To) */}
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%', marginBottom: 12 }}>
+                <View style={{ flex: 1, marginRight: 8 }}>
+                  <TuiContainer
+                    label="From"
+                    labelSize="sm"
+                    style={{ height: 56, paddingTop: 0, paddingBottom: 0, justifyContent: 'center' }}
+                  >
+                    <Pressable
+                      onPress={() => {
+                        setShowFromPicker(true);
+                        setShowToPicker(false);
+                      }}
+                      style={styles.timeButtonInner}
+                    >
+                      <TuiText weight="bold" style={{ color: colors.foreground }}>
+                        {formatTimeStr(fromTime)}
+                      </TuiText>
+                    </Pressable>
+                  </TuiContainer>
+                </View>
+
+                <View style={{ flex: 1, marginLeft: 8 }}>
+                  <TuiContainer
+                    label="To"
+                    labelSize="sm"
+                    style={{ height: 56, paddingTop: 0, paddingBottom: 0, justifyContent: 'center' }}
+                  >
+                    <Pressable
+                      onPress={() => {
+                        setShowToPicker(true);
+                        setShowFromPicker(false);
+                      }}
+                      style={styles.timeButtonInner}
+                    >
+                      <TuiText weight="bold" style={{ color: colors.foreground }}>
+                        {formatTimeStr(toTime)}
+                      </TuiText>
+                    </Pressable>
+                  </TuiContainer>
+                </View>
+              </View>
+
+              {/* Category-specific inputs */}
+              {newCategory === 'studying' && (
+                <TuiInput
+                  label="Subject / Topic"
+                  value={newTitle}
+                  onChangeText={setNewTitle}
+                  placeholder="e.g. React Native, Algorithms"
+                />
+              )}
+
+              {newCategory === 'playing' && (
+                <TuiInput
+                  label="Game Title (Optional)"
+                  value={newTitle}
+                  onChangeText={setNewTitle}
+                  placeholder="e.g. Elden Ring, Chess"
+                />
+              )}
+
+              {newCategory === 'workout' && (
+                <>
+                  <TuiContainer label="Workout Focus" labelSize="sm" style={{ marginVertical: 8 }}>
+                    <View style={styles.subCategoryRow}>
+                      {workoutCategories.map((wCat) => {
+                        const isSelected = newWorkoutCategory === wCat.id;
+                        return (
+                          <Pressable
+                            key={wCat.id}
+                            onPress={() => setNewWorkoutCategory(wCat.id)}
+                            style={[
+                              styles.subCategoryBtn,
+                              {
+                                backgroundColor: isSelected ? colors.primary : 'transparent',
+                                borderColor: colors.primary,
+                                flex: 1,
+                                height: 48,
+                              }
+                            ]}
+                          >
+                            <TuiText
+                              weight="bold"
+                              style={{
+                                color: isSelected ? colors.primaryForeground : colors.foreground,
+                                fontSize: 14,
+                                textAlign: 'center',
+                              }}
+                            >
+                              {wCat.label}
+                            </TuiText>
+                          </Pressable>
+                        );
+                      })}
+                    </View>
+                  </TuiContainer>
+
+                  <TuiContainer label="Intensity" labelSize="sm" style={{ marginVertical: 8 }}>
+                    <NeobrutalistSlider
+                      value={newIntensity}
+                      onChange={setNewIntensity}
+                    />
+                  </TuiContainer>
+                </>
+              )}
+
+              {newCategory === 'other' && (
+                <TuiInput
+                  label="Activity Title"
+                  value={newTitle}
+                  onChangeText={setNewTitle}
+                  placeholder="e.g. Meditate, Laundry"
+                />
+              )}
+            </View>
+          )}
+
+          {formError ? (
+            <TuiText size="xs" variant="destructive" style={{ marginVertical: 12, textAlign: 'center' }}>
+              * {formError}
+            </TuiText>
+          ) : null}
+
+          <View style={[styles.drawerActions, { flexDirection: 'row', justifyContent: 'space-between', gap: 12, marginTop: 16 }]}>
+            <TuiButton variant="outline" style={{ flex: 1 }} onPress={handleCloseDrawer}>
+              Cancel
+            </TuiButton>
+            <TuiButton 
+              variant="accent" 
+              style={{ flex: 1 }} 
+              onPress={handleAddOrUpdateItem}
+              disabled={!newCategory}
+            >
+              {editingItemId ? 'Save Changes' : 'Save Schedule'}
+            </TuiButton>
           </View>
         </View>
-
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%', marginVertical: 4 }}>
-          <View style={{ flex: 1, marginRight: 8 }}>
-            <TuiContainer
-              label="From"
-              labelSize="sm"
-              style={{ height: 56, paddingTop: 0, paddingBottom: 0, justifyContent: 'center' }}
-            >
-              <Pressable
-                onPress={() => {
-                  setShowFromPicker(true);
-                  setShowToPicker(false);
-                }}
-                style={styles.timeButtonInner}
-              >
-                <TuiText weight="bold" style={{ color: colors.foreground }}>
-                  {formatTimeStr(fromTime)}
-                </TuiText>
-              </Pressable>
-            </TuiContainer>
-          </View>
-
-          <View style={{ flex: 1, marginLeft: 8 }}>
-            <TuiContainer
-              label="To"
-              labelSize="sm"
-              style={{ height: 56, paddingTop: 0, paddingBottom: 0, justifyContent: 'center' }}
-            >
-              <Pressable
-                onPress={() => {
-                  setShowToPicker(true);
-                  setShowFromPicker(false);
-                }}
-                style={styles.timeButtonInner}
-              >
-                <TuiText weight="bold" style={{ color: colors.foreground }}>
-                  {formatTimeStr(toTime)}
-                </TuiText>
-              </Pressable>
-            </TuiContainer>
-          </View>
-        </View>
-
-        <TuiInput
-          label="Instructor Name"
-          value={newTeacher}
-          onChangeText={setNewTeacher}
-          placeholder="e.g. Danel Oandasan (optional)"
-        />
 
         {/* Android DateTimePickers */}
         {showFromPicker && Platform.OS === 'android' && (
@@ -1005,27 +1890,353 @@ function MainApp() {
             </View>
           </View>
         </Modal>
-
-
-
-        {formError ? (
-          <TuiText size="xs" variant="destructive" style={{ marginBottom: 12, textAlign: 'center' }}>
-            * {formError}
-          </TuiText>
-        ) : null}
-
-        <View style={[styles.drawerActions, { flexDirection: 'row', justifyContent: 'space-between', gap: 12 }]}>
-          <TuiButton variant="outline" style={{ flex: 1 }} onPress={handleCloseDrawer}>
-            Cancel
-          </TuiButton>
-          <TuiButton variant="accent" style={{ flex: 1 }} onPress={handleAddOrUpdateClass}>
-            {editingClassId ? 'Save Changes' : 'Save Schedule'}
-          </TuiButton>
-        </View>
       </TuiDrawer>
 
+      {/* RESCHEDULE DRAWER */}
+      <TuiDrawer
+        visible={rescheduleDrawerVisible}
+        onClose={() => {
+          setRescheduleDrawerVisible(false);
+          setRescheduleTargetItem(null);
+        }}
+        title="Reschedule Selected"
+      >
+        <View style={styles.wizardStepContainer}>
+          {/* Weekday Selector Row */}
+          <View style={[styles.weekdayRow, { marginVertical: 8 }]}>
+            {DAYS_OF_WEEK.map(day => (
+              <DayButton
+                key={day.name}
+                shortLabel={day.short}
+                dateNumber={getDayNumberOfWeekday(day.name)}
+                isActive={rescheduleDay === day.name}
+                onPress={() => {
+                  animateDrawerLayoutChange();
+                  setRescheduleDay(day.name);
+                }}
+              />
+            ))}
+          </View>
 
+          {/* Time range pickers (From / To) */}
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%', marginVertical: 12 }}>
+            <View style={{ flex: 1, marginRight: 8 }}>
+              <TuiContainer
+                label="From"
+                labelSize="sm"
+                style={{ height: 56, paddingTop: 0, paddingBottom: 0, justifyContent: 'center' }}
+              >
+                  <Pressable
+                    onPress={() => {
+                      animateDrawerLayoutChange();
+                      setShowRescheduleFromPicker(true);
+                      setShowRescheduleToPicker(false);
+                    }}
+                  style={styles.timeButtonInner}
+                >
+                  <TuiText weight="bold" style={{ color: colors.foreground }}>
+                    {formatTimeStr(rescheduleFromTime)}
+                  </TuiText>
+                </Pressable>
+              </TuiContainer>
+            </View>
 
+            <View style={{ flex: 1, marginLeft: 8 }}>
+              <TuiContainer
+                label="To"
+                labelSize="sm"
+                style={{ height: 56, paddingTop: 0, paddingBottom: 0, justifyContent: 'center' }}
+              >
+                  <Pressable
+                    onPress={() => {
+                      animateDrawerLayoutChange();
+                      setShowRescheduleToPicker(true);
+                      setShowRescheduleFromPicker(false);
+                    }}
+                  style={styles.timeButtonInner}
+                >
+                  <TuiText weight="bold" style={{ color: colors.foreground }}>
+                    {formatTimeStr(rescheduleToTime)}
+                  </TuiText>
+                </Pressable>
+              </TuiContainer>
+            </View>
+          </View>
+
+          {/* WARNING CONTAINERS */}
+          {hasInvalidRescheduleTime && (
+            <TuiContainer label="Invalid Time" accentBorder={true} style={{ marginVertical: 8 }}>
+              <TuiText weight="bold" style={{ color: colors.destructive, fontSize: 13 }}>
+                End time must be after start time.
+              </TuiText>
+            </TuiContainer>
+          )}
+
+          {conflictItem && (
+            <TuiContainer label="Conflict Warning" accentBorder={true} style={{ marginVertical: 8 }}>
+              <TuiText weight="bold" style={{ color: colors.destructive, fontSize: 14 }}>
+                Target slot overlaps with "{conflictItem.title}" ({conflictItem.time}).
+              </TuiText>
+            </TuiContainer>
+          )}
+
+          {/* Actions */}
+          <View style={[styles.drawerActions, { flexDirection: 'row', justifyContent: 'space-between', gap: 12, marginTop: 16 }]}>
+            <TuiButton
+              variant="outline"
+              style={{ flex: 1 }}
+              onPress={() => {
+                setRescheduleDrawerVisible(false);
+                setRescheduleTargetItem(null);
+              }}
+            >
+              Cancel
+            </TuiButton>
+            <TuiButton
+              variant="accent"
+              style={{ flex: 1 }}
+              onPress={handleApplyReschedule}
+              disabled={hasInvalidRescheduleTime || !!conflictItem}
+            >
+              Apply
+            </TuiButton>
+          </View>
+        </View>
+
+        {/* Android Reschedule DateTimePickers */}
+        {showRescheduleFromPicker && Platform.OS === 'android' && (
+          <DateTimePicker
+            value={rescheduleFromTime}
+            mode="time"
+            is24Hour={false}
+            display="default"
+            onChange={(event, date) => {
+              setShowRescheduleFromPicker(false);
+              if (date) {
+                animateDrawerLayoutChange();
+                setRescheduleFromTime(date);
+              }
+            }}
+          />
+        )}
+
+        {showRescheduleToPicker && Platform.OS === 'android' && (
+          <DateTimePicker
+            value={rescheduleToTime}
+            mode="time"
+            is24Hour={false}
+            display="default"
+            onChange={(event, date) => {
+              setShowRescheduleToPicker(false);
+              if (date) {
+                animateDrawerLayoutChange();
+                setRescheduleToTime(date);
+              }
+            }}
+          />
+        )}
+
+        {/* iOS Floating DateTimePickers for Reschedule */}
+        <Modal
+          visible={showRescheduleFromPicker && Platform.OS === 'ios'}
+          transparent={true}
+          animationType="fade"
+          onRequestClose={() => setShowRescheduleFromPicker(false)}
+        >
+          <View style={[styles.modalOverlay, { backgroundColor: 'rgba(0, 0, 0, 0.6)' }]}>
+            <Pressable
+              style={StyleSheet.absoluteFill}
+              onPress={() => setShowRescheduleFromPicker(false)}
+            />
+            <View style={styles.iosFloatingPickerWrapper}>
+              <View
+                onLayout={(e) => setRescheduleFromCardWidth(e.nativeEvent.layout.width)}
+                style={[
+                  styles.iosFloatingPickerCard,
+                  {
+                    borderColor: colors.primary,
+                    backgroundColor: colors.card,
+                    borderTopWidth: 0,
+                  }
+                ]}
+              >
+                {/* Segmented Top Borders */}
+                <View
+                  style={[
+                    styles.borderTopLeft,
+                    {
+                      backgroundColor: colors.primary,
+                      width: Math.max(0, (rescheduleFromCardWidth - rescheduleFromLegendWidth) / 2)
+                    }
+                  ]}
+                />
+                <View
+                  style={[
+                    styles.borderTopRight,
+                    {
+                      backgroundColor: colors.primary,
+                      left: Math.max(0, (rescheduleFromCardWidth + rescheduleFromLegendWidth) / 2)
+                    }
+                  ]}
+                />
+
+                <View
+                  onLayout={(e) => setRescheduleFromLegendWidth(e.nativeEvent.layout.width)}
+                  style={styles.floatingLegendWrapper}
+                >
+                  <TuiText weight="bold" style={{ color: colors.primary }}>
+                    Start Time
+                  </TuiText>
+                </View>
+
+              <DateTimePicker
+                value={rescheduleFromTime}
+                mode="time"
+                is24Hour={false}
+                display="spinner"
+                textColor={colors.foreground}
+                onChange={(event, date) => {
+                  if (date) {
+                    animateDrawerLayoutChange();
+                    setRescheduleFromTime(date);
+                  }
+                }}
+              />
+
+                <TuiButton
+                  variant="outline"
+                  onPress={() => setShowRescheduleFromPicker(false)}
+                  style={{ marginTop: 12, width: '100%' }}
+                >
+                  Confirm
+                </TuiButton>
+              </View>
+            </View>
+          </View>
+        </Modal>
+
+        <Modal
+          visible={showRescheduleToPicker && Platform.OS === 'ios'}
+          transparent={true}
+          animationType="fade"
+          onRequestClose={() => setShowRescheduleToPicker(false)}
+        >
+          <View style={[styles.modalOverlay, { backgroundColor: 'rgba(0, 0, 0, 0.6)' }]}>
+            <Pressable
+              style={StyleSheet.absoluteFill}
+              onPress={() => setShowRescheduleToPicker(false)}
+            />
+            <View style={styles.iosFloatingPickerWrapper}>
+              <View
+                onLayout={(e) => setRescheduleToCardWidth(e.nativeEvent.layout.width)}
+                style={[
+                  styles.iosFloatingPickerCard,
+                  {
+                    borderColor: colors.primary,
+                    backgroundColor: colors.card,
+                    borderTopWidth: 0,
+                  }
+                ]}
+              >
+                {/* Segmented Top Borders */}
+                <View
+                  style={[
+                    styles.borderTopLeft,
+                    {
+                      backgroundColor: colors.primary,
+                      width: Math.max(0, (rescheduleToCardWidth - rescheduleToLegendWidth) / 2)
+                    }
+                  ]}
+                />
+                <View
+                  style={[
+                    styles.borderTopRight,
+                    {
+                      backgroundColor: colors.primary,
+                      left: Math.max(0, (rescheduleToCardWidth + rescheduleToLegendWidth) / 2)
+                    }
+                  ]}
+                />
+
+                <View
+                  onLayout={(e) => setRescheduleToLegendWidth(e.nativeEvent.layout.width)}
+                  style={styles.floatingLegendWrapper}
+                >
+                  <TuiText weight="bold" style={{ color: colors.primary }}>
+                    End Time
+                  </TuiText>
+                </View>
+
+                <DateTimePicker
+                  value={rescheduleToTime}
+                  mode="time"
+                  is24Hour={false}
+                  display="spinner"
+                  textColor={colors.foreground}
+                  onChange={(event, date) => {
+                    if (date) {
+                      animateDrawerLayoutChange();
+                      setRescheduleToTime(date);
+                    }
+                  }}
+                />
+
+                <TuiButton
+                  variant="outline"
+                  onPress={() => setShowRescheduleToPicker(false)}
+                  style={{ marginTop: 12, width: '100%' }}
+                >
+                  Confirm
+                </TuiButton>
+              </View>
+            </View>
+          </View>
+        </Modal>
+      </TuiDrawer>
+
+      {contextMenuTarget && (
+        <ContextMenuOverlay
+          target={contextMenuTarget}
+          onClose={() => setContextMenuTarget(null)}
+          onReschedule={() => {
+            // Populate reschedule day and times with current target values
+            const item = contextMenuTarget.item;
+            setRescheduleTargetItem(item);
+            setRescheduleDay(item.day);
+            try {
+              const [startStr, endStr] = item.time.split(' - ');
+              // parse start time
+              const [startHStr, startMStr] = startStr.trim().split(' ')[0].split(':');
+              const startAmpm = startStr.trim().split(' ')[1];
+              let startHours = Number(startHStr);
+              if (startAmpm === 'PM' && startHours < 12) startHours += 12;
+              if (startAmpm === 'AM' && startHours === 12) startHours = 0;
+              const fromDate = new Date();
+              fromDate.setHours(startHours, Number(startMStr), 0, 0);
+              setRescheduleFromTime(fromDate);
+
+              // parse end time
+              const [endHStr, endMStr] = endStr.trim().split(' ')[0].split(':');
+              const endAmpm = endStr.trim().split(' ')[1];
+              let endHours = Number(endHStr);
+              if (endAmpm === 'PM' && endHours < 12) endHours += 12;
+              if (endAmpm === 'AM' && endHours === 12) endHours = 0;
+              const toDate = new Date();
+              toDate.setHours(endHours, Number(endMStr), 0, 0);
+              setRescheduleToTime(toDate);
+            } catch (err) {
+              // fallback
+            }
+            setContextMenuTarget(null);
+            setRescheduleDrawerVisible(true);
+          }}
+          onDelete={() => {
+            const item = contextMenuTarget.item;
+            setContextMenuTarget(null);
+            handleDeleteTarget(item);
+          }}
+        />
+      )}
 
     </View>
   );
@@ -1201,5 +2412,49 @@ const styles = StyleSheet.create({
     top: 0,
     height: 1.5,
     zIndex: 5,
+  },
+  categoryRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+    marginVertical: 12,
+  },
+  categorySquareBtn: {
+    flex: 1,
+    height: 58,
+    marginHorizontal: 3,
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative',
+  },
+  borderTop: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: 1.5,
+    zIndex: 5,
+  },
+  subCategoryRow: {
+    flexDirection: 'row',
+    width: '100%',
+    gap: 6,
+    paddingVertical: 4,
+  },
+  subCategoryBtn: {
+    borderWidth: 1.5,
+    paddingVertical: 8,
+    paddingHorizontal: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  cardHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 4,
+  },
+  wizardStepContainer: {
+    width: '100%',
   },
 });

@@ -90,7 +90,7 @@ export const TuiCheckbox: React.FC<TuiCheckboxProps> = ({
           },
         ]}
       >
-        {label.toUpperCase()}
+        {label.charAt(0).toUpperCase() + label.slice(1).toLowerCase()}
       </TuiText>
     </Pressable>
   );

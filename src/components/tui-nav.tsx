@@ -28,7 +28,7 @@ export const TuiTabBar: React.FC<TuiTabBarProps> = ({
   const borderAccent = colors.primary;
   const isPlusActive = currentScreen === 'action';
 
-  const tabAnimAdd = React.useRef(new Animated.Value(startAnimation ? 0 : 1)).current;
+  const [tabAnimAdd] = React.useState(() => new Animated.Value(startAnimation ? 0 : 1));
 
   React.useEffect(() => {
     if (!startAnimation) return;
@@ -38,7 +38,7 @@ export const TuiTabBar: React.FC<TuiTabBarProps> = ({
       tension: 100,
       useNativeDriver: true,
     }).start();
-  }, [startAnimation]);
+  }, [startAnimation, tabAnimAdd]);
 
   const topSegmentWidth = Math.max(0, (buttonWidth - legendWidth) / 2);
 

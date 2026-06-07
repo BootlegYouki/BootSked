@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/refs, react-hooks/set-state-in-effect */
 import React from 'react';
 import { View, StyleSheet, ViewStyle, Animated, Easing } from 'react-native';
 import { useTheme } from '../theme/theme-provider';
@@ -167,7 +168,7 @@ export const TuiSegmentedMeter: React.FC<TuiSegmentedMeterProps> = ({
 
   React.useEffect(() => {
     const listenerId = activeCountAnim.addListener(({ value }) => {
-      let progress = 0;
+      let progress: number;
       if (animationDirection === 'deplete') {
         const denominator = totalBlocks - unspentBlocksCount;
         progress = denominator > 0 ? (totalBlocks - value) / denominator : 1;
@@ -293,7 +294,7 @@ interface TuiBarChartProps {
 }
 
 export const TuiBarChart: React.FC<TuiBarChartProps> = ({ data, style }) => {
-  const { colors, isDark } = useTheme();
+  const { isDark } = useTheme();
 
   return (
     <View style={[styles.chartContainer, style]}>

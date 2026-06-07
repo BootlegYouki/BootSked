@@ -1,16 +1,35 @@
-import React, { useEffect, useRef } from 'react';
-import { View, StyleSheet, ScrollView, Animated, useWindowDimensions } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, StyleSheet, ScrollView, Animated, useWindowDimensions, StyleProp, TextStyle } from 'react-native';
 import { useSafeAreaInsets, SafeAreaView } from 'react-native-safe-area-context';
 import { Wallet, TrendingUp, FileText, Landmark, Plus, LayoutGrid } from 'lucide-react-native';
 import { useTheme } from '../theme/theme-provider';
 import { TuiContainer } from './tui-container';
 import { TuiText } from './tui-text';
 
+const SkeletonOpacityContext = React.createContext<Animated.AnimatedInterpolation<string | number> | null>(null);
+
+const PulseText: React.FC<{
+  children: React.ReactNode;
+  style?: StyleProp<TextStyle>;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
+  weight?: 'regular' | 'bold';
+  variant?: 'default' | 'muted';
+}> = ({ children, style, size = 'xs', weight = 'bold', variant = 'muted' }) => {
+  const opacity = React.useContext(SkeletonOpacityContext);
+  return (
+    <Animated.View style={opacity ? { opacity } : undefined}>
+      <TuiText size={size} weight={weight} variant={variant} style={style}>
+        {children}
+      </TuiText>
+    </Animated.View>
+  );
+};
+
 export const TuiSkeletonLoader: React.FC = () => {
   const { colors, isDark } = useTheme();
   const insets = useSafeAreaInsets();
   const { width: screenWidth } = useWindowDimensions();
-  const pulseAnim = useRef(new Animated.Value(0)).current;
+  const [pulseAnim] = React.useState(() => new Animated.Value(0));
 
   useEffect(() => {
     // Continuous breathing pulse loop for the skeleton blocks
@@ -38,23 +57,6 @@ export const TuiSkeletonLoader: React.FC = () => {
   const borderAccent = isDark ? colors.primary : '#000000';
   const skeletonMutedBorder = isDark ? '#27272A' : '#E4E4E7';
 
-  // Helper component to render pulsing skeleton text/bars
-  const PulseText: React.FC<{
-    children: React.ReactNode;
-    style?: any;
-    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
-    weight?: 'regular' | 'bold';
-    variant?: 'default' | 'muted' | 'accent';
-  }> = ({ children, style, size = 'xs', weight = 'bold', variant = 'muted' }) => {
-    return (
-      <Animated.View style={{ opacity }}>
-        <TuiText size={size} weight={weight} variant={variant} style={style}>
-          {children}
-        </TuiText>
-      </Animated.View>
-    );
-  };
-
   // Static items matching the 4 tabs of TuiTabBar, with all text blocked
   const menuItems = [
     { label: '████', Icon: LayoutGrid },
@@ -64,13 +66,14 @@ export const TuiSkeletonLoader: React.FC = () => {
   ];
 
   return (
-    <SafeAreaView style={[styles.safeArea, { backgroundColor: colors.background }]}>
+    <SkeletonOpacityContext.Provider value={opacity}>
+      <SafeAreaView style={[styles.safeArea, { backgroundColor: colors.background }]}>
       
       {/* 01: FIXED HEADER STATUS BAR */}
       <View style={[styles.statusBarHeader, { borderColor: borderAccent, backgroundColor: colors.card }]}>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <Wallet size={18} color={colors.mutedForeground} style={{ marginRight: 6 }} />
-          <PulseText size="md" weight="bold" variant="accent">
+          <PulseText size="md" weight="bold" variant="default">
             ████████
           </PulseText>
           <PulseText size="md" weight="bold" variant="muted" style={{ marginLeft: 8 }}>
@@ -277,7 +280,8 @@ export const TuiSkeletonLoader: React.FC = () => {
         </View>
       </View>
 
-    </SafeAreaView>
+      </SafeAreaView>
+    </SkeletonOpacityContext.Provider>
   );
 };
 

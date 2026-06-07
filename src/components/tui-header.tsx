@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, StyleSheet, ViewStyle } from 'react-native';
+import { View, StyleSheet, ViewStyle, StyleProp } from 'react-native';
 import { useTheme } from '../theme/theme-provider';
 import { TuiText } from './tui-text';
 
 interface TuiHeaderProps {
   title: string;
   subtitle?: string;
-  Icon?: React.ComponentType<any>;
+  Icon?: React.ComponentType<{ size?: number; color?: string; style?: StyleProp<ViewStyle> }>;
   rightElement?: React.ReactNode;
   style?: ViewStyle;
 }
@@ -18,7 +18,7 @@ export const TuiHeader: React.FC<TuiHeaderProps> = ({
   rightElement,
   style,
 }) => {
-  const { colors, isDark } = useTheme();
+  const { colors } = useTheme();
   const borderAccent = colors.primary;
 
   return (

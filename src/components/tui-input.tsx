@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { TextInput, View, StyleSheet, TextInputProps, ViewStyle, Keyboard, Pressable } from 'react-native';
+import { TextInput, View, StyleSheet, TextInputProps, ViewStyle, Keyboard, Pressable, NativeSyntheticEvent, TargetedEvent } from 'react-native';
 import { X } from 'lucide-react-native';
 import { useTheme } from '../theme/theme-provider';
 import { TuiText } from './tui-text';
@@ -27,12 +27,12 @@ export const TuiInput: React.FC<TuiInputProps> = ({
   const [isSecure, setIsSecure] = useState(props.secureTextEntry);
   const inputRef = useRef<TextInput>(null);
 
-  const handleFocus = (e: any) => {
+  const handleFocus = (e: NativeSyntheticEvent<TargetedEvent>) => {
     setIsFocused(true);
     if (onFocus) onFocus(e);
   };
 
-  const handleBlur = (e: any) => {
+  const handleBlur = (e: NativeSyntheticEvent<TargetedEvent>) => {
     setIsFocused(false);
     if (onBlur) onBlur(e);
   };

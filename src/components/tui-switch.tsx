@@ -17,7 +17,7 @@ export const TuiSwitch: React.FC<TuiSwitchProps> = ({
   disabled = false,
 }) => {
   const { colors, isDark } = useTheme();
-  const animatedValue = React.useRef(new Animated.Value(value ? 1 : 0)).current;
+  const [animatedValue] = React.useState(() => new Animated.Value(value ? 1 : 0));
 
   React.useEffect(() => {
     Animated.spring(animatedValue, {
@@ -26,7 +26,7 @@ export const TuiSwitch: React.FC<TuiSwitchProps> = ({
       tension: 100,
       useNativeDriver: true,
     }).start();
-  }, [value]);
+  }, [value, animatedValue]);
 
   const handleToggle = () => {
     if (!disabled) {
@@ -102,7 +102,7 @@ export const TuiSwitch: React.FC<TuiSwitchProps> = ({
             },
           ]}
         >
-          {value ? 'ON' : 'OFF'}
+          {value ? 'On' : 'Off'}
         </TuiText>
       </View>
     </Pressable>

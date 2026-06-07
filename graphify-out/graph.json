@@ -9,7 +9,7 @@
       "source_file": "app.json",
       "source_location": "L1",
       "id": "app_json",
-      "community": 2,
+      "community": 5,
       "norm_label": "app.json"
     },
     {
@@ -17,8 +17,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L2",
-      "id": "classscheduler_app_expo",
-      "community": 2,
+      "id": "bootsked_app_expo",
+      "community": 5,
       "norm_label": "expo"
     },
     {
@@ -26,8 +26,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L3",
-      "id": "classscheduler_app_expo_name",
-      "community": 2,
+      "id": "bootsked_app_expo_name",
+      "community": 5,
       "norm_label": "name"
     },
     {
@@ -35,8 +35,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L4",
-      "id": "classscheduler_app_expo_slug",
-      "community": 2,
+      "id": "bootsked_app_expo_slug",
+      "community": 5,
       "norm_label": "slug"
     },
     {
@@ -44,8 +44,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L5",
-      "id": "classscheduler_app_expo_version",
-      "community": 2,
+      "id": "bootsked_app_expo_version",
+      "community": 5,
       "norm_label": "version"
     },
     {
@@ -53,8 +53,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L6",
-      "id": "classscheduler_app_expo_orientation",
-      "community": 2,
+      "id": "bootsked_app_expo_orientation",
+      "community": 5,
       "norm_label": "orientation"
     },
     {
@@ -62,8 +62,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L7",
-      "id": "classscheduler_app_expo_icon",
-      "community": 2,
+      "id": "bootsked_app_expo_icon",
+      "community": 5,
       "norm_label": "icon"
     },
     {
@@ -71,8 +71,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L8",
-      "id": "classscheduler_app_expo_userinterfacestyle",
-      "community": 2,
+      "id": "bootsked_app_expo_userinterfacestyle",
+      "community": 5,
       "norm_label": "userinterfacestyle"
     },
     {
@@ -80,8 +80,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L9",
-      "id": "classscheduler_app_expo_splash",
-      "community": 2,
+      "id": "bootsked_app_expo_splash",
+      "community": 5,
       "norm_label": "splash"
     },
     {
@@ -89,8 +89,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L10",
-      "id": "classscheduler_app_splash_image",
-      "community": 2,
+      "id": "bootsked_app_splash_image",
+      "community": 5,
       "norm_label": "image"
     },
     {
@@ -98,8 +98,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L11",
-      "id": "classscheduler_app_splash_resizemode",
-      "community": 2,
+      "id": "bootsked_app_splash_resizemode",
+      "community": 5,
       "norm_label": "resizemode"
     },
     {
@@ -107,8 +107,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L12",
-      "id": "classscheduler_app_splash_backgroundcolor",
-      "community": 2,
+      "id": "bootsked_app_splash_backgroundcolor",
+      "community": 5,
       "norm_label": "backgroundcolor"
     },
     {
@@ -116,8 +116,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L14",
-      "id": "classscheduler_app_expo_ios",
-      "community": 2,
+      "id": "bootsked_app_expo_ios",
+      "community": 5,
       "norm_label": "ios"
     },
     {
@@ -125,8 +125,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L15",
-      "id": "classscheduler_app_ios_supportstablet",
-      "community": 2,
+      "id": "bootsked_app_ios_supportstablet",
+      "community": 5,
       "norm_label": "supportstablet"
     },
     {
@@ -134,8 +134,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L16",
-      "id": "classscheduler_app_ios_bundleidentifier",
-      "community": 2,
+      "id": "bootsked_app_ios_bundleidentifier",
+      "community": 5,
       "norm_label": "bundleidentifier"
     },
     {
@@ -143,8 +143,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L17",
-      "id": "classscheduler_app_ios_icon",
-      "community": 2,
+      "id": "bootsked_app_ios_icon",
+      "community": 5,
       "norm_label": "icon"
     },
     {
@@ -152,8 +152,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L18",
-      "id": "classscheduler_app_icon_light",
-      "community": 2,
+      "id": "bootsked_app_icon_light",
+      "community": 5,
       "norm_label": "light"
     },
     {
@@ -161,8 +161,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L19",
-      "id": "classscheduler_app_icon_dark",
-      "community": 2,
+      "id": "bootsked_app_icon_dark",
+      "community": 5,
       "norm_label": "dark"
     },
     {
@@ -170,8 +170,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L20",
-      "id": "classscheduler_app_icon_tinted",
-      "community": 2,
+      "id": "bootsked_app_icon_tinted",
+      "community": 5,
       "norm_label": "tinted"
     },
     {
@@ -179,8 +179,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L23",
-      "id": "classscheduler_app_expo_android",
-      "community": 18,
+      "id": "bootsked_app_expo_android",
+      "community": 5,
       "norm_label": "android"
     },
     {
@@ -188,8 +188,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L24",
-      "id": "classscheduler_app_android_adaptiveicon",
-      "community": 18,
+      "id": "bootsked_app_android_adaptiveicon",
+      "community": 5,
       "norm_label": "adaptiveicon"
     },
     {
@@ -197,8 +197,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L25",
-      "id": "classscheduler_app_adaptiveicon_backgroundcolor",
-      "community": 18,
+      "id": "bootsked_app_adaptiveicon_backgroundcolor",
+      "community": 5,
       "norm_label": "backgroundcolor"
     },
     {
@@ -206,8 +206,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L26",
-      "id": "classscheduler_app_adaptiveicon_foregroundimage",
-      "community": 18,
+      "id": "bootsked_app_adaptiveicon_foregroundimage",
+      "community": 5,
       "norm_label": "foregroundimage"
     },
     {
@@ -215,8 +215,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L27",
-      "id": "classscheduler_app_adaptiveicon_monochromeimage",
-      "community": 18,
+      "id": "bootsked_app_adaptiveicon_monochromeimage",
+      "community": 5,
       "norm_label": "monochromeimage"
     },
     {
@@ -224,8 +224,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L29",
-      "id": "classscheduler_app_android_predictivebackgestureenabled",
-      "community": 18,
+      "id": "bootsked_app_android_predictivebackgestureenabled",
+      "community": 5,
       "norm_label": "predictivebackgestureenabled"
     },
     {
@@ -233,8 +233,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L30",
-      "id": "classscheduler_app_android_versioncode",
-      "community": 18,
+      "id": "bootsked_app_android_versioncode",
+      "community": 5,
       "norm_label": "versioncode"
     },
     {
@@ -242,8 +242,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L31",
-      "id": "classscheduler_app_android_package",
-      "community": 18,
+      "id": "bootsked_app_android_package",
+      "community": 5,
       "norm_label": "package"
     },
     {
@@ -251,8 +251,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L32",
-      "id": "classscheduler_app_android_permissions",
-      "community": 18,
+      "id": "bootsked_app_android_permissions",
+      "community": 5,
       "norm_label": "permissions"
     },
     {
@@ -260,8 +260,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L40",
-      "id": "classscheduler_app_expo_web",
-      "community": 2,
+      "id": "bootsked_app_expo_web",
+      "community": 5,
       "norm_label": "web"
     },
     {
@@ -269,8 +269,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L41",
-      "id": "classscheduler_app_web_favicon",
-      "community": 2,
+      "id": "bootsked_app_web_favicon",
+      "community": 5,
       "norm_label": "favicon"
     },
     {
@@ -278,8 +278,8 @@
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L43",
-      "id": "classscheduler_app_expo_plugins",
-      "community": 2,
+      "id": "bootsked_app_expo_plugins",
+      "community": 5,
       "norm_label": "plugins"
     },
     {
@@ -292,20 +292,11 @@
       "norm_label": "app.tsx"
     },
     {
-      "label": "ClassItem",
-      "file_type": "code",
-      "source_file": "App.tsx",
-      "source_location": "L38",
-      "id": "classscheduler_app_classitem",
-      "community": 1,
-      "norm_label": "classitem"
-    },
-    {
       "label": "DAYS_OF_WEEK",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L51",
-      "id": "classscheduler_app_days_of_week",
+      "source_location": "L48",
+      "id": "bootsked_app_days_of_week",
       "community": 1,
       "norm_label": "days_of_week"
     },
@@ -313,8 +304,8 @@
       "label": "getHeaderBgColor()",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L61",
-      "id": "classscheduler_app_getheaderbgcolor",
+      "source_location": "L58",
+      "id": "bootsked_app_getheaderbgcolor",
       "community": 1,
       "norm_label": "getheaderbgcolor()"
     },
@@ -322,8 +313,8 @@
       "label": "getHeaderBgColorLight()",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L73",
-      "id": "classscheduler_app_getheaderbgcolorlight",
+      "source_location": "L70",
+      "id": "bootsked_app_getheaderbgcolorlight",
       "community": 1,
       "norm_label": "getheaderbgcolorlight()"
     },
@@ -331,8 +322,8 @@
       "label": "getHeaderLabelColor()",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L85",
-      "id": "classscheduler_app_getheaderlabelcolor",
+      "source_location": "L82",
+      "id": "bootsked_app_getheaderlabelcolor",
       "community": 1,
       "norm_label": "getheaderlabelcolor()"
     },
@@ -340,8 +331,8 @@
       "label": "DayButtonProps",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L97",
-      "id": "classscheduler_app_daybuttonprops",
+      "source_location": "L94",
+      "id": "bootsked_app_daybuttonprops",
       "community": 1,
       "norm_label": "daybuttonprops"
     },
@@ -349,17 +340,89 @@
       "label": "DayButton()",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L104",
-      "id": "classscheduler_app_daybutton",
+      "source_location": "L101",
+      "id": "bootsked_app_daybutton",
       "community": 0,
       "norm_label": "daybutton()"
+    },
+    {
+      "label": "CategoryButtonProps",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L162",
+      "id": "bootsked_app_categorybuttonprops",
+      "community": 1,
+      "norm_label": "categorybuttonprops"
+    },
+    {
+      "label": "CategoryButton()",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L169",
+      "id": "bootsked_app_categorybutton",
+      "community": 0,
+      "norm_label": "categorybutton()"
+    },
+    {
+      "label": "NeobrutalistSliderProps",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L227",
+      "id": "bootsked_app_neobrutalistsliderprops",
+      "community": 1,
+      "norm_label": "neobrutalistsliderprops"
+    },
+    {
+      "label": "NeobrutalistSlider()",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L232",
+      "id": "bootsked_app_neobrutalistslider",
+      "community": 0,
+      "norm_label": "neobrutalistslider()"
+    },
+    {
+      "label": "ScheduleCardProps",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L373",
+      "id": "bootsked_app_schedulecardprops",
+      "community": 1,
+      "norm_label": "schedulecardprops"
+    },
+    {
+      "label": "ScheduleCard()",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L380",
+      "id": "bootsked_app_schedulecard",
+      "community": 0,
+      "norm_label": "schedulecard()"
+    },
+    {
+      "label": "ContextMenuOverlayProps",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L468",
+      "id": "bootsked_app_contextmenuoverlayprops",
+      "community": 1,
+      "norm_label": "contextmenuoverlayprops"
+    },
+    {
+      "label": "ContextMenuOverlay()",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L478",
+      "id": "bootsked_app_contextmenuoverlay",
+      "community": 0,
+      "norm_label": "contextmenuoverlay()"
     },
     {
       "label": "MainApp()",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L165",
-      "id": "classscheduler_app_mainapp",
+      "source_location": "L702",
+      "id": "bootsked_app_mainapp",
       "community": 1,
       "norm_label": "mainapp()"
     },
@@ -367,8 +430,8 @@
       "label": "App()",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L1003",
-      "id": "classscheduler_app_app",
+      "source_location": "L2116",
+      "id": "bootsked_app_app",
       "community": 1,
       "norm_label": "app()"
     },
@@ -376,8 +439,8 @@
       "label": "styles",
       "file_type": "code",
       "source_file": "App.tsx",
-      "source_location": "L1022",
-      "id": "classscheduler_app_styles",
+      "source_location": "L2135",
+      "id": "bootsked_app_styles",
       "community": 1,
       "norm_label": "styles"
     },
@@ -413,7 +476,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L2",
-      "id": "classscheduler_package_name",
+      "id": "bootsked_package_name",
       "community": 4,
       "norm_label": "name"
     },
@@ -422,7 +485,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L3",
-      "id": "classscheduler_package_author",
+      "id": "bootsked_package_author",
       "community": 4,
       "norm_label": "author"
     },
@@ -431,7 +494,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L4",
-      "id": "classscheduler_package_private",
+      "id": "bootsked_package_private",
       "community": 4,
       "norm_label": "private"
     },
@@ -440,7 +503,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L5",
-      "id": "classscheduler_package_version",
+      "id": "bootsked_package_version",
       "community": 4,
       "norm_label": "version"
     },
@@ -449,7 +512,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L6",
-      "id": "classscheduler_package_main",
+      "id": "bootsked_package_main",
       "community": 4,
       "norm_label": "main"
     },
@@ -458,7 +521,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L7",
-      "id": "classscheduler_package_scripts",
+      "id": "bootsked_package_scripts",
       "community": 4,
       "norm_label": "scripts"
     },
@@ -467,7 +530,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L8",
-      "id": "classscheduler_package_scripts_start",
+      "id": "bootsked_package_scripts_start",
       "community": 4,
       "norm_label": "start"
     },
@@ -476,7 +539,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L9",
-      "id": "classscheduler_package_scripts_android",
+      "id": "bootsked_package_scripts_android",
       "community": 4,
       "norm_label": "android"
     },
@@ -485,7 +548,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L10",
-      "id": "classscheduler_package_scripts_ios",
+      "id": "bootsked_package_scripts_ios",
       "community": 4,
       "norm_label": "ios"
     },
@@ -494,7 +557,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L11",
-      "id": "classscheduler_package_scripts_web",
+      "id": "bootsked_package_scripts_web",
       "community": 4,
       "norm_label": "web"
     },
@@ -503,7 +566,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L12",
-      "id": "classscheduler_package_scripts_lint",
+      "id": "bootsked_package_scripts_lint",
       "community": 4,
       "norm_label": "lint"
     },
@@ -512,7 +575,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L13",
-      "id": "classscheduler_package_scripts_format",
+      "id": "bootsked_package_scripts_format",
       "community": 4,
       "norm_label": "format"
     },
@@ -521,7 +584,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L14",
-      "id": "classscheduler_package_scripts_typecheck",
+      "id": "bootsked_package_scripts_typecheck",
       "community": 4,
       "norm_label": "typecheck"
     },
@@ -530,7 +593,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L15",
-      "id": "classscheduler_package_scripts_rename",
+      "id": "bootsked_package_scripts_rename",
       "community": 4,
       "norm_label": "rename"
     },
@@ -539,7 +602,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L17",
-      "id": "classscheduler_package_dependencies",
+      "id": "bootsked_package_dependencies",
       "community": 3,
       "norm_label": "dependencies"
     },
@@ -548,7 +611,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L18",
-      "id": "classscheduler_package_dependencies_expo_google_fonts_jetbrains_mono",
+      "id": "bootsked_package_dependencies_expo_google_fonts_jetbrains_mono",
       "community": 3,
       "norm_label": "@expo-google-fonts/jetbrains-mono"
     },
@@ -557,7 +620,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L19",
-      "id": "classscheduler_package_dependencies_react_native_async_storage_async_storage",
+      "id": "bootsked_package_dependencies_react_native_async_storage_async_storage",
       "community": 3,
       "norm_label": "@react-native-async-storage/async-storage"
     },
@@ -566,7 +629,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L20",
-      "id": "classscheduler_package_dependencies_react_native_community_datetimepicker",
+      "id": "bootsked_package_dependencies_react_native_community_datetimepicker",
       "community": 3,
       "norm_label": "@react-native-community/datetimepicker"
     },
@@ -575,7 +638,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L21",
-      "id": "classscheduler_package_dependencies_expo",
+      "id": "bootsked_package_dependencies_expo",
       "community": 3,
       "norm_label": "expo"
     },
@@ -584,7 +647,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L22",
-      "id": "classscheduler_package_dependencies_expo_document_picker",
+      "id": "bootsked_package_dependencies_expo_document_picker",
       "community": 3,
       "norm_label": "expo-document-picker"
     },
@@ -593,7 +656,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L23",
-      "id": "classscheduler_package_dependencies_expo_file_system",
+      "id": "bootsked_package_dependencies_expo_file_system",
       "community": 3,
       "norm_label": "expo-file-system"
     },
@@ -602,7 +665,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L24",
-      "id": "classscheduler_package_dependencies_expo_font",
+      "id": "bootsked_package_dependencies_expo_font",
       "community": 3,
       "norm_label": "expo-font"
     },
@@ -611,7 +674,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L25",
-      "id": "classscheduler_package_dependencies_expo_notifications",
+      "id": "bootsked_package_dependencies_expo_notifications",
       "community": 3,
       "norm_label": "expo-notifications"
     },
@@ -620,7 +683,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L26",
-      "id": "classscheduler_package_dependencies_expo_sharing",
+      "id": "bootsked_package_dependencies_expo_sharing",
       "community": 3,
       "norm_label": "expo-sharing"
     },
@@ -629,7 +692,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L27",
-      "id": "classscheduler_package_dependencies_expo_splash_screen",
+      "id": "bootsked_package_dependencies_expo_splash_screen",
       "community": 3,
       "norm_label": "expo-splash-screen"
     },
@@ -638,7 +701,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L28",
-      "id": "classscheduler_package_dependencies_expo_status_bar",
+      "id": "bootsked_package_dependencies_expo_status_bar",
       "community": 3,
       "norm_label": "expo-status-bar"
     },
@@ -647,7 +710,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L29",
-      "id": "classscheduler_package_dependencies_expo_system_ui",
+      "id": "bootsked_package_dependencies_expo_system_ui",
       "community": 3,
       "norm_label": "expo-system-ui"
     },
@@ -656,7 +719,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L30",
-      "id": "classscheduler_package_dependencies_lucide_react_native",
+      "id": "bootsked_package_dependencies_lucide_react_native",
       "community": 3,
       "norm_label": "lucide-react-native"
     },
@@ -665,7 +728,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L31",
-      "id": "classscheduler_package_dependencies_react",
+      "id": "bootsked_package_dependencies_react",
       "community": 3,
       "norm_label": "react"
     },
@@ -674,7 +737,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L32",
-      "id": "classscheduler_package_dependencies_react_dom",
+      "id": "bootsked_package_dependencies_react_dom",
       "community": 3,
       "norm_label": "react-dom"
     },
@@ -683,7 +746,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L33",
-      "id": "classscheduler_package_dependencies_react_native",
+      "id": "bootsked_package_dependencies_react_native",
       "community": 3,
       "norm_label": "react-native"
     },
@@ -692,7 +755,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L34",
-      "id": "classscheduler_package_dependencies_react_native_safe_area_context",
+      "id": "bootsked_package_dependencies_react_native_safe_area_context",
       "community": 3,
       "norm_label": "react-native-safe-area-context"
     },
@@ -701,7 +764,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L35",
-      "id": "classscheduler_package_dependencies_react_native_svg",
+      "id": "bootsked_package_dependencies_react_native_svg",
       "community": 3,
       "norm_label": "react-native-svg"
     },
@@ -710,7 +773,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L36",
-      "id": "classscheduler_package_dependencies_react_native_web",
+      "id": "bootsked_package_dependencies_react_native_web",
       "community": 3,
       "norm_label": "react-native-web"
     },
@@ -719,7 +782,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L38",
-      "id": "classscheduler_package_devdependencies",
+      "id": "bootsked_package_devdependencies",
       "community": 4,
       "norm_label": "devdependencies"
     },
@@ -728,7 +791,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L39",
-      "id": "classscheduler_package_devdependencies_eslint_js",
+      "id": "bootsked_package_devdependencies_eslint_js",
       "community": 4,
       "norm_label": "@eslint/js"
     },
@@ -737,7 +800,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L40",
-      "id": "classscheduler_package_devdependencies_types_node",
+      "id": "bootsked_package_devdependencies_types_node",
       "community": 4,
       "norm_label": "@types/node"
     },
@@ -746,7 +809,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L41",
-      "id": "classscheduler_package_devdependencies_types_react",
+      "id": "bootsked_package_devdependencies_types_react",
       "community": 4,
       "norm_label": "@types/react"
     },
@@ -755,7 +818,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L42",
-      "id": "classscheduler_package_devdependencies_eslint",
+      "id": "bootsked_package_devdependencies_eslint",
       "community": 4,
       "norm_label": "eslint"
     },
@@ -764,7 +827,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L43",
-      "id": "classscheduler_package_devdependencies_eslint_plugin_react_hooks",
+      "id": "bootsked_package_devdependencies_eslint_plugin_react_hooks",
       "community": 4,
       "norm_label": "eslint-plugin-react-hooks"
     },
@@ -773,7 +836,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L44",
-      "id": "classscheduler_package_devdependencies_eslint_plugin_react_refresh",
+      "id": "bootsked_package_devdependencies_eslint_plugin_react_refresh",
       "community": 4,
       "norm_label": "eslint-plugin-react-refresh"
     },
@@ -782,7 +845,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L45",
-      "id": "classscheduler_package_devdependencies_globals",
+      "id": "bootsked_package_devdependencies_globals",
       "community": 4,
       "norm_label": "globals"
     },
@@ -791,7 +854,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L46",
-      "id": "classscheduler_package_devdependencies_prettier",
+      "id": "bootsked_package_devdependencies_prettier",
       "community": 4,
       "norm_label": "prettier"
     },
@@ -800,9 +863,18 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L47",
-      "id": "classscheduler_package_devdependencies_typescript",
+      "id": "bootsked_package_devdependencies_typescript",
       "community": 4,
       "norm_label": "typescript"
+    },
+    {
+      "label": "typescript-eslint",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L48",
+      "id": "bootsked_package_devdependencies_typescript_eslint",
+      "community": 4,
+      "norm_label": "typescript-eslint"
     },
     {
       "label": "sidestore.json",
@@ -818,7 +890,7 @@
       "file_type": "code",
       "source_file": "sidestore.json",
       "source_location": "L2",
-      "id": "classscheduler_sidestore_name",
+      "id": "bootsked_sidestore_name",
       "community": 17,
       "norm_label": "name"
     },
@@ -827,7 +899,7 @@
       "file_type": "code",
       "source_file": "sidestore.json",
       "source_location": "L3",
-      "id": "classscheduler_sidestore_identifier",
+      "id": "bootsked_sidestore_identifier",
       "community": 17,
       "norm_label": "identifier"
     },
@@ -836,23 +908,23 @@
       "file_type": "code",
       "source_file": "sidestore.json",
       "source_location": "L4",
-      "id": "classscheduler_sidestore_apps",
+      "id": "bootsked_sidestore_apps",
       "community": 17,
       "norm_label": "apps"
     },
     {
       "label": "tsconfig.json",
       "file_type": "code",
-      "source_file": "tsconfig.json",
+      "source_file": "E:/Github/ClassScheduler/tsconfig.json",
       "source_location": "L1",
-      "id": "tsconfig_json",
+      "id": "e_github_classscheduler_tsconfig_json",
       "community": 10,
       "norm_label": "tsconfig.json"
     },
     {
       "label": "extends",
       "file_type": "code",
-      "source_file": "tsconfig.json",
+      "source_file": "E:/Github/ClassScheduler/tsconfig.json",
       "source_location": "L2",
       "id": "classscheduler_tsconfig_extends",
       "community": 10,
@@ -861,7 +933,7 @@
     {
       "label": "compilerOptions",
       "file_type": "code",
-      "source_file": "tsconfig.json",
+      "source_file": "E:/Github/ClassScheduler/tsconfig.json",
       "source_location": "L3",
       "id": "classscheduler_tsconfig_compileroptions",
       "community": 10,
@@ -870,7 +942,7 @@
     {
       "label": "strict",
       "file_type": "code",
-      "source_file": "tsconfig.json",
+      "source_file": "E:/Github/ClassScheduler/tsconfig.json",
       "source_location": "L4",
       "id": "classscheduler_tsconfig_compileroptions_strict",
       "community": 10,
@@ -879,7 +951,7 @@
     {
       "label": "exclude",
       "file_type": "code",
-      "source_file": "tsconfig.json",
+      "source_file": "E:/Github/ClassScheduler/tsconfig.json",
       "source_location": "L6",
       "id": "classscheduler_tsconfig_exclude",
       "community": 10,
@@ -1035,7 +1107,7 @@
       "source_file": "src/components/tui-calendar.tsx",
       "source_location": "L1",
       "id": "src_components_tui_calendar_tsx",
-      "community": 5,
+      "community": 20,
       "norm_label": "tui-calendar.tsx"
     },
     {
@@ -1044,7 +1116,7 @@
       "source_file": "src/components/tui-calendar.tsx",
       "source_location": "L7",
       "id": "components_tui_calendar_tuicalendarprops",
-      "community": 5,
+      "community": 20,
       "norm_label": "tuicalendarprops"
     },
     {
@@ -1053,7 +1125,7 @@
       "source_file": "src/components/tui-calendar.tsx",
       "source_location": "L13",
       "id": "components_tui_calendar_months",
-      "community": 5,
+      "community": 20,
       "norm_label": "months"
     },
     {
@@ -1062,7 +1134,7 @@
       "source_file": "src/components/tui-calendar.tsx",
       "source_location": "L19",
       "id": "components_tui_calendar_weekdays",
-      "community": 5,
+      "community": 20,
       "norm_label": "weekdays"
     },
     {
@@ -1071,16 +1143,16 @@
       "source_file": "src/components/tui-calendar.tsx",
       "source_location": "L21",
       "id": "components_tui_calendar_tuicalendar",
-      "community": 5,
+      "community": 20,
       "norm_label": "tuicalendar()"
     },
     {
       "label": "styles",
       "file_type": "code",
       "source_file": "src/components/tui-calendar.tsx",
-      "source_location": "L239",
+      "source_location": "L241",
       "id": "components_tui_calendar_styles",
-      "community": 5,
+      "community": 20,
       "norm_label": "styles"
     },
     {
@@ -1089,88 +1161,88 @@
       "source_file": "src/components/tui-chart.tsx",
       "source_location": "L1",
       "id": "src_components_tui_chart_tsx",
-      "community": 0,
+      "community": 18,
       "norm_label": "tui-chart.tsx"
     },
     {
       "label": "TuiProgressMeterProps",
       "file_type": "code",
       "source_file": "src/components/tui-chart.tsx",
-      "source_location": "L10",
+      "source_location": "L11",
       "id": "components_tui_chart_tuiprogressmeterprops",
-      "community": 0,
+      "community": 18,
       "norm_label": "tuiprogressmeterprops"
     },
     {
       "label": "TuiProgressMeter()",
       "file_type": "code",
       "source_file": "src/components/tui-chart.tsx",
-      "source_location": "L19",
+      "source_location": "L20",
       "id": "components_tui_chart_tuiprogressmeter",
-      "community": 0,
+      "community": 18,
       "norm_label": "tuiprogressmeter()"
     },
     {
       "label": "MeterSegment",
       "file_type": "code",
       "source_file": "src/components/tui-chart.tsx",
-      "source_location": "L80",
+      "source_location": "L81",
       "id": "components_tui_chart_metersegment",
-      "community": 0,
+      "community": 18,
       "norm_label": "metersegment"
     },
     {
       "label": "TuiSegmentedMeterProps",
       "file_type": "code",
       "source_file": "src/components/tui-chart.tsx",
-      "source_location": "L85",
+      "source_location": "L86",
       "id": "components_tui_chart_tuisegmentedmeterprops",
-      "community": 0,
+      "community": 18,
       "norm_label": "tuisegmentedmeterprops"
     },
     {
       "label": "TuiSegmentedMeter()",
       "file_type": "code",
       "source_file": "src/components/tui-chart.tsx",
-      "source_location": "L99",
+      "source_location": "L100",
       "id": "components_tui_chart_tuisegmentedmeter",
-      "community": 0,
+      "community": 18,
       "norm_label": "tuisegmentedmeter()"
     },
     {
       "label": "ChartItem",
       "file_type": "code",
       "source_file": "src/components/tui-chart.tsx",
-      "source_location": "L281",
+      "source_location": "L282",
       "id": "components_tui_chart_chartitem",
-      "community": 0,
+      "community": 18,
       "norm_label": "chartitem"
     },
     {
       "label": "TuiBarChartProps",
       "file_type": "code",
       "source_file": "src/components/tui-chart.tsx",
-      "source_location": "L290",
+      "source_location": "L291",
       "id": "components_tui_chart_tuibarchartprops",
-      "community": 0,
+      "community": 18,
       "norm_label": "tuibarchartprops"
     },
     {
       "label": "TuiBarChart()",
       "file_type": "code",
       "source_file": "src/components/tui-chart.tsx",
-      "source_location": "L295",
+      "source_location": "L296",
       "id": "components_tui_chart_tuibarchart",
-      "community": 0,
+      "community": 18,
       "norm_label": "tuibarchart()"
     },
     {
       "label": "styles",
       "file_type": "code",
       "source_file": "src/components/tui-chart.tsx",
-      "source_location": "L350",
+      "source_location": "L351",
       "id": "components_tui_chart_styles",
-      "community": 0,
+      "community": 18,
       "norm_label": "styles"
     },
     {
@@ -1251,7 +1323,7 @@
       "source_file": "src/components/tui-drawer.tsx",
       "source_location": "L1",
       "id": "src_components_tui_drawer_tsx",
-      "community": 7,
+      "community": 0,
       "norm_label": "tui-drawer.tsx"
     },
     {
@@ -1260,7 +1332,7 @@
       "source_file": "src/components/tui-drawer.tsx",
       "source_location": "L8",
       "id": "components_tui_drawer_spring_config_open",
-      "community": 7,
+      "community": 0,
       "norm_label": "spring_config_open"
     },
     {
@@ -1269,25 +1341,25 @@
       "source_file": "src/components/tui-drawer.tsx",
       "source_location": "L15",
       "id": "components_tui_drawer_tuidrawerprops",
-      "community": 7,
+      "community": 0,
       "norm_label": "tuidrawerprops"
     },
     {
       "label": "TuiDrawer()",
       "file_type": "code",
       "source_file": "src/components/tui-drawer.tsx",
-      "source_location": "L23",
+      "source_location": "L24",
       "id": "components_tui_drawer_tuidrawer",
-      "community": 7,
+      "community": 0,
       "norm_label": "tuidrawer()"
     },
     {
       "label": "styles",
       "file_type": "code",
       "source_file": "src/components/tui-drawer.tsx",
-      "source_location": "L152",
+      "source_location": "L215",
       "id": "components_tui_drawer_styles",
-      "community": 7,
+      "community": 0,
       "norm_label": "styles"
     },
     {
@@ -1417,10 +1489,28 @@
       "norm_label": "tui-skeleton.tsx"
     },
     {
-      "label": "TuiSkeletonLoader()",
+      "label": "SkeletonOpacityContext",
       "file_type": "code",
       "source_file": "src/components/tui-skeleton.tsx",
       "source_location": "L9",
+      "id": "components_tui_skeleton_skeletonopacitycontext",
+      "community": 0,
+      "norm_label": "skeletonopacitycontext"
+    },
+    {
+      "label": "PulseText()",
+      "file_type": "code",
+      "source_file": "src/components/tui-skeleton.tsx",
+      "source_location": "L11",
+      "id": "components_tui_skeleton_pulsetext",
+      "community": 0,
+      "norm_label": "pulsetext()"
+    },
+    {
+      "label": "TuiSkeletonLoader()",
+      "file_type": "code",
+      "source_file": "src/components/tui-skeleton.tsx",
+      "source_location": "L28",
       "id": "components_tui_skeleton_tuiskeletonloader",
       "community": 0,
       "norm_label": "tuiskeletonloader()"
@@ -1429,7 +1519,7 @@
       "label": "styles",
       "file_type": "code",
       "source_file": "src/components/tui-skeleton.tsx",
-      "source_location": "L284",
+      "source_location": "L288",
       "id": "components_tui_skeleton_styles",
       "community": 0,
       "norm_label": "styles"
@@ -1510,7 +1600,7 @@
       "label": "ThemeMode",
       "file_type": "code",
       "source_file": "src/theme/theme-provider.tsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "id": "theme_theme_provider_thememode",
       "community": 0,
       "norm_label": "thememode"
@@ -1519,16 +1609,16 @@
       "label": "AccentTheme",
       "file_type": "code",
       "source_file": "src/theme/theme-provider.tsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "id": "theme_theme_provider_accenttheme",
-      "community": 0,
+      "community": 1,
       "norm_label": "accenttheme"
     },
     {
       "label": "ThemeColors",
       "file_type": "code",
       "source_file": "src/theme/theme-provider.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "id": "theme_theme_provider_themecolors",
       "community": 0,
       "norm_label": "themecolors"
@@ -1537,7 +1627,7 @@
       "label": "ThemeContextType",
       "file_type": "code",
       "source_file": "src/theme/theme-provider.tsx",
-      "source_location": "L26",
+      "source_location": "L27",
       "id": "theme_theme_provider_themecontexttype",
       "community": 0,
       "norm_label": "themecontexttype"
@@ -1546,7 +1636,7 @@
       "label": "ACCENT_COLORS",
       "file_type": "code",
       "source_file": "src/theme/theme-provider.tsx",
-      "source_location": "L36",
+      "source_location": "L37",
       "id": "theme_theme_provider_accent_colors",
       "community": 0,
       "norm_label": "accent_colors"
@@ -1555,7 +1645,7 @@
       "label": "ThemeContext",
       "file_type": "code",
       "source_file": "src/theme/theme-provider.tsx",
-      "source_location": "L45",
+      "source_location": "L46",
       "id": "theme_theme_provider_themecontext",
       "community": 0,
       "norm_label": "themecontext"
@@ -1564,16 +1654,16 @@
       "label": "ThemeProvider()",
       "file_type": "code",
       "source_file": "src/theme/theme-provider.tsx",
-      "source_location": "L47",
+      "source_location": "L48",
       "id": "theme_theme_provider_themeprovider",
-      "community": 0,
+      "community": 1,
       "norm_label": "themeprovider()"
     },
     {
       "label": "useTheme()",
       "file_type": "code",
       "source_file": "src/theme/theme-provider.tsx",
-      "source_location": "L148",
+      "source_location": "L149",
       "id": "theme_theme_provider_usetheme",
       "community": 0,
       "norm_label": "usetheme()"
@@ -1597,13 +1687,13 @@
       "norm_label": "notifications-service.ts"
     },
     {
-      "label": "ClassItem",
+      "label": "ScheduleItem",
       "file_type": "code",
       "source_file": "src/utils/notifications-service.ts",
       "source_location": "L4",
-      "id": "utils_notifications_service_classitem",
+      "id": "utils_notifications_service_scheduleitem",
       "community": 1,
-      "norm_label": "classitem"
+      "norm_label": "scheduleitem"
     },
     {
       "label": "parseTime()",
@@ -1618,7 +1708,7 @@
       "label": "calculateNotificationTrigger()",
       "file_type": "code",
       "source_file": "src/utils/notifications-service.ts",
-      "source_location": "L30",
+      "source_location": "L32",
       "id": "utils_notifications_service_calculatenotificationtrigger",
       "community": 1,
       "norm_label": "calculatenotificationtrigger()"
@@ -1627,7 +1717,7 @@
       "label": "requestPermissions()",
       "file_type": "code",
       "source_file": "src/utils/notifications-service.ts",
-      "source_location": "L56",
+      "source_location": "L58",
       "id": "utils_notifications_service_requestpermissions",
       "community": 1,
       "norm_label": "requestpermissions()"
@@ -1636,7 +1726,7 @@
       "label": "syncNotifications()",
       "file_type": "code",
       "source_file": "src/utils/notifications-service.ts",
-      "source_location": "L83",
+      "source_location": "L85",
       "id": "utils_notifications_service_syncnotifications",
       "community": 1,
       "norm_label": "syncnotifications()"
@@ -1655,7 +1745,7 @@
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L1",
-      "id": "classscheduler_readme_tui_template_native_expo_react_native",
+      "id": "bootsked_readme_tui_template_native_expo_react_native",
       "community": 6,
       "norm_label": "tui template native (expo / react native)"
     },
@@ -1664,7 +1754,7 @@
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L7",
-      "id": "classscheduler_readme_getting_started",
+      "id": "bootsked_readme_getting_started",
       "community": 6,
       "norm_label": "\ud83d\ude80 getting started"
     },
@@ -1673,7 +1763,7 @@
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L11",
-      "id": "classscheduler_readme_1_rename_the_project",
+      "id": "bootsked_readme_1_rename_the_project",
       "community": 6,
       "norm_label": "1. rename the project"
     },
@@ -1682,7 +1772,7 @@
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L22",
-      "id": "classscheduler_readme_2_install_dependencies",
+      "id": "bootsked_readme_2_install_dependencies",
       "community": 6,
       "norm_label": "2. install dependencies"
     },
@@ -1691,7 +1781,7 @@
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L27",
-      "id": "classscheduler_readme_3_launch_development_server",
+      "id": "bootsked_readme_3_launch_development_server",
       "community": 6,
       "norm_label": "3. launch development server"
     },
@@ -1700,7 +1790,7 @@
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L39",
-      "id": "classscheduler_readme_available_scripts",
+      "id": "bootsked_readme_available_scripts",
       "community": 6,
       "norm_label": "\ud83d\udee0 available scripts"
     },
@@ -1709,7 +1799,7 @@
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L49",
-      "id": "classscheduler_readme_brutalist_design_system_tui",
+      "id": "bootsked_readme_brutalist_design_system_tui",
       "community": 6,
       "norm_label": "\ud83c\udfa8 brutalist design system (tui)"
     },
@@ -1718,7 +1808,7 @@
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L53",
-      "id": "classscheduler_readme_core_components_src_components",
+      "id": "bootsked_readme_core_components_src_components",
       "community": 6,
       "norm_label": "core components (`src/components/`)"
     },
@@ -1727,7 +1817,7 @@
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L66",
-      "id": "classscheduler_readme_internal_animated_splash_screen",
+      "id": "bootsked_readme_internal_animated_splash_screen",
       "community": 6,
       "norm_label": "\ud83c\udf05 internal animated splash screen"
     },
@@ -1736,7 +1826,7 @@
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L70",
-      "id": "classscheduler_readme_theme_colors_src_theme",
+      "id": "bootsked_readme_theme_colors_src_theme",
       "community": 6,
       "norm_label": "theme & colors (`src/theme/`)"
     },
@@ -1745,23 +1835,23 @@
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L78",
-      "id": "classscheduler_readme_automated_ios_release_pipeline",
+      "id": "bootsked_readme_automated_ios_release_pipeline",
       "community": 6,
       "norm_label": "\ud83d\udce6 automated ios release pipeline"
     },
     {
       "label": "graphify.md",
       "file_type": "document",
-      "source_file": ".agents/rules/graphify.md",
+      "source_file": "E:/Github/ClassScheduler/.agents/rules/graphify.md",
       "source_location": "L1",
-      "id": "agents_rules_graphify_md",
+      "id": "e_github_classscheduler_agents_rules_graphify_md",
       "community": 12,
       "norm_label": "graphify.md"
     },
     {
       "label": "graphify",
       "file_type": "document",
-      "source_file": ".agents/rules/graphify.md",
+      "source_file": "E:/Github/ClassScheduler/.agents/rules/graphify.md",
       "source_location": "L6",
       "id": "rules_graphify_graphify",
       "community": 12,
@@ -1770,16 +1860,16 @@
     {
       "label": "graphify.md",
       "file_type": "document",
-      "source_file": ".agents/workflows/graphify.md",
+      "source_file": "E:/Github/ClassScheduler/.agents/workflows/graphify.md",
       "source_location": "L1",
-      "id": "agents_workflows_graphify_md",
+      "id": "e_github_classscheduler_agents_workflows_graphify_md",
       "community": 11,
       "norm_label": "graphify.md"
     },
     {
       "label": "Workflow: graphify",
       "file_type": "document",
-      "source_file": ".agents/workflows/graphify.md",
+      "source_file": "E:/Github/ClassScheduler/.agents/workflows/graphify.md",
       "source_location": "L6",
       "id": "workflows_graphify_workflow_graphify",
       "community": 11,
@@ -1788,18 +1878,567 @@
     {
       "label": "README.md",
       "file_type": "document",
+      "source_file": "E:/Github/ClassScheduler/.expo/README.md",
+      "source_location": "L1",
+      "id": "e_github_classscheduler_expo_readme_md",
+      "community": 7,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "react-native-reanimated",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L34",
+      "community": 3,
+      "norm_label": "react-native-reanimated",
+      "id": "bootsked_package_dependencies_react_native_reanimated"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "E:/Github/ClassScheduler/README.md",
+      "source_location": "L1",
+      "community": 6,
+      "norm_label": "readme.md",
+      "id": "e_github_classscheduler_readme_md"
+    },
+    {
+      "label": "TUI Template Native (Expo / React Native)",
+      "file_type": "document",
+      "source_file": "E:/Github/ClassScheduler/README.md",
+      "source_location": "L1",
+      "community": 6,
+      "norm_label": "tui template native (expo / react native)",
+      "id": "classscheduler_readme_tui_template_native_expo_react_native"
+    },
+    {
+      "label": "\ud83d\ude80 Getting Started",
+      "file_type": "document",
+      "source_file": "E:/Github/ClassScheduler/README.md",
+      "source_location": "L7",
+      "community": 6,
+      "norm_label": "\ud83d\ude80 getting started",
+      "id": "classscheduler_readme_getting_started"
+    },
+    {
+      "label": "1. Rename the Project",
+      "file_type": "document",
+      "source_file": "E:/Github/ClassScheduler/README.md",
+      "source_location": "L11",
+      "community": 6,
+      "norm_label": "1. rename the project",
+      "id": "classscheduler_readme_1_rename_the_project"
+    },
+    {
+      "label": "2. Install Dependencies",
+      "file_type": "document",
+      "source_file": "E:/Github/ClassScheduler/README.md",
+      "source_location": "L22",
+      "community": 6,
+      "norm_label": "2. install dependencies",
+      "id": "classscheduler_readme_2_install_dependencies"
+    },
+    {
+      "label": "3. Launch Development Server",
+      "file_type": "document",
+      "source_file": "E:/Github/ClassScheduler/README.md",
+      "source_location": "L27",
+      "community": 6,
+      "norm_label": "3. launch development server",
+      "id": "classscheduler_readme_3_launch_development_server"
+    },
+    {
+      "label": "\ud83d\udee0 Available Scripts",
+      "file_type": "document",
+      "source_file": "E:/Github/ClassScheduler/README.md",
+      "source_location": "L39",
+      "community": 6,
+      "norm_label": "\ud83d\udee0 available scripts",
+      "id": "classscheduler_readme_available_scripts"
+    },
+    {
+      "label": "\ud83c\udfa8 Brutalist Design System (TUI)",
+      "file_type": "document",
+      "source_file": "E:/Github/ClassScheduler/README.md",
+      "source_location": "L49",
+      "community": 6,
+      "norm_label": "\ud83c\udfa8 brutalist design system (tui)",
+      "id": "classscheduler_readme_brutalist_design_system_tui"
+    },
+    {
+      "label": "Core Components (`src/components/`)",
+      "file_type": "document",
+      "source_file": "E:/Github/ClassScheduler/README.md",
+      "source_location": "L53",
+      "community": 6,
+      "norm_label": "core components (`src/components/`)",
+      "id": "classscheduler_readme_core_components_src_components"
+    },
+    {
+      "label": "\ud83c\udf05 Internal Animated Splash Screen",
+      "file_type": "document",
+      "source_file": "E:/Github/ClassScheduler/README.md",
+      "source_location": "L66",
+      "community": 6,
+      "norm_label": "\ud83c\udf05 internal animated splash screen",
+      "id": "classscheduler_readme_internal_animated_splash_screen"
+    },
+    {
+      "label": "Theme & Colors (`src/theme/`)",
+      "file_type": "document",
+      "source_file": "E:/Github/ClassScheduler/README.md",
+      "source_location": "L70",
+      "community": 6,
+      "norm_label": "theme & colors (`src/theme/`)",
+      "id": "classscheduler_readme_theme_colors_src_theme"
+    },
+    {
+      "label": "\ud83d\udce6 Automated iOS Release Pipeline",
+      "file_type": "document",
+      "source_file": "E:/Github/ClassScheduler/README.md",
+      "source_location": "L78",
+      "community": 6,
+      "norm_label": "\ud83d\udce6 automated ios release pipeline",
+      "id": "classscheduler_readme_automated_ios_release_pipeline"
+    },
+    {
+      "label": "expo",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L2",
+      "community": 2,
+      "norm_label": "expo",
+      "id": "classscheduler_app_expo"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L3",
+      "community": 2,
+      "norm_label": "name",
+      "id": "classscheduler_app_expo_name"
+    },
+    {
+      "label": "slug",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L4",
+      "community": 2,
+      "norm_label": "slug",
+      "id": "classscheduler_app_expo_slug"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L5",
+      "community": 2,
+      "norm_label": "version",
+      "id": "classscheduler_app_expo_version"
+    },
+    {
+      "label": "orientation",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L6",
+      "community": 2,
+      "norm_label": "orientation",
+      "id": "classscheduler_app_expo_orientation"
+    },
+    {
+      "label": "icon",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L7",
+      "community": 2,
+      "norm_label": "icon",
+      "id": "classscheduler_app_expo_icon"
+    },
+    {
+      "label": "userInterfaceStyle",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L8",
+      "community": 2,
+      "norm_label": "userinterfacestyle",
+      "id": "classscheduler_app_expo_userinterfacestyle"
+    },
+    {
+      "label": "splash",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L9",
+      "community": 2,
+      "norm_label": "splash",
+      "id": "classscheduler_app_expo_splash"
+    },
+    {
+      "label": "image",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L10",
+      "community": 2,
+      "norm_label": "image",
+      "id": "classscheduler_app_splash_image"
+    },
+    {
+      "label": "resizeMode",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L11",
+      "community": 2,
+      "norm_label": "resizemode",
+      "id": "classscheduler_app_splash_resizemode"
+    },
+    {
+      "label": "backgroundColor",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L12",
+      "community": 2,
+      "norm_label": "backgroundcolor",
+      "id": "classscheduler_app_splash_backgroundcolor"
+    },
+    {
+      "label": "ios",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L14",
+      "community": 2,
+      "norm_label": "ios",
+      "id": "classscheduler_app_expo_ios"
+    },
+    {
+      "label": "supportsTablet",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L15",
+      "community": 2,
+      "norm_label": "supportstablet",
+      "id": "classscheduler_app_ios_supportstablet"
+    },
+    {
+      "label": "bundleIdentifier",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L16",
+      "community": 2,
+      "norm_label": "bundleidentifier",
+      "id": "classscheduler_app_ios_bundleidentifier"
+    },
+    {
+      "label": "icon",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L17",
+      "community": 2,
+      "norm_label": "icon",
+      "id": "classscheduler_app_ios_icon"
+    },
+    {
+      "label": "light",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L18",
+      "community": 2,
+      "norm_label": "light",
+      "id": "classscheduler_app_icon_light"
+    },
+    {
+      "label": "dark",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L19",
+      "community": 2,
+      "norm_label": "dark",
+      "id": "classscheduler_app_icon_dark"
+    },
+    {
+      "label": "tinted",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L20",
+      "community": 2,
+      "norm_label": "tinted",
+      "id": "classscheduler_app_icon_tinted"
+    },
+    {
+      "label": "android",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L23",
+      "community": 9,
+      "norm_label": "android",
+      "id": "classscheduler_app_expo_android"
+    },
+    {
+      "label": "adaptiveIcon",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L24",
+      "community": 9,
+      "norm_label": "adaptiveicon",
+      "id": "classscheduler_app_android_adaptiveicon"
+    },
+    {
+      "label": "backgroundColor",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L25",
+      "community": 9,
+      "norm_label": "backgroundcolor",
+      "id": "classscheduler_app_adaptiveicon_backgroundcolor"
+    },
+    {
+      "label": "foregroundImage",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L26",
+      "community": 9,
+      "norm_label": "foregroundimage",
+      "id": "classscheduler_app_adaptiveicon_foregroundimage"
+    },
+    {
+      "label": "monochromeImage",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L27",
+      "community": 9,
+      "norm_label": "monochromeimage",
+      "id": "classscheduler_app_adaptiveicon_monochromeimage"
+    },
+    {
+      "label": "predictiveBackGestureEnabled",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L29",
+      "community": 9,
+      "norm_label": "predictivebackgestureenabled",
+      "id": "classscheduler_app_android_predictivebackgestureenabled"
+    },
+    {
+      "label": "versionCode",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L30",
+      "community": 9,
+      "norm_label": "versioncode",
+      "id": "classscheduler_app_android_versioncode"
+    },
+    {
+      "label": "package",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L31",
+      "community": 9,
+      "norm_label": "package",
+      "id": "classscheduler_app_android_package"
+    },
+    {
+      "label": "permissions",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L32",
+      "community": 9,
+      "norm_label": "permissions",
+      "id": "classscheduler_app_android_permissions"
+    },
+    {
+      "label": "web",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L40",
+      "community": 2,
+      "norm_label": "web",
+      "id": "classscheduler_app_expo_web"
+    },
+    {
+      "label": "favicon",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L41",
+      "community": 2,
+      "norm_label": "favicon",
+      "id": "classscheduler_app_web_favicon"
+    },
+    {
+      "label": "plugins",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L43",
+      "community": 2,
+      "norm_label": "plugins",
+      "id": "classscheduler_app_expo_plugins"
+    },
+    {
+      "label": "ClassItem",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L38",
+      "community": 1,
+      "norm_label": "classitem",
+      "id": "classscheduler_app_classitem"
+    },
+    {
+      "label": "DAYS_OF_WEEK",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L51",
+      "community": 1,
+      "norm_label": "days_of_week",
+      "id": "classscheduler_app_days_of_week"
+    },
+    {
+      "label": "getHeaderBgColor()",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L61",
+      "community": 1,
+      "norm_label": "getheaderbgcolor()",
+      "id": "classscheduler_app_getheaderbgcolor"
+    },
+    {
+      "label": "getHeaderBgColorLight()",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L73",
+      "community": 1,
+      "norm_label": "getheaderbgcolorlight()",
+      "id": "classscheduler_app_getheaderbgcolorlight"
+    },
+    {
+      "label": "getHeaderLabelColor()",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L85",
+      "community": 1,
+      "norm_label": "getheaderlabelcolor()",
+      "id": "classscheduler_app_getheaderlabelcolor"
+    },
+    {
+      "label": "DayButtonProps",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L97",
+      "community": 1,
+      "norm_label": "daybuttonprops",
+      "id": "classscheduler_app_daybuttonprops"
+    },
+    {
+      "label": "DayButton()",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L104",
+      "community": 0,
+      "norm_label": "daybutton()",
+      "id": "classscheduler_app_daybutton"
+    },
+    {
+      "label": "MainApp()",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L165",
+      "community": 1,
+      "norm_label": "mainapp()",
+      "id": "classscheduler_app_mainapp"
+    },
+    {
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L1003",
+      "community": 1,
+      "norm_label": "app()",
+      "id": "classscheduler_app_app"
+    },
+    {
+      "label": "styles",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L1022",
+      "community": 1,
+      "norm_label": "styles",
+      "id": "classscheduler_app_styles"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "sidestore.json",
+      "source_location": "L2",
+      "community": 17,
+      "norm_label": "name",
+      "id": "classscheduler_sidestore_name"
+    },
+    {
+      "label": "identifier",
+      "file_type": "code",
+      "source_file": "sidestore.json",
+      "source_location": "L3",
+      "community": 17,
+      "norm_label": "identifier",
+      "id": "classscheduler_sidestore_identifier"
+    },
+    {
+      "label": "apps",
+      "file_type": "code",
+      "source_file": "sidestore.json",
+      "source_location": "L4",
+      "community": 17,
+      "norm_label": "apps",
+      "id": "classscheduler_sidestore_apps"
+    },
+    {
+      "label": "tsconfig.json",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L1",
+      "community": 10,
+      "norm_label": "tsconfig.json",
+      "id": "tsconfig_json"
+    },
+    {
+      "label": "ClassItem",
+      "file_type": "code",
+      "source_file": "src/utils/notifications-service.ts",
+      "source_location": "L4",
+      "community": 1,
+      "norm_label": "classitem",
+      "id": "utils_notifications_service_classitem"
+    },
+    {
+      "label": "graphify.md",
+      "file_type": "document",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L1",
+      "community": 12,
+      "norm_label": "graphify.md",
+      "id": "agents_rules_graphify_md"
+    },
+    {
+      "label": "graphify.md",
+      "file_type": "document",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": "L1",
+      "community": 11,
+      "norm_label": "graphify.md",
+      "id": "agents_workflows_graphify_md"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
       "source_file": ".expo/README.md",
       "source_location": "L1",
-      "id": "expo_readme_md",
       "community": 16,
-      "norm_label": "readme.md"
+      "norm_label": "readme.md",
+      "id": "expo_readme_md"
     },
     {
       "label": "backgroundImage",
       "file_type": "code",
       "source_file": "app.json",
       "source_location": "L22",
-      "community": 18,
+      "community": 9,
       "norm_label": "backgroundimage",
       "id": "classscheduler_app_adaptiveicon_backgroundimage"
     },
@@ -1876,57 +2515,17 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "app_json",
+      "target": "bootsked_app_expo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_json",
       "target": "classscheduler_app_expo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app.json",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_app_expo",
-      "target": "classscheduler_app_expo_android"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app.json",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_app_expo",
-      "target": "classscheduler_app_expo_icon"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app.json",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_app_expo",
-      "target": "classscheduler_app_expo_ios"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app.json",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_app_expo",
-      "target": "classscheduler_app_expo_name"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app.json",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_app_expo",
-      "target": "classscheduler_app_expo_orientation"
     },
     {
       "relation": "contains",
@@ -1935,148 +2534,18 @@
       "source_location": "L23",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_app_expo",
-      "target": "classscheduler_app_expo_plugins"
+      "source": "bootsked_app_expo",
+      "target": "bootsked_app_expo_android"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app.json",
-      "source_location": "L4",
+      "source_location": "L7",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_app_expo",
-      "target": "classscheduler_app_expo_slug"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app.json",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_app_expo",
-      "target": "classscheduler_app_expo_splash"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app.json",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_app_expo",
-      "target": "classscheduler_app_expo_userinterfacestyle"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app.json",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_app_expo",
-      "target": "classscheduler_app_expo_version"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app.json",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_app_expo",
-      "target": "classscheduler_app_expo_web"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app.json",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_app_expo_splash",
-      "target": "classscheduler_app_splash_backgroundcolor"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app.json",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_app_expo_splash",
-      "target": "classscheduler_app_splash_image"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app.json",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_app_expo_splash",
-      "target": "classscheduler_app_splash_resizemode"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app.json",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_app_expo_ios",
-      "target": "classscheduler_app_ios_bundleidentifier"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app.json",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_app_expo_ios",
-      "target": "classscheduler_app_ios_icon"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app.json",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_app_expo_ios",
-      "target": "classscheduler_app_ios_supportstablet"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app.json",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_app_ios_icon",
-      "target": "classscheduler_app_icon_dark"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app.json",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_app_ios_icon",
-      "target": "classscheduler_app_icon_light"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app.json",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_app_ios_icon",
-      "target": "classscheduler_app_icon_tinted"
+      "source": "bootsked_app_expo",
+      "target": "bootsked_app_expo_icon"
     },
     {
       "relation": "contains",
@@ -2085,68 +2554,118 @@
       "source_location": "L14",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_app_expo_android",
-      "target": "classscheduler_app_android_adaptiveicon"
+      "source": "bootsked_app_expo",
+      "target": "bootsked_app_expo_ios"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app.json",
-      "source_location": "L20",
+      "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_app_expo_android",
-      "target": "classscheduler_app_android_package"
+      "source": "bootsked_app_expo",
+      "target": "bootsked_app_expo_name"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app.json",
-      "source_location": "L21",
+      "source_location": "L6",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_app_expo_android",
-      "target": "classscheduler_app_android_permissions"
+      "source": "bootsked_app_expo",
+      "target": "bootsked_app_expo_orientation"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app.json",
-      "source_location": "L18",
+      "source_location": "L43",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_app_expo_android",
-      "target": "classscheduler_app_android_predictivebackgestureenabled"
+      "source": "bootsked_app_expo",
+      "target": "bootsked_app_expo_plugins"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app.json",
-      "source_location": "L19",
+      "source_location": "L4",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_app_expo_android",
-      "target": "classscheduler_app_android_versioncode"
+      "source": "bootsked_app_expo",
+      "target": "bootsked_app_expo_slug"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app.json",
-      "source_location": "L15",
+      "source_location": "L9",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_app_android_adaptiveicon",
-      "target": "classscheduler_app_adaptiveicon_backgroundcolor"
+      "source": "bootsked_app_expo",
+      "target": "bootsked_app_expo_splash"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app.json",
-      "source_location": "L17",
+      "source_location": "L8",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_app_android_adaptiveicon",
-      "target": "classscheduler_app_adaptiveicon_backgroundimage"
+      "source": "bootsked_app_expo",
+      "target": "bootsked_app_expo_userinterfacestyle"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_app_expo",
+      "target": "bootsked_app_expo_version"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_app_expo",
+      "target": "bootsked_app_expo_web"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_app_expo_splash",
+      "target": "bootsked_app_splash_backgroundcolor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_app_expo_splash",
+      "target": "bootsked_app_splash_image"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_app_expo_splash",
+      "target": "bootsked_app_splash_resizemode"
     },
     {
       "relation": "contains",
@@ -2155,8 +2674,38 @@
       "source_location": "L16",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_app_android_adaptiveicon",
-      "target": "classscheduler_app_adaptiveicon_foregroundimage"
+      "source": "bootsked_app_expo_ios",
+      "target": "bootsked_app_ios_bundleidentifier"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_app_expo_ios",
+      "target": "bootsked_app_ios_icon"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_app_expo_ios",
+      "target": "bootsked_app_ios_supportstablet"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_app_ios_icon",
+      "target": "bootsked_app_icon_dark"
     },
     {
       "relation": "contains",
@@ -2165,18 +2714,278 @@
       "source_location": "L18",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_app_android_adaptiveicon",
-      "target": "classscheduler_app_adaptiveicon_monochromeimage"
+      "source": "bootsked_app_ios_icon",
+      "target": "bootsked_app_icon_light"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app.json",
-      "source_location": "L21",
+      "source_location": "L20",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_app_expo_web",
-      "target": "classscheduler_app_web_favicon"
+      "source": "bootsked_app_ios_icon",
+      "target": "bootsked_app_icon_tinted"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_app_expo_android",
+      "target": "bootsked_app_android_adaptiveicon"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_app_expo_android",
+      "target": "bootsked_app_android_package"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_app_expo_android",
+      "target": "bootsked_app_android_permissions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_app_expo_android",
+      "target": "bootsked_app_android_predictivebackgestureenabled"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_app_expo_android",
+      "target": "bootsked_app_android_versioncode"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_app_android_adaptiveicon",
+      "target": "bootsked_app_adaptiveicon_backgroundcolor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_app_android_adaptiveicon",
+      "target": "bootsked_app_adaptiveicon_foregroundimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_app_android_adaptiveicon",
+      "target": "bootsked_app_adaptiveicon_monochromeimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_app_expo_web",
+      "target": "bootsked_app_web_favicon"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L1277",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_tsx",
+      "target": "bootsked_app_app"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L168",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_tsx",
+      "target": "bootsked_app_categorybutton"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L161",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_tsx",
+      "target": "bootsked_app_categorybuttonprops"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L478",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_tsx",
+      "target": "bootsked_app_contextmenuoverlay"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L468",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_tsx",
+      "target": "bootsked_app_contextmenuoverlayprops"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L100",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_tsx",
+      "target": "bootsked_app_daybutton"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L93",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_tsx",
+      "target": "bootsked_app_daybuttonprops"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_tsx",
+      "target": "bootsked_app_days_of_week"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_tsx",
+      "target": "bootsked_app_getheaderbgcolor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L69",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_tsx",
+      "target": "bootsked_app_getheaderbgcolorlight"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L81",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_tsx",
+      "target": "bootsked_app_getheaderlabelcolor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L161",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_tsx",
+      "target": "bootsked_app_mainapp"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L231",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_tsx",
+      "target": "bootsked_app_neobrutalistslider"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L226",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_tsx",
+      "target": "bootsked_app_neobrutalistsliderprops"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L380",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_tsx",
+      "target": "bootsked_app_schedulecard"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L373",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_tsx",
+      "target": "bootsked_app_schedulecardprops"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L1296",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_tsx",
+      "target": "bootsked_app_styles"
     },
     {
       "relation": "contains",
@@ -2716,6 +3525,17 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "App.tsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_tsx",
+      "target": "utils_notifications_service_scheduleitem"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
       "source_location": "L23",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -2738,33 +3558,33 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "App.tsx",
-      "source_location": "L290",
+      "source_location": "L667",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_app_mainapp",
-      "target": "classscheduler_app_getheaderbgcolor"
+      "source": "bootsked_app_mainapp",
+      "target": "bootsked_app_getheaderbgcolor"
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "App.tsx",
-      "source_location": "L290",
+      "source_location": "L667",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_app_mainapp",
-      "target": "classscheduler_app_getheaderbgcolorlight"
+      "source": "bootsked_app_mainapp",
+      "target": "bootsked_app_getheaderbgcolorlight"
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "App.tsx",
-      "source_location": "L300",
+      "source_location": "L690",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_app_mainapp",
-      "target": "classscheduler_app_getheaderlabelcolor"
+      "source": "bootsked_app_mainapp",
+      "target": "bootsked_app_getheaderlabelcolor"
     },
     {
       "relation": "calls",
@@ -2772,21 +3592,21 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "App.tsx",
-      "source_location": "L128",
+      "source_location": "L101",
       "weight": 1.0,
-      "source": "classscheduler_app_daybutton",
+      "source": "bootsked_app_daybutton",
       "target": "theme_theme_provider_usetheme"
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "source_file": "App.tsx",
-      "source_location": "L102",
-      "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_app_mainapp",
-      "target": "classscheduler_app_getweekdays"
+      "source_file": "App.tsx",
+      "source_location": "L169",
+      "weight": 1.0,
+      "source": "bootsked_app_categorybutton",
+      "target": "theme_theme_provider_usetheme"
     },
     {
       "relation": "calls",
@@ -2794,9 +3614,42 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "App.tsx",
-      "source_location": "L31",
+      "source_location": "L232",
       "weight": 1.0,
-      "source": "classscheduler_app_mainapp",
+      "source": "bootsked_app_neobrutalistslider",
+      "target": "theme_theme_provider_usetheme"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "App.tsx",
+      "source_location": "L386",
+      "weight": 1.0,
+      "source": "bootsked_app_schedulecard",
+      "target": "theme_theme_provider_usetheme"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "App.tsx",
+      "source_location": "L484",
+      "weight": 1.0,
+      "source": "bootsked_app_contextmenuoverlay",
+      "target": "theme_theme_provider_usetheme"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "App.tsx",
+      "source_location": "L162",
+      "weight": 1.0,
+      "source": "bootsked_app_mainapp",
       "target": "theme_theme_provider_usetheme"
     },
     {
@@ -2807,7 +3660,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "package_json",
-      "target": "classscheduler_package_author"
+      "target": "bootsked_package_author"
     },
     {
       "relation": "contains",
@@ -2817,17 +3670,17 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "package_json",
-      "target": "classscheduler_package_dependencies"
+      "target": "bootsked_package_dependencies"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L35",
+      "source_location": "L38",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "package_json",
-      "target": "classscheduler_package_devdependencies"
+      "target": "bootsked_package_devdependencies"
     },
     {
       "relation": "contains",
@@ -2837,7 +3690,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "package_json",
-      "target": "classscheduler_package_main"
+      "target": "bootsked_package_main"
     },
     {
       "relation": "contains",
@@ -2847,7 +3700,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "package_json",
-      "target": "classscheduler_package_name"
+      "target": "bootsked_package_name"
     },
     {
       "relation": "contains",
@@ -2857,7 +3710,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "package_json",
-      "target": "classscheduler_package_private"
+      "target": "bootsked_package_private"
     },
     {
       "relation": "contains",
@@ -2867,7 +3720,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "package_json",
-      "target": "classscheduler_package_scripts"
+      "target": "bootsked_package_scripts"
     },
     {
       "relation": "contains",
@@ -2877,7 +3730,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "package_json",
-      "target": "classscheduler_package_version"
+      "target": "bootsked_package_version"
     },
     {
       "relation": "contains",
@@ -2886,8 +3739,8 @@
       "source_location": "L9",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_scripts",
-      "target": "classscheduler_package_scripts_android"
+      "source": "bootsked_package_scripts",
+      "target": "bootsked_package_scripts_android"
     },
     {
       "relation": "contains",
@@ -2896,8 +3749,8 @@
       "source_location": "L13",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_scripts",
-      "target": "classscheduler_package_scripts_format"
+      "source": "bootsked_package_scripts",
+      "target": "bootsked_package_scripts_format"
     },
     {
       "relation": "contains",
@@ -2906,8 +3759,8 @@
       "source_location": "L10",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_scripts",
-      "target": "classscheduler_package_scripts_ios"
+      "source": "bootsked_package_scripts",
+      "target": "bootsked_package_scripts_ios"
     },
     {
       "relation": "contains",
@@ -2916,8 +3769,8 @@
       "source_location": "L12",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_scripts",
-      "target": "classscheduler_package_scripts_lint"
+      "source": "bootsked_package_scripts",
+      "target": "bootsked_package_scripts_lint"
     },
     {
       "relation": "contains",
@@ -2926,8 +3779,8 @@
       "source_location": "L15",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_scripts",
-      "target": "classscheduler_package_scripts_rename"
+      "source": "bootsked_package_scripts",
+      "target": "bootsked_package_scripts_rename"
     },
     {
       "relation": "contains",
@@ -2936,8 +3789,8 @@
       "source_location": "L8",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_scripts",
-      "target": "classscheduler_package_scripts_start"
+      "source": "bootsked_package_scripts",
+      "target": "bootsked_package_scripts_start"
     },
     {
       "relation": "contains",
@@ -2946,8 +3799,8 @@
       "source_location": "L14",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_scripts",
-      "target": "classscheduler_package_scripts_typecheck"
+      "source": "bootsked_package_scripts",
+      "target": "bootsked_package_scripts_typecheck"
     },
     {
       "relation": "contains",
@@ -2956,18 +3809,8 @@
       "source_location": "L11",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_scripts",
-      "target": "classscheduler_package_scripts_web"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_expo"
+      "source": "bootsked_package_scripts",
+      "target": "bootsked_package_scripts_web"
     },
     {
       "relation": "contains",
@@ -2976,8 +3819,8 @@
       "source_location": "L21",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_expo_document_picker"
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_expo"
     },
     {
       "relation": "contains",
@@ -2986,8 +3829,8 @@
       "source_location": "L22",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_expo_file_system"
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_expo_document_picker"
     },
     {
       "relation": "contains",
@@ -2996,28 +3839,8 @@
       "source_location": "L23",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_expo_font"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_expo_google_fonts_jetbrains_mono"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L25",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_expo_notifications"
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_expo_file_system"
     },
     {
       "relation": "contains",
@@ -3026,8 +3849,18 @@
       "source_location": "L24",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_expo_sharing"
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_expo_font"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_expo_google_fonts_jetbrains_mono"
     },
     {
       "relation": "contains",
@@ -3036,8 +3869,8 @@
       "source_location": "L25",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_expo_splash_screen"
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_expo_notifications"
     },
     {
       "relation": "contains",
@@ -3046,18 +3879,8 @@
       "source_location": "L26",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_expo_status_bar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L29",
-      "weight": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_expo_system_ui",
-      "confidence_score": 1.0
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_expo_sharing"
     },
     {
       "relation": "contains",
@@ -3066,8 +3889,8 @@
       "source_location": "L27",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_lucide_react_native"
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_expo_splash_screen"
     },
     {
       "relation": "contains",
@@ -3076,8 +3899,8 @@
       "source_location": "L28",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_react"
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_expo_status_bar"
     },
     {
       "relation": "contains",
@@ -3086,8 +3909,8 @@
       "source_location": "L29",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_react_dom"
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_expo_system_ui"
     },
     {
       "relation": "contains",
@@ -3096,28 +3919,8 @@
       "source_location": "L30",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_react_native"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_react_native_async_storage_async_storage"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_react_native_community_datetimepicker"
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_lucide_react_native"
     },
     {
       "relation": "contains",
@@ -3126,8 +3929,8 @@
       "source_location": "L31",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_react_native_safe_area_context"
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_react"
     },
     {
       "relation": "contains",
@@ -3136,8 +3939,8 @@
       "source_location": "L32",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_react_native_svg"
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_react_dom"
     },
     {
       "relation": "contains",
@@ -3146,18 +3949,58 @@
       "source_location": "L33",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_dependencies",
-      "target": "classscheduler_package_dependencies_react_native_web"
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_react_native"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L39",
+      "source_location": "L19",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_devdependencies",
-      "target": "classscheduler_package_devdependencies_eslint"
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_react_native_async_storage_async_storage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_react_native_community_datetimepicker"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_react_native_reanimated"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_react_native_safe_area_context"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_react_native_svg"
     },
     {
       "relation": "contains",
@@ -3166,28 +4009,8 @@
       "source_location": "L36",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_devdependencies",
-      "target": "classscheduler_package_devdependencies_eslint_js"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L40",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_package_devdependencies",
-      "target": "classscheduler_package_devdependencies_eslint_plugin_react_hooks"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L41",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_package_devdependencies",
-      "target": "classscheduler_package_devdependencies_eslint_plugin_react_refresh"
+      "source": "bootsked_package_dependencies",
+      "target": "bootsked_package_dependencies_react_native_web"
     },
     {
       "relation": "contains",
@@ -3196,8 +4019,18 @@
       "source_location": "L42",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_devdependencies",
-      "target": "classscheduler_package_devdependencies_globals"
+      "source": "bootsked_package_devdependencies",
+      "target": "bootsked_package_devdependencies_eslint"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_package_devdependencies",
+      "target": "bootsked_package_devdependencies_eslint_js"
     },
     {
       "relation": "contains",
@@ -3206,28 +4039,8 @@
       "source_location": "L43",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_devdependencies",
-      "target": "classscheduler_package_devdependencies_prettier"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L37",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_package_devdependencies",
-      "target": "classscheduler_package_devdependencies_types_node"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L38",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "classscheduler_package_devdependencies",
-      "target": "classscheduler_package_devdependencies_types_react"
+      "source": "bootsked_package_devdependencies",
+      "target": "bootsked_package_devdependencies_eslint_plugin_react_hooks"
     },
     {
       "relation": "contains",
@@ -3236,8 +4049,98 @@
       "source_location": "L44",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "classscheduler_package_devdependencies",
-      "target": "classscheduler_package_devdependencies_typescript"
+      "source": "bootsked_package_devdependencies",
+      "target": "bootsked_package_devdependencies_eslint_plugin_react_refresh"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_package_devdependencies",
+      "target": "bootsked_package_devdependencies_globals"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_package_devdependencies",
+      "target": "bootsked_package_devdependencies_prettier"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_package_devdependencies",
+      "target": "bootsked_package_devdependencies_types_node"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_package_devdependencies",
+      "target": "bootsked_package_devdependencies_types_react"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_package_devdependencies",
+      "target": "bootsked_package_devdependencies_typescript"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_package_devdependencies",
+      "target": "bootsked_package_devdependencies_typescript_eslint"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sidestore.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "sidestore_json",
+      "target": "bootsked_sidestore_apps"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sidestore.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "sidestore_json",
+      "target": "bootsked_sidestore_identifier"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sidestore.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "sidestore_json",
+      "target": "bootsked_sidestore_name"
     },
     {
       "relation": "contains",
@@ -3272,22 +4175,32 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "tsconfig.json",
+      "source_file": "E:/Github/ClassScheduler/tsconfig.json",
       "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tsconfig_json",
+      "source": "e_github_classscheduler_tsconfig_json",
       "target": "classscheduler_tsconfig_compileroptions"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "tsconfig.json",
+      "source_file": "E:/Github/ClassScheduler/tsconfig.json",
       "source_location": "L6",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tsconfig_json",
+      "source": "e_github_classscheduler_tsconfig_json",
       "target": "classscheduler_tsconfig_exclude"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "E:/Github/ClassScheduler/tsconfig.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "e_github_classscheduler_tsconfig_json",
+      "target": "classscheduler_tsconfig_extends"
     },
     {
       "relation": "contains",
@@ -3308,6 +4221,26 @@
       "confidence_score": 1.0,
       "source": "classscheduler_tsconfig_compileroptions",
       "target": "classscheduler_tsconfig_compileroptions_strict"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tsconfig_json",
+      "target": "classscheduler_tsconfig_compileroptions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tsconfig_json",
+      "target": "classscheduler_tsconfig_exclude"
     },
     {
       "relation": "contains",
@@ -4322,6 +5255,26 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/components/tui-skeleton.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_tui_skeleton_tsx",
+      "target": "components_tui_skeleton_pulsetext"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/tui-skeleton.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_tui_skeleton_tsx",
+      "target": "components_tui_skeleton_skeletonopacitycontext"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/tui-skeleton.tsx",
       "source_location": "L284",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -4612,6 +5565,28 @@
       "target": "theme_theme_provider_usetheme"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "App.tsx",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "classscheduler_app_daybutton",
+      "target": "theme_theme_provider_usetheme"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "App.tsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "classscheduler_app_mainapp",
+      "target": "theme_theme_provider_usetheme"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/notifications-service.ts",
@@ -4655,6 +5630,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/utils/notifications-service.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_utils_notifications_service_ts",
+      "target": "utils_notifications_service_scheduleitem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/notifications-service.ts",
       "source_location": "L73",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -4691,6 +5676,166 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "readme_md",
+      "target": "bootsked_readme_tui_template_native_expo_react_native"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_md",
+      "target": "classscheduler_readme_tui_template_native_expo_react_native"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L78",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_readme_tui_template_native_expo_react_native",
+      "target": "bootsked_readme_automated_ios_release_pipeline"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_readme_tui_template_native_expo_react_native",
+      "target": "bootsked_readme_available_scripts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_readme_tui_template_native_expo_react_native",
+      "target": "bootsked_readme_brutalist_design_system_tui"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_readme_tui_template_native_expo_react_native",
+      "target": "bootsked_readme_getting_started"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_readme_getting_started",
+      "target": "bootsked_readme_1_rename_the_project"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_readme_getting_started",
+      "target": "bootsked_readme_2_install_dependencies"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_readme_getting_started",
+      "target": "bootsked_readme_3_launch_development_server"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_readme_brutalist_design_system_tui",
+      "target": "bootsked_readme_core_components_src_components"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L66",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_readme_brutalist_design_system_tui",
+      "target": "bootsked_readme_internal_animated_splash_screen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L70",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "bootsked_readme_brutalist_design_system_tui",
+      "target": "bootsked_readme_theme_colors_src_theme"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "E:/Github/ClassScheduler/.agents/rules/graphify.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "e_github_classscheduler_agents_rules_graphify_md",
+      "target": "rules_graphify_graphify"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_rules_graphify_md",
+      "target": "rules_graphify_graphify"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "E:/Github/ClassScheduler/.agents/workflows/graphify.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "e_github_classscheduler_agents_workflows_graphify_md",
+      "target": "workflows_graphify_workflow_graphify"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_workflows_graphify_md",
+      "target": "workflows_graphify_workflow_graphify"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "E:/Github/ClassScheduler/README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "e_github_classscheduler_readme_md",
       "target": "classscheduler_readme_tui_template_native_expo_react_native"
     },
     {
@@ -4796,24 +5941,348 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": ".agents/rules/graphify.md",
-      "source_location": "L6",
+      "source_file": "app.json",
+      "source_location": "L13",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "agents_rules_graphify_md",
-      "target": "rules_graphify_graphify"
+      "source": "classscheduler_app_expo",
+      "target": "classscheduler_app_expo_android"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": ".agents/workflows/graphify.md",
+      "source_file": "app.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo",
+      "target": "classscheduler_app_expo_icon"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo",
+      "target": "classscheduler_app_expo_ios"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo",
+      "target": "classscheduler_app_expo_name"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
       "source_location": "L6",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "agents_workflows_graphify_md",
-      "target": "workflows_graphify_workflow_graphify"
+      "source": "classscheduler_app_expo",
+      "target": "classscheduler_app_expo_orientation"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo",
+      "target": "classscheduler_app_expo_plugins"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo",
+      "target": "classscheduler_app_expo_slug"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo",
+      "target": "classscheduler_app_expo_splash"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo",
+      "target": "classscheduler_app_expo_userinterfacestyle"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo",
+      "target": "classscheduler_app_expo_version"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo",
+      "target": "classscheduler_app_expo_web"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo_splash",
+      "target": "classscheduler_app_splash_backgroundcolor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo_splash",
+      "target": "classscheduler_app_splash_image"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo_splash",
+      "target": "classscheduler_app_splash_resizemode"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo_ios",
+      "target": "classscheduler_app_ios_bundleidentifier"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo_ios",
+      "target": "classscheduler_app_ios_icon"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo_ios",
+      "target": "classscheduler_app_ios_supportstablet"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_ios_icon",
+      "target": "classscheduler_app_icon_dark"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_ios_icon",
+      "target": "classscheduler_app_icon_light"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_ios_icon",
+      "target": "classscheduler_app_icon_tinted"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo_android",
+      "target": "classscheduler_app_android_adaptiveicon"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo_android",
+      "target": "classscheduler_app_android_package"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo_android",
+      "target": "classscheduler_app_android_permissions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo_android",
+      "target": "classscheduler_app_android_predictivebackgestureenabled"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo_android",
+      "target": "classscheduler_app_android_versioncode"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_android_adaptiveicon",
+      "target": "classscheduler_app_adaptiveicon_backgroundcolor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_android_adaptiveicon",
+      "target": "classscheduler_app_adaptiveicon_backgroundimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_android_adaptiveicon",
+      "target": "classscheduler_app_adaptiveicon_foregroundimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_android_adaptiveicon",
+      "target": "classscheduler_app_adaptiveicon_monochromeimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_expo_web",
+      "target": "classscheduler_app_web_favicon"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L290",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_mainapp",
+      "target": "classscheduler_app_getheaderbgcolor"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L290",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_mainapp",
+      "target": "classscheduler_app_getheaderbgcolorlight"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L300",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_mainapp",
+      "target": "classscheduler_app_getheaderlabelcolor"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L102",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "classscheduler_app_mainapp",
+      "target": "classscheduler_app_getweekdays"
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ed036586a26d30e3eb32ab3321e4c25488059656"
+  "built_at_commit": "7fc99721b6eaed90f0e0bc6512c1878dcc801b88"
 }

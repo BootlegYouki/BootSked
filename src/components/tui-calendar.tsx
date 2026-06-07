@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, Pressable } from 'react-native';
 import { ChevronLeft, ChevronRight } from 'lucide-react-native';
 import { useTheme } from '../theme/theme-provider';
@@ -16,7 +16,7 @@ const MONTHS = [
 ];
 
 // Weekdays headers
-const WEEKDAYS = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
+const WEEKDAYS = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 
 export const TuiCalendar: React.FC<TuiCalendarProps> = ({ value, onChange }) => {
   const { colors, isDark } = useTheme();
@@ -44,12 +44,14 @@ export const TuiCalendar: React.FC<TuiCalendarProps> = ({ value, onChange }) => 
   const [selectedDate, setSelectedDate] = useState(initialDate);
 
   // Sync state if value prop changes
-  useEffect(() => {
+  const [prevValue, setPrevValue] = useState(value);
+  if (value !== prevValue) {
+    setPrevValue(value);
     const parsed = parseDate(value);
     setSelectedDate(parsed);
     setCurrentMonth(parsed.month);
     setCurrentYear(parsed.year);
-  }, [value]);
+  }
 
   // Calendar calculations
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();

@@ -1,11 +1,11 @@
 import React from 'react';
-import { Text, TextProps, StyleSheet } from 'react-native';
+import { Text, TextProps } from 'react-native';
 import { useTheme } from '../theme/theme-provider';
 
 interface TuiTextProps extends TextProps {
   weight?: 'regular' | 'bold';
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
-  variant?: 'default' | 'muted' | 'accent' | 'destructive' | 'inverse';
+  variant?: 'default' | 'muted' | 'destructive' | 'inverse';
 }
 
 export const TuiText: React.FC<TuiTextProps> = ({
@@ -38,7 +38,6 @@ export const TuiText: React.FC<TuiTextProps> = ({
   const getTextColor = () => {
     switch (variant) {
       case 'muted': return colors.mutedForeground;
-      case 'accent': return colors.primary;
       case 'destructive': return colors.destructive;
       case 'inverse': return colors.primaryForeground;
       default: return colors.foreground;

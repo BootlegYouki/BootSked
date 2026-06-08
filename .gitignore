@@ -28,4 +28,5 @@ graphify-out/cache/
 
 # Local Environment Secrets
 .env
+.expo/
 .env.local

@@ -72,6 +72,8 @@ jobs:
     name: Build Android APK
     needs: bump-version
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -108,16 +110,27 @@ jobs:
         run: |
           cp android/app/build/outputs/apk/release/app-release.apk BootSked.apk
 
-      - name: Upload APK Artifact
-        uses: actions/upload-artifact@v4
+      - name: Create GitHub Release (Android)
+        uses: softprops/action-gh-release@v2
         with:
-          name: android-apk
-          path: BootSked.apk
+          tag_name: v${{ needs.bump-version.outputs.version }}-android
+          name: BootSked v${{ needs.bump-version.outputs.version }} (Android)
+          body: |
+            ## BootSked v${{ needs.bump-version.outputs.version }} (Android Release)
+            
+            ### Android Installation
+            Download the `BootSked.apk` file below and install it on your Android device.
+          files: |
+            BootSked.apk
+          draft: false
+          prerelease: false
 
   build-ios:
     name: Build iOS IPA
     needs: bump-version
     runs-on: macos-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -175,7 +188,7 @@ jobs:
                 "developerName": "BootlegYouki",
                 "version": "${{ needs.bump-version.outputs.version }}",
                 "versionDate": "${DATE}",
-                "downloadURL": "https://github.com/${REPO}/releases/download/v${{ needs.bump-version.outputs.version }}/BootSked.ipa",
+                "downloadURL": "https://github.com/${REPO}/releases/download/v${{ needs.bump-version.outputs.version }}-ios/BootSked.ipa",
                 "localizedDescription": "Brutalist template using Native components.",
                 "iconURL": "https://raw.githubusercontent.com/${REPO}/main/assets/icon.png",
                 "tintColor": "00E5FF",
@@ -185,46 +198,13 @@ jobs:
           }
           EOF
 
-      - name: Upload iOS Artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: ios-ipa
-          path: |
-            BootSked.ipa
-            sidestore.json
-
-  create-release:
-    name: Create Unified GitHub Release
-    needs: [bump-version, build-android, build-ios]
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ needs.bump-version.outputs.sha }}
-
-      - name: Download Android APK
-        uses: actions/download-artifact@v4
-        with:
-          name: android-apk
-
-      - name: Download iOS IPA
-        uses: actions/download-artifact@v4
-        with:
-          name: ios-ipa
-
-      - name: Create GitHub Release
+      - name: Create GitHub Release (iOS)
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v${{ needs.bump-version.outputs.version }}
-          name: BootSked v${{ needs.bump-version.outputs.version }}
+          tag_name: v${{ needs.bump-version.outputs.version }}-ios
+          name: BootSked v${{ needs.bump-version.outputs.version }} (iOS)
           body: |
-            ## BootSked v${{ needs.bump-version.outputs.version }}
-            
-            ### Android Installation
-            Download the `BootSked.apk` file below and install it on your Android device.
+            ## BootSked v${{ needs.bump-version.outputs.version }} (iOS Release)
             
             ### iOS Sideloading (SideStore / Sideloadly / AltStore)
             Download `BootSked.ipa` below and sideload it.
@@ -235,13 +215,12 @@ jobs:
             https://raw.githubusercontent.com/${{ github.repository }}/main/sidestore.json
             ```
           files: |
-            BootSked.apk
             BootSked.ipa
             sidestore.json
           draft: false
           prerelease: false
 
-      - name: Commit and push updated sidestore.json
+      - name: Commit and push updated sidestore.json to main
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
